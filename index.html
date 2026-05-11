@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Kit & Icon Explorer</title>
+    <title>Brand Kit & Icon Explorer | Quran App</title>
     
     <!-- Google Fonts: Noto Sans Arabic (UI) & Amiri Quran (Quranic Text) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,11 +40,13 @@
             margin: 0;
             font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
             color: #1E293B;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* Custom Scrollbar for a cleaner look */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
+            height: 6px;
         }
         ::-webkit-scrollbar-track {
             background: #f1f5f9; 
@@ -57,6 +59,15 @@
             background: #94a3b8; 
         }
 
+        /* Hide scrollbar for horizontal mobile nav */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         /* Toast Animation */
         @keyframes slideUp {
             from { transform: translateY(100%); opacity: 0; }
@@ -67,52 +78,54 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-primary selection:text-white">
+<body class="antialiased selection:bg-primary selection:text-white pb-10">
 
     <!-- Top Navigation Bar -->
-    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 p-2 text-white">
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-[1600px] mx-auto px-4 md:px-6 h-auto md:h-20 flex flex-col md:flex-row md:items-center justify-between py-3 md:py-0 gap-4 md:gap-0">
+            <!-- Brand Identity -->
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 p-2 text-white shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 92.79 89" fill="currentColor" class="w-full h-auto">
                         <path d="M53.19,33.01c4.42,1.91,8.94,3.72,13.27,5.83,11.19,5.44,18.25,14.17,19.53,26.87l-.09,23.1c-.28.41-1.13,0-1.6-.02-1.5-.04-3.01.05-4.51.01v-19.31c-.72-7.01-3.6-13.83-8.39-18.99-6.85-7.38-17.08-9.91-25.88-14.25-8.87,4.47-19.19,6.94-26.04,14.55-4.63,5.15-7.43,11.79-8.11,18.69v19.31l-6.19.2v-23.49c1.12-11.13,7.57-20.62,17.47-25.73,4.54-2.35,9.87-4.49,14.6-6.6.24-.11.48-.16.74-.16-.02-.24-.27-.34-.46-.44-6.72-3.63-14.74-6.01-21.52-9.68-2.48-1.59-3.6-4.86-2.22-7.59l31.72,14.11,31.79-14.19c1.57,2.54.31,6.13-2.12,7.67-6.82,3.64-14.77,6.06-21.52,9.68-.13.07-.56.31-.46.44h0Z"/>
                         <path d="M92.79,5.41l-46.49,20.8L0,5.29,3.32,0c7.29,1.82,15,1.82,22.3,3.48,6.74,1.53,11.8,4.58,16.97,9.03,1.09.94,2.14,2.71,3.7,2.72,1.81.01,3.05-2.06,4.3-3.12,3.56-3.04,7.45-5.71,11.9-7.3C71.04,1.75,80.36,2.26,89.11.03l.57.4s3.11,4.98,3.11,4.98ZM80.59,6.41l-.6-1.31-.85.16-32.82,14.91L12.59,5.02l-.42,1.28,34.3,15.51,34.12-15.39h0Z"/>
                     </svg>
                 </div>
                 <div>
-                    <h1 class="text-xl font-extrabold text-slate-800 tracking-tight leading-none">Sardar Nasr Quran App</h1>
-                    <p class="text-slate-500 font-medium tracking-widest uppercase text-[10px] mt-1">Design System & Assets</p>
+                    <h1 class="text-lg md:text-xl font-extrabold text-slate-800 tracking-tight leading-none">Sardar Nasr App</h1>
+                    <p class="text-slate-500 font-medium tracking-widest uppercase text-[9px] md:text-[10px] mt-1">Design System & Assets</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4 text-sm font-medium text-slate-500">
-                <a href="#logo" class="hover:text-primary transition-colors">Logo</a>
-                <a href="#colors" class="hover:text-primary transition-colors">Colors</a>
-                <a href="#typography" class="hover:text-primary transition-colors">Typography</a>
-                <a href="#header-banners" class="hover:text-primary transition-colors">Banners</a>
-                <a href="#themed-icons" class="hover:text-primary transition-colors">Icons</a>
-                <a href="#ui-patterns" class="hover:text-primary transition-colors">UI Patterns</a>
-                <a href="#icons" class="px-4 py-2 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors">Browse Icons</a>
+            
+            <!-- Mobile-friendly scrollable nav links -->
+            <div class="flex items-center gap-2 md:gap-4 text-xs md:text-sm font-bold text-slate-500 overflow-x-auto hide-scrollbar w-full md:w-auto pb-1 md:pb-0">
+                <a href="#logo" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Logo</a>
+                <a href="#colors" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Colors</a>
+                <a href="#typography" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Typography</a>
+                <a href="#header-banners" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Banners</a>
+                <a href="#ui-patterns" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">UI Patterns</a>
+                <a href="#icons" class="px-4 py-2 bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors whitespace-nowrap ml-auto md:ml-2">Browse Icons</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-[1600px] mx-auto px-6 py-12 space-y-20">
+    <main class="max-w-[1600px] mx-auto px-4 md:px-6 py-8 md:py-12 space-y-16 md:space-y-24">
 
-        <!-- Logo & Brand Marks Section -->
+        <!-- 1. Logo & Brand Marks Section -->
         <section id="logo" class="scroll-mt-32">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-slate-800 flex items-center gap-3">
-                    <i data-lucide="image" class="text-primary w-8 h-8"></i>
+            <div class="mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Brand Identity</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="image" class="text-primary w-6 h-6 md:w-8 md:h-8"></i>
                     Logo & Brand Marks
                 </h2>
-                <p class="text-slate-500 mt-2">The official primary logos and marks exported in various configurations.</p>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">The official primary logos and marks exported in various configurations.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8">
                 <!-- Big / Dark Blue Logo -->
-                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col items-center justify-center relative group min-h-[250px]">
-                    <!-- The SVG inherits the text-primary (Dark Blue) color via currentColor -->
-                    <div class="text-primary w-full max-w-[200px]" id="logo-large-dark">
+                <div class="bg-white rounded-[2rem] p-6 md:p-8 border border-slate-200 shadow-sm flex flex-col items-center justify-center relative group min-h-[200px] md:min-h-[250px]">
+                    <div class="text-primary w-full max-w-[150px] md:max-w-[200px]" id="logo-large-dark">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 318.05 123.2" fill="currentColor" class="w-full h-auto">
                             <path d="M318.05,116.99c.08,3.15-2.58,6-5.69,6.21H5.9c-3.33-.1-6.05-2.84-5.89-6.21h318.04Z"/>
                             <path d="M165.83,33.01c4.42,1.91,8.94,3.72,13.27,5.83,11.19,5.44,18.25,14.17,19.53,26.87l-.09,23.1c-.28.41-1.13,0-1.6-.02-1.5-.04-3.01.05-4.51.01v-19.31c-.72-7.01-3.6-13.83-8.39-18.99-6.85-7.38-17.08-9.91-25.88-14.25-8.87,4.47-19.19,6.94-26.04,14.55-4.63,5.15-7.43,11.79-8.11,18.69v19.31s-6.19.2-6.19.2v-23.49c1.12-11.13,7.57-20.62,17.47-25.73,4.54-2.35,9.87-4.49,14.6-6.6.24-.11.48-.16.74-.16-.02-.24-.27-.34-.46-.44-6.72-3.63-14.74-6.01-21.52-9.68-2.48-1.59-3.6-4.86-2.22-7.59l31.72,14.11,31.79-14.19c1.57,2.54.31,6.13-2.12,7.67-6.82,3.64-14.77,6.06-21.52,9.68-.13.07-.56.31-.46.44Z"/>
@@ -137,18 +150,17 @@
                             <rect x="159.43" y="100" width="6.2" height="6"/>
                         </svg>
                     </div>
-                    <div class="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onclick="downloadLogoSVG(event, 'logo-large-dark', 'quran-app-logo-blue', '#0B1E5B')" class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-5 py-2.5 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300">
-                            <i data-lucide="download" class="w-4 h-4"></i> Download Blue
+                    <div class="absolute bottom-4 right-4 md:bottom-6 md:right-6 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+                        <button onclick="downloadLogoSVG(event, 'logo-large-dark', 'quran-app-logo-blue', '#0B1E5B')" class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 md:px-5 py-2 md:py-2.5 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300">
+                            <i data-lucide="download" class="w-4 h-4"></i> <span class="hidden sm:inline">Download Blue</span>
                         </button>
                     </div>
-                    <span class="absolute top-6 left-8 text-[11px] font-mono text-slate-400 uppercase tracking-wider font-bold">Primary Logo (Big)</span>
+                    <span class="absolute top-4 left-4 md:top-6 md:left-6 text-[9px] md:text-[11px] font-mono text-slate-400 uppercase tracking-wider font-bold">Primary Logo</span>
                 </div>
 
                 <!-- Small / White Logo -->
-                <div class="bg-primary rounded-3xl p-8 shadow-md flex flex-col items-center justify-center relative group min-h-[250px]">
-                    <!-- The SVG inherits the text-white color via currentColor -->
-                    <div class="text-white w-full max-w-[120px]" id="logo-small-white">
+                <div class="bg-primary rounded-[2rem] p-6 md:p-8 shadow-md flex flex-col items-center justify-center relative group min-h-[200px] md:min-h-[250px]">
+                    <div class="text-white w-full max-w-[100px] md:max-w-[120px]" id="logo-small-white">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 318.05 123.2" fill="currentColor" class="w-full h-auto">
                             <path d="M318.05,116.99c.08,3.15-2.58,6-5.69,6.21H5.9c-3.33-.1-6.05-2.84-5.89-6.21h318.04Z"/>
                             <path d="M165.83,33.01c4.42,1.91,8.94,3.72,13.27,5.83,11.19,5.44,18.25,14.17,19.53,26.87l-.09,23.1c-.28.41-1.13,0-1.6-.02-1.5-.04-3.01.05-4.51.01v-19.31c-.72-7.01-3.6-13.83-8.39-18.99-6.85-7.38-17.08-9.91-25.88-14.25-8.87,4.47-19.19,6.94-26.04,14.55-4.63,5.15-7.43,11.79-8.11,18.69v19.31s-6.19.2-6.19.2v-23.49c1.12-11.13,7.57-20.62,17.47-25.73,4.54-2.35,9.87-4.49,14.6-6.6.24-.11.48-.16.74-.16-.02-.24-.27-.34-.46-.44-6.72-3.63-14.74-6.01-21.52-9.68-2.48-1.59-3.6-4.86-2.22-7.59l31.72,14.11,31.79-14.19c1.57,2.54.31,6.13-2.12,7.67-6.82,3.64-14.77,6.06-21.52,9.68-.13.07-.56.31-.46.44Z"/>
@@ -173,289 +185,214 @@
                             <rect x="159.43" y="100" width="6.2" height="6"/>
                         </svg>
                     </div>
-                    <div class="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onclick="downloadLogoSVG(event, 'logo-small-white', 'quran-app-logo-white', '#FFFFFF')" class="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/20 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-sm transition-all">
-                            <i data-lucide="download" class="w-4 h-4"></i> Download White
+                    <div class="absolute bottom-4 right-4 md:bottom-6 md:right-6 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+                        <button onclick="downloadLogoSVG(event, 'logo-small-white', 'quran-app-logo-white', '#FFFFFF')" class="flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/20 text-white px-3 md:px-5 py-2 md:py-2.5 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all">
+                            <i data-lucide="download" class="w-4 h-4"></i> <span class="hidden sm:inline">Download White</span>
                         </button>
                     </div>
-                    <span class="absolute top-6 left-8 text-[11px] font-mono text-white/50 uppercase tracking-wider font-bold">Reversed Logo (Small)</span>
+                    <span class="absolute top-4 left-4 md:top-6 md:left-6 text-[9px] md:text-[11px] font-mono text-white/50 uppercase tracking-wider font-bold">Reversed Logo</span>
                 </div>
             </div>
 
-            <div class="flex flex-wrap gap-12">
+            <div class="flex flex-wrap gap-6 md:gap-12 justify-center md:justify-start">
                 <!-- Mark / Dark Blue (App Icon Size) -->
-                <div class="w-48 h-48 bg-white rounded-[2.5rem] p-6 border border-slate-200 shadow-xl flex flex-col items-center justify-center relative group">
-                    <div class="text-primary w-full max-w-[100px]" id="logo-mark-dark">
+                <div class="w-36 h-36 md:w-48 md:h-48 bg-white rounded-[2rem] md:rounded-[2.5rem] p-4 md:p-6 border border-slate-200 shadow-xl flex flex-col items-center justify-center relative group shrink-0">
+                    <div class="text-primary w-full max-w-[70px] md:max-w-[100px]" id="logo-mark-dark">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 92.79 89" fill="currentColor" class="w-full h-auto">
                             <path d="M53.19,33.01c4.42,1.91,8.94,3.72,13.27,5.83,11.19,5.44,18.25,14.17,19.53,26.87l-.09,23.1c-.28.41-1.13,0-1.6-.02-1.5-.04-3.01.05-4.51.01v-19.31c-.72-7.01-3.6-13.83-8.39-18.99-6.85-7.38-17.08-9.91-25.88-14.25-8.87,4.47-19.19,6.94-26.04,14.55-4.63,5.15-7.43,11.79-8.11,18.69v19.31l-6.19.2v-23.49c1.12-11.13,7.57-20.62,17.47-25.73,4.54-2.35,9.87-4.49,14.6-6.6.24-.11.48-.16.74-.16-.02-.24-.27-.34-.46-.44-6.72-3.63-14.74-6.01-21.52-9.68-2.48-1.59-3.6-4.86-2.22-7.59l31.72,14.11,31.79-14.19c1.57,2.54.31,6.13-2.12,7.67-6.82,3.64-14.77,6.06-21.52,9.68-.13.07-.56.31-.46.44h0Z"/>
                             <path d="M92.79,5.41l-46.49,20.8L0,5.29,3.32,0c7.29,1.82,15,1.82,22.3,3.48,6.74,1.53,11.8,4.58,16.97,9.03,1.09.94,2.14,2.71,3.7,2.72,1.81.01,3.05-2.06,4.3-3.12,3.56-3.04,7.45-5.71,11.9-7.3C71.04,1.75,80.36,2.26,89.11.03l.57.4s3.11,4.98,3.11,4.98ZM80.59,6.41l-.6-1.31-.85.16-32.82,14.91L12.59,5.02l-.42,1.28,34.3,15.51,34.12-15.39h0Z"/>
                         </svg>
                     </div>
-                    <div class="absolute -bottom-14 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onclick="downloadLogoSVG(event, 'logo-mark-dark', 'quran-app-mark-blue', '#0B1E5B')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 px-4 py-2 rounded-xl text-xs font-bold shadow transition-all border border-slate-200">
+                    <div class="absolute -bottom-10 md:-bottom-14 md:opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button onclick="downloadLogoSVG(event, 'logo-mark-dark', 'quran-app-mark-blue', '#0B1E5B')" class="flex items-center gap-1.5 bg-white hover:bg-slate-50 text-slate-800 px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-[10px] md:text-xs font-bold shadow transition-all border border-slate-200">
                             <i data-lucide="download" class="w-3 h-3"></i> SVG
                         </button>
                     </div>
-                    <span class="absolute top-4 left-4 text-[9px] font-mono text-slate-400 uppercase tracking-wider font-bold">App Icon (Blue)</span>
                 </div>
 
                 <!-- Mark / White (App Icon Size) -->
-                <div class="w-48 h-48 bg-primary rounded-[2.5rem] p-6 shadow-xl flex flex-col items-center justify-center relative group">
-                    <div class="text-white w-full max-w-[100px]" id="logo-mark-white">
+                <div class="w-36 h-36 md:w-48 md:h-48 bg-primary rounded-[2rem] md:rounded-[2.5rem] p-4 md:p-6 shadow-xl flex flex-col items-center justify-center relative group shrink-0">
+                    <div class="text-white w-full max-w-[70px] md:max-w-[100px]" id="logo-mark-white">
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 92.79 89" fill="currentColor" class="w-full h-auto">
                             <path d="M53.19,33.01c4.42,1.91,8.94,3.72,13.27,5.83,11.19,5.44,18.25,14.17,19.53,26.87l-.09,23.1c-.28.41-1.13,0-1.6-.02-1.5-.04-3.01.05-4.51.01v-19.31c-.72-7.01-3.6-13.83-8.39-18.99-6.85-7.38-17.08-9.91-25.88-14.25-8.87,4.47-19.19,6.94-26.04,14.55-4.63,5.15-7.43,11.79-8.11,18.69v19.31l-6.19.2v-23.49c1.12-11.13,7.57-20.62,17.47-25.73,4.54-2.35,9.87-4.49,14.6-6.6.24-.11.48-.16.74-.16-.02-.24-.27-.34-.46-.44-6.72-3.63-14.74-6.01-21.52-9.68-2.48-1.59-3.6-4.86-2.22-7.59l31.72,14.11,31.79-14.19c1.57,2.54.31,6.13-2.12,7.67-6.82,3.64-14.77,6.06-21.52,9.68-.13.07-.56.31-.46.44h0Z"/>
                             <path d="M92.79,5.41l-46.49,20.8L0,5.29,3.32,0c7.29,1.82,15,1.82,22.3,3.48,6.74,1.53,11.8,4.58,16.97,9.03,1.09.94,2.14,2.71,3.7,2.72,1.81.01,3.05-2.06,4.3-3.12,3.56-3.04,7.45-5.71,11.9-7.3C71.04,1.75,80.36,2.26,89.11.03l.57.4s3.11,4.98,3.11,4.98ZM80.59,6.41l-.6-1.31-.85.16-32.82,14.91L12.59,5.02l-.42,1.28,34.3,15.51,34.12-15.39h0Z"/>
                         </svg>
                     </div>
-                    <div class="absolute -bottom-14 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onclick="downloadLogoSVG(event, 'logo-mark-white', 'quran-app-mark-white', '#FFFFFF')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 px-4 py-2 rounded-xl text-xs font-bold shadow transition-all border border-slate-200">
+                    <div class="absolute -bottom-10 md:-bottom-14 md:opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button onclick="downloadLogoSVG(event, 'logo-mark-white', 'quran-app-mark-white', '#FFFFFF')" class="flex items-center gap-1.5 bg-white hover:bg-slate-50 text-slate-800 px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-[10px] md:text-xs font-bold shadow transition-all border border-slate-200">
                             <i data-lucide="download" class="w-3 h-3"></i> SVG
                         </button>
                     </div>
-                    <span class="absolute top-4 left-4 text-[9px] font-mono text-white/50 uppercase tracking-wider font-bold">App Icon (White)</span>
                 </div>
             </div>
         </section>
 
-        <!-- Colors Section -->
+        <!-- 2. Colors Section -->
         <section id="colors" class="scroll-mt-32">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-slate-800 flex items-center gap-3">
-                    <i data-lucide="palette" class="text-primary w-8 h-8"></i>
+            <div class="mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Design Tokens</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="palette" class="text-primary w-6 h-6 md:w-8 md:h-8"></i>
                     Brand Colors
                 </h2>
-                <p class="text-slate-500 mt-2">Click any swatch to copy its HEX code, or hover to download as SVG.</p>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Click any swatch to copy its HEX code, or hover to download as SVG.</p>
             </div>
             
-            <!-- Color Grid (Populated by JS) -->
-            <div id="color-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6"></div>
+            <div id="color-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4 md:gap-6"></div>
         </section>
 
-        <!-- Typography Section -->
+        <!-- 3. Typography Section -->
         <section id="typography" class="scroll-mt-32">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-slate-800 flex items-center gap-3">
-                    <i data-lucide="type" class="text-primary w-8 h-8"></i>
+            <div class="mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Foundations</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="type" class="text-primary w-6 h-6 md:w-8 md:h-8"></i>
                     Typography
                 </h2>
-                <p class="text-slate-500 mt-2">Primary typefaces and hierarchical scaling for the UI.</p>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Primary typefaces and hierarchical scaling for the UI.</p>
             </div>
 
-            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row gap-12" dir="rtl">
+            <div class="bg-white rounded-[2rem] p-6 md:p-8 border border-slate-200 shadow-sm flex flex-col lg:flex-row gap-8 md:gap-12" dir="rtl">
                 <!-- Noto Sans Arabic (UI Font) -->
-                <div class="flex-1 space-y-8">
-                    <!-- Font Identity Header -->
-                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6" dir="ltr">
+                <div class="flex-1 space-y-6 md:space-y-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 mb-4 md:mb-6 gap-3 sm:gap-0" dir="ltr">
                         <div>
-                            <h3 class="text-xl font-bold text-slate-800 font-sans">Noto Sans Arabic</h3>
-                            <p class="text-sm text-slate-500">Primary UI Font (Optimized for Kurdish)</p>
+                            <h3 class="text-lg md:text-xl font-bold text-slate-800 font-sans">Noto Sans Arabic</h3>
+                            <p class="text-xs md:text-sm text-slate-500">Primary UI Font (Optimized for Kurdish)</p>
                         </div>
-                        <a href="https://fonts.google.com/specimen/Noto+Sans+Arabic" target="_blank" class="flex items-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 transition-colors">
+                        <a href="https://fonts.google.com/specimen/Noto+Sans+Arabic" target="_blank" class="inline-flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 transition-colors w-full sm:w-auto">
                             <i data-lucide="external-link" class="w-3 h-3"></i> Google Fonts
                         </a>
                     </div>
 
                     <div>
-                        <p class="text-[11px] text-slate-400 font-mono text-left mb-2 uppercase tracking-wider" dir="ltr">H1 / text-4xl / font-extrabold</p>
-                        <h1 class="text-4xl font-extrabold text-slate-800">قورئانی پیرۆز (Quran Kareem)</h1>
+                        <p class="text-[10px] md:text-[11px] text-slate-400 font-mono text-left mb-1.5 uppercase tracking-wider" dir="ltr">H1 / text-3xl md:text-4xl / font-extrabold</p>
+                        <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800">قورئانی پیرۆز (Quran Kareem)</h1>
                     </div>
                     <div>
-                        <p class="text-[11px] text-slate-400 font-mono text-left mb-2 uppercase tracking-wider" dir="ltr">H2 / text-2xl / font-bold</p>
-                        <h2 class="text-2xl font-bold text-slate-800">زیکرەکانی بەیانیان (Morning Azkar)</h2>
+                        <p class="text-[10px] md:text-[11px] text-slate-400 font-mono text-left mb-1.5 uppercase tracking-wider" dir="ltr">H2 / text-xl md:text-2xl / font-bold</p>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800">زیکرەکانی بەیانیان (Morning Azkar)</h2>
                     </div>
                     <div>
-                        <p class="text-[11px] text-slate-400 font-mono text-left mb-2 uppercase tracking-wider" dir="ltr">Body / text-base / font-medium</p>
-                        <p class="text-base font-medium text-slate-600 leading-relaxed max-w-2xl">ئەم بەرنامەیە دیارییە بۆ هەموو موسڵمانان. ئامانجمان ئاسانکردنی فێربوونی قورئانی پیرۆزە بۆ هەموو تەمەنێک بە شێوازێکی مۆدێرن و سەرنجڕاکێش.</p>
+                        <p class="text-[10px] md:text-[11px] text-slate-400 font-mono text-left mb-1.5 uppercase tracking-wider" dir="ltr">Body / text-sm md:text-base / font-medium</p>
+                        <p class="text-sm md:text-base font-medium text-slate-600 leading-relaxed max-w-2xl">ئەم بەرنامەیە دیارییە بۆ هەموو موسڵمانان. ئامانجمان ئاسانکردنی فێربوونی قورئانی پیرۆزە بۆ هەموو تەمەنێک بە شێوازێکی مۆدێرن و سەرنجڕاکێش.</p>
                     </div>
                 </div>
 
                 <!-- Amiri Quran (Quranic Font) -->
-                <div class="md:w-1/3 bg-slate-50 p-8 rounded-2xl border border-slate-100 flex flex-col text-center" dir="ltr">
+                <div class="lg:w-1/3 bg-slate-50 p-6 md:p-8 rounded-[1.5rem] border border-slate-100 flex flex-col text-center" dir="ltr">
                     <div class="flex flex-col items-center border-b border-slate-200 pb-4 mb-6 w-full">
-                        <h3 class="text-xl font-bold text-slate-800 font-sans">Amiri Quran</h3>
-                        <p class="text-sm text-slate-500 mb-3">Quranic Verses Display</p>
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800 font-sans">Amiri Quran</h3>
+                        <p class="text-xs md:text-sm text-slate-500 mb-3">Quranic Verses Display</p>
                         <a href="https://fonts.google.com/specimen/Amiri+Quran" target="_blank" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 transition-colors shadow-sm">
                             <i data-lucide="external-link" class="w-3 h-3"></i> Google Fonts
                         </a>
                     </div>
                     <div class="flex-1 flex flex-col justify-center">
-                        <p class="text-[11px] text-slate-400 font-mono mb-4 uppercase tracking-wider">Arabic Focus / font-quran</p>
-                        <p class="font-quran text-4xl text-primary leading-loose" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                        <p class="text-[10px] md:text-[11px] text-slate-400 font-mono mb-4 uppercase tracking-wider">Arabic Focus / font-quran</p>
+                        <p class="font-quran text-3xl md:text-4xl text-primary leading-loose" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Header Banners Section -->
+        <!-- 4. Header Banners Section -->
         <section id="header-banners" class="scroll-mt-32">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-slate-800 flex items-center gap-3">
-                    <i data-lucide="layout-template" class="text-primary w-8 h-8"></i>
+            <div class="mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Assets</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="layout-template" class="text-primary w-6 h-6 md:w-8 md:h-8"></i>
                     Header Banners (SVG)
                 </h2>
-                <p class="text-slate-500 mt-2">Exact SVG recreations of the category headers. Click to download the raw .svg file.</p>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Exact SVG recreations of the category headers. Click to download the raw .svg file.</p>
             </div>
-            <div id="banner-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"></div>
+            <div id="banner-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8"></div>
         </section>
 
-        <!-- UI Components Section -->
-        <section id="themed-icons" class="scroll-mt-32">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-slate-800 flex items-center gap-3">
-                    <i data-lucide="layers" class="text-primary w-8 h-8"></i>
-                    Icons
-                </h2>
-                <p class="text-slate-500 mt-2">Ready-to-use rounded icon components from the app. Click the box to copy the Tailwind HTML, or hover to download the combined SVG.</p>
-            </div>
-            
-            <div id="themed-icon-grid" class="flex flex-wrap gap-8 mb-16"></div>
-
-            <!-- Bottom Navigation Bar Component -->
-            <div class="mt-12">
-                <h3 class="text-2xl font-bold text-slate-800 mb-6">App Bottom Navigation States</h3>
-                <p class="text-slate-500 mb-8">Standalone bottom navigation components showing different active states.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- State 1: Home Active -->
-                    <div class="p-6 bg-slate-100 rounded-3xl border border-slate-200 flex flex-col items-center gap-6">
-                        <h4 class="font-bold text-slate-500 uppercase tracking-widest text-xs">Home Active</h4>
-                        
-                        <div class="w-full max-w-sm py-4 relative">
-                            <div id="nav-state-home" class="w-full bg-white/95 backdrop-blur-xl border border-white/50 rounded-[2.5rem] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] h-20 flex items-center justify-between px-2 relative">
-                                <!-- Bookmark (Inactive) -->
-                                <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
-                                    <i data-lucide="bookmark" class="relative z-10 w-6 h-6"></i>
-                                </div>
-                                <!-- Home (Active) -->
-                                <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer">
-                                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary shadow-lg shadow-primary/30"></div>
-                                    <i data-lucide="home" class="relative z-10 text-white w-6 h-6"></i>
-                                    <span class="absolute bottom-2 w-1 h-1 rounded-full bg-primary"></span>
-                                </div>
-                                <!-- Settings (Inactive) -->
-                                <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
-                                    <i data-lucide="settings" class="relative z-10 w-6 h-6"></i>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button onclick="copyNavHTML('nav-state-home')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Nav HTML
-                        </button>
-                    </div>
-
-                    <!-- State 2: Bookmark Active -->
-                    <div class="p-6 bg-slate-100 rounded-3xl border border-slate-200 flex flex-col items-center gap-6">
-                        <h4 class="font-bold text-slate-500 uppercase tracking-widest text-xs">Bookmark Active</h4>
-                        
-                        <div class="w-full max-w-sm py-4 relative">
-                            <div id="nav-state-bookmark" class="w-full bg-white/95 backdrop-blur-xl border border-white/50 rounded-[2.5rem] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] h-20 flex items-center justify-between px-2 relative">
-                                <!-- Bookmark (Active) -->
-                                <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer">
-                                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-100 border border-slate-200 shadow-sm"></div>
-                                    <i data-lucide="bookmark" class="relative z-10 text-primary w-6 h-6 fill-current"></i>
-                                    <span class="absolute bottom-2 w-1 h-1 rounded-full bg-primary opacity-0"></span>
-                                </div>
-                                <!-- Home (Inactive) -->
-                                <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
-                                    <i data-lucide="home" class="relative z-10 w-6 h-6"></i>
-                                </div>
-                                <!-- Settings (Inactive) -->
-                                <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
-                                    <i data-lucide="settings" class="relative z-10 w-6 h-6"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button onclick="copyNavHTML('nav-state-bookmark')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Nav HTML
-                        </button>
-                    </div>
-
-                    <!-- State 3: Settings Active -->
-                    <div class="p-6 bg-slate-100 rounded-3xl border border-slate-200 flex flex-col items-center gap-6">
-                        <h4 class="font-bold text-slate-500 uppercase tracking-widest text-xs">Settings Active</h4>
-                        
-                        <div class="w-full max-w-sm py-4 relative">
-                            <div id="nav-state-settings" class="w-full bg-white/95 backdrop-blur-xl border border-white/50 rounded-[2.5rem] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.1)] h-20 flex items-center justify-between px-2 relative">
-                                <!-- Bookmark (Inactive) -->
-                                <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
-                                    <i data-lucide="bookmark" class="relative z-10 w-6 h-6"></i>
-                                </div>
-                                <!-- Home (Inactive) -->
-                                <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
-                                    <i data-lucide="home" class="relative z-10 w-6 h-6"></i>
-                                </div>
-                                <!-- Settings (Active) -->
-                                <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer">
-                                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-slate-100 border border-slate-200 shadow-sm"></div>
-                                    <i data-lucide="settings" class="relative z-10 text-primary w-6 h-6"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button onclick="copyHTML('nav-state-settings')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Nav HTML
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- App UI Patterns & Components -->
+        <!-- 5. App UI Patterns & Components -->
         <section id="ui-patterns" class="scroll-mt-32">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-slate-800 flex items-center gap-3">
-                    <i data-lucide="blocks" class="text-primary w-8 h-8"></i>
-                    App UI Patterns & Components
+            <div class="mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Development</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="blocks" class="text-primary w-6 h-6 md:w-8 md:h-8"></i>
+                    App UI Patterns
                 </h2>
-                <p class="text-slate-500 mt-2">Essential developer building blocks for a Quran app. Click to copy the Tailwind HTML structure.</p>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Essential developer building blocks for a Quran app. Click to copy the Tailwind HTML structure.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                 
-                <!-- 1. Surah List Item -->
-                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-200 flex flex-col gap-6">
+                <!-- Component: Surah List Item -->
+                <div class="bg-slate-50 p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6">
                     <div>
-                        <h3 class="text-lg font-bold text-slate-800">Surah List Item</h3>
-                        <p class="text-sm text-slate-500">Standard index row for Surahs.</p>
+                        <h3 class="text-base md:text-lg font-bold text-slate-800">Surah List Item</h3>
+                        <p class="text-xs md:text-sm text-slate-500">Standard index row for Surahs.</p>
                     </div>
-                    
-                    <div class="bg-[#f8f9fc] p-6 rounded-3xl w-full flex items-center justify-center">
+                    <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
                         <div id="comp-surah-item" class="w-full max-w-sm bg-white p-4 rounded-3xl flex items-center gap-4 border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer group active:scale-[0.99]" dir="rtl">
-                            <!-- Surah Number / Icon -->
-                            <div class="w-12 h-12 relative flex items-center justify-center bg-slate-50 rounded-xl group-hover:bg-primary/5 transition-colors">
+                            <div class="w-12 h-12 relative flex items-center justify-center bg-slate-50 rounded-xl group-hover:bg-primary/5 transition-colors shrink-0">
                                 <span class="font-bold text-lg text-primary relative z-10 font-sans">١</span>
                             </div>
-                            <!-- Metadata -->
                             <div class="flex-1 text-right">
                                 <h3 class="font-bold text-slate-800 text-lg">الفاتحة</h3>
                                 <p class="text-slate-400 text-xs font-medium">مەکی • ٧ ئایەت</p>
                             </div>
-                            <!-- Arabic Name Background -->
                             <div class="text-2xl font-quran text-primary opacity-30 group-hover:opacity-100 transition-opacity">
                                 الفاتحة
                             </div>
                         </div>
                     </div>
-                    
-                    <button onclick="copyHTML('comp-surah-item')" class="flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300">
+                    <button onclick="copyHTML('comp-surah-item')" class="mt-auto flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
                         <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
                     </button>
                 </div>
 
-                <!-- 2. Ayah Reading Card -->
-                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-200 flex flex-col gap-6">
+                <!-- Component: Settings Row Menu Item -->
+                <div class="bg-slate-50 p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6">
                     <div>
-                        <h3 class="text-lg font-bold text-slate-800">Ayah Reading Card</h3>
-                        <p class="text-sm text-slate-500">Main reading interface block with actions.</p>
+                        <h3 class="text-base md:text-lg font-bold text-slate-800">Settings Menu Item</h3>
+                        <p class="text-xs md:text-sm text-slate-500">Standard clickable row for settings and navigation.</p>
                     </div>
-                    
-                    <div class="bg-[#f8f9fc] p-6 rounded-3xl w-full flex items-center justify-center">
+                    <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
+                        <div id="comp-settings-item" class="w-full max-w-sm bg-white p-4 rounded-2xl flex items-center justify-between border border-slate-100 shadow-sm cursor-pointer hover:bg-slate-50 transition-colors" dir="rtl">
+                            <div class="flex items-center gap-4">
+                                <div class="p-2.5 bg-orange-100 text-orange-600 rounded-xl"><i data-lucide="bell" class="w-5 h-5"></i></div>
+                                <span class="font-bold text-slate-700 text-sm">ئاگادارکردنەوەکان</span>
+                            </div>
+                            <i data-lucide="chevron-left" class="w-5 h-5 text-slate-300"></i>
+                        </div>
+                    </div>
+                    <button onclick="copyHTML('comp-settings-item')" class="mt-auto flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                    </button>
+                </div>
+
+                <!-- Component: Segmented Control / Tabs -->
+                <div class="bg-slate-50 p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6">
+                    <div>
+                        <h3 class="text-base md:text-lg font-bold text-slate-800">Segmented Tabs</h3>
+                        <p class="text-xs md:text-sm text-slate-500">Filter tabs for sorting surahs or lists.</p>
+                    </div>
+                    <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
+                        <div id="comp-tabs" class="w-full max-w-[280px] bg-slate-100 p-1.5 rounded-2xl flex items-center justify-between relative" dir="rtl">
+                            <div class="flex-1 text-center py-2 bg-white rounded-xl shadow-sm text-sm font-bold text-primary cursor-pointer transition-all">هەمووی</div>
+                            <div class="flex-1 text-center py-2 text-slate-500 hover:text-slate-700 text-sm font-bold cursor-pointer transition-colors">مەکی</div>
+                            <div class="flex-1 text-center py-2 text-slate-500 hover:text-slate-700 text-sm font-bold cursor-pointer transition-colors">مەدینی</div>
+                        </div>
+                    </div>
+                    <button onclick="copyHTML('comp-tabs')" class="mt-auto flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                    </button>
+                </div>
+
+                <!-- Component: Ayah Reading Card -->
+                <div class="bg-slate-50 p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 lg:row-span-2">
+                    <div>
+                        <h3 class="text-base md:text-lg font-bold text-slate-800">Ayah Reading Card</h3>
+                        <p class="text-xs md:text-sm text-slate-500">Main reading interface block with actions.</p>
+                    </div>
+                    <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center flex-1">
                         <div id="comp-ayah-card" class="w-full max-w-sm bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex flex-col gap-4" dir="rtl">
-                            <!-- Top Actions & Info -->
                             <div class="flex justify-between items-center border-b border-slate-50 pb-3">
                                 <span class="bg-blue-50 text-primary px-3 py-1 rounded-lg text-xs font-bold">٢:٢٥٥</span>
                                 <div class="flex gap-1" dir="ltr">
@@ -464,161 +401,207 @@
                                     <button class="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"><i data-lucide="share-2" class="w-4 h-4"></i></button>
                                 </div>
                             </div>
-                            <!-- Arabic Text -->
-                            <p class="font-quran text-2xl text-primary text-right leading-[2.5] tracking-wide">
-                                اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ
+                            <p class="font-quran text-2xl md:text-3xl text-primary text-right leading-loose md:leading-[2.5] tracking-wide">
+                                اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ
                             </p>
-                            <!-- Kurdish Translation -->
-                            <p class="text-slate-500 text-sm font-medium text-right leading-relaxed mt-2 border-t border-slate-50 pt-4">
+                            <p class="text-slate-500 text-xs md:text-sm font-medium text-right leading-relaxed mt-2 border-t border-slate-50 pt-4">
                                 خودا زاتێکە هیچ پەرستراوێک نییە شایستەی پەرستن بێت جگە لەو، هەمیشە زیندووە و سەرپەرشتیاری هەموو دروستکراوەکانە...
                             </p>
                         </div>
                     </div>
-                    
-                    <button onclick="copyHTML('comp-ayah-card')" class="flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300">
+                    <button onclick="copyHTML('comp-ayah-card')" class="mt-auto flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
                         <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
                     </button>
                 </div>
 
-                <!-- 3. Mini Audio Player -->
-                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-200 flex flex-col gap-6">
+                <!-- Component: Settings UI Controls -->
+                <div class="bg-slate-50 p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6">
                     <div>
-                        <h3 class="text-lg font-bold text-slate-800">Mini Audio Player Bar</h3>
-                        <p class="text-sm text-slate-500">Floating widget for active recitations.</p>
+                        <h3 class="text-base md:text-lg font-bold text-slate-800">UI Controls</h3>
+                        <p class="text-xs md:text-sm text-slate-500">Search bar and settings toggle row.</p>
                     </div>
-                    
-                    <div class="bg-[#f8f9fc] p-6 rounded-3xl w-full flex items-center justify-center h-[250px] relative">
-                        <!-- Simulated App Context -->
-                        <div class="absolute bottom-6 left-6 right-6">
-                            <div id="comp-mini-player" class="w-full bg-[#0B1E5B] text-white p-3 rounded-2xl shadow-xl shadow-blue-900/30 flex items-center gap-3 backdrop-blur-md" dir="rtl">
-                                <!-- Play/Pause Action -->
-                                <button class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center hover:bg-white/30 transition-colors shrink-0">
-                                    <i data-lucide="pause" class="w-5 h-5 fill-current"></i>
-                                </button>
-                                <!-- Info & Progress -->
-                                <div class="flex-1 flex flex-col justify-center">
-                                    <div class="flex justify-between items-center mb-1.5">
-                                        <span class="text-sm font-bold">سورة البقرة - ئایەتی ٢٥٥</span>
-                                        <span class="text-[10px] opacity-70 font-mono" dir="ltr">0:45 / 1:20</span>
-                                    </div>
-                                    <div class="w-full h-1 bg-white/20 rounded-full overflow-hidden">
-                                        <div class="w-[60%] h-full bg-cyan-400 rounded-full"></div>
-                                    </div>
-                                </div>
-                                <!-- Close Action -->
-                                <button class="p-2 opacity-50 hover:opacity-100 transition-opacity shrink-0">
-                                    <i data-lucide="x" class="w-4 h-4"></i>
-                                </button>
+                    <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex flex-col items-center justify-center gap-6 min-h-[200px]">
+                        <div id="comp-search-bar" class="w-full max-w-[280px] bg-white rounded-2xl p-2 border border-slate-100 shadow-sm flex items-center gap-3" dir="rtl">
+                            <div class="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 shrink-0">
+                                <i data-lucide="search" class="w-5 h-5"></i>
+                            </div>
+                            <input type="text" placeholder="گەڕان بۆ ئایەت یان سوورەت..." class="flex-1 bg-transparent border-none outline-none text-xs md:text-sm text-slate-700 font-medium text-right" dir="rtl">
+                        </div>
+                        <div id="comp-settings-toggle" class="w-full max-w-[280px] bg-white rounded-2xl p-4 border border-slate-100 shadow-sm flex items-center justify-between" dir="rtl">
+                            <div class="flex items-center gap-4">
+                                <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-xl"><i data-lucide="moon" class="w-5 h-5"></i></div>
+                                <span class="font-bold text-slate-700 text-sm">دۆخی تاریک</span>
+                            </div>
+                            <div class="w-12 h-7 flex items-center rounded-full p-1 bg-primary cursor-pointer transition-colors relative">
+                                <div class="bg-white w-5 h-5 rounded-full shadow-md absolute left-1 transition-all"></div>
                             </div>
                         </div>
                     </div>
-                    
-                    <button onclick="copyHTML('comp-mini-player')" class="flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300">
-                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
-                    </button>
+                    <div class="flex gap-3 mt-auto">
+                        <button onclick="copyHTML('comp-search-bar')" class="flex-1 flex items-center justify-center gap-1 md:gap-2 bg-white hover:bg-slate-100 text-slate-700 px-3 md:px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 md:h-4"></i> Search
+                        </button>
+                        <button onclick="copyHTML('comp-settings-toggle')" class="flex-1 flex items-center justify-center gap-1 md:gap-2 bg-white hover:bg-slate-100 text-slate-700 px-3 md:px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 md:h-4"></i> Toggle
+                        </button>
+                    </div>
                 </div>
 
-                <!-- 4. Typography Slider & Badges -->
-                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-200 flex flex-col gap-6">
+                <!-- Component: UI Badges -->
+                <div class="bg-slate-50 p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6">
                     <div>
-                        <h3 class="text-lg font-bold text-slate-800">UI Controls & Tags</h3>
-                        <p class="text-sm text-slate-500">Settings font slider and reusable category badges.</p>
+                        <h3 class="text-base md:text-lg font-bold text-slate-800">UI Badges & Tags</h3>
+                        <p class="text-xs md:text-sm text-slate-500">Reusable category tags with icons.</p>
                     </div>
-                    
-                    <div class="bg-[#f8f9fc] p-6 rounded-3xl w-full flex flex-col items-center justify-center gap-6 h-[250px]">
-                        
-                        <!-- Font Size Slider -->
-                        <div id="comp-font-slider" class="w-full max-w-[280px] bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between gap-4" dir="rtl">
-                            <span class="text-xs text-slate-400 font-bold">A</span>
-                            <input 
-                                type="range" 
-                                min="1" 
-                                max="5" 
-                                value="3"
-                                class="flex-1 h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0B1E5B]" 
-                            />
-                            <span class="text-lg text-slate-700 font-bold">A</span>
-                        </div>
-
-                        <!-- UI Badges with Makki & Madani Icons -->
+                    <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex flex-col items-center justify-center gap-6 min-h-[160px]">
                         <div id="comp-ui-badges" class="w-full max-w-[280px] flex flex-wrap gap-2 justify-center" dir="rtl">
-                            <div class="flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-lg border border-amber-200">
+                            <div class="flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-700 text-[10px] md:text-xs font-bold rounded-lg border border-amber-200">
                                 <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="5" y="6" width="14" height="14" rx="1"/><path d="M5 10h14"/><path d="M10 14h4v6h-4z"/>
-                                </svg>
-                                مەکی
+                                </svg> مەکی
                             </div>
-                            <div class="flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-lg border border-emerald-200">
+                            <div class="flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] md:text-xs font-bold rounded-lg border border-emerald-200">
                                 <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 20v-5a5 5 0 0 1 10 0v5"/><path d="M6 20v-2a2 2 0 0 1 4 0v2"/><path d="M8 2a1.5 1.5 0 1 0 1.5 1.5 2 2 0 1 1-1.5-1.5z"/><path d="M16 20V8l1.5-2 1.5 2v12"/><path d="M2 20h20"/>
-                                </svg>
-                                مەدینی
+                                </svg> مەدینی
                             </div>
-                            <div class="flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-lg border border-blue-200">
-                                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                                نوێ
+                            <div class="flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 text-[10px] md:text-xs font-bold rounded-lg border border-blue-200">
+                                <i data-lucide="sparkles" class="w-3 h-3 md:w-3.5 md:h-3.5"></i> نوێ
                             </div>
-                            <div class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-lg border border-slate-200">
+                            <div class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-600 text-[10px] md:text-xs font-bold rounded-lg border border-slate-200">
                                 ٢٨٦ ئایەت
                             </div>
                         </div>
-
                     </div>
-                    
-                    <div class="flex gap-4">
-                        <button onclick="copyHTML('comp-font-slider')" class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Slider
-                        </button>
-                        <button onclick="copyHTML('comp-ui-badges')" class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Badges
-                        </button>
-                    </div>
+                    <button onclick="copyHTML('comp-ui-badges')" class="mt-auto flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy Badges
+                    </button>
                 </div>
 
             </div>
         </section>
 
-        <!-- Iconography Section (Iconify Style) -->
-        <section id="icons" class="scroll-mt-32 pb-20">
-            <!-- Icon Toolbar -->
-            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-8 sticky top-24 z-40 flex flex-col sm:flex-row gap-4 items-center justify-between">
+        <!-- 6. Bottom Navigation Component -->
+        <section class="mt-12">
+            <div class="mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Navigation</span>
+                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">Bottom Navigation</h3>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Standalone bottom navigation components showing different active states.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- State 1: Bookmark Active -->
+                <div class="p-6 bg-slate-100 rounded-3xl border border-slate-200 flex flex-col items-center gap-6">
+                    <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs">Bookmark Active</h4>
+                    <div class="w-full max-w-sm py-4 relative">
+                        <div id="nav-state-bookmark" class="w-full bg-white/95 backdrop-blur-xl border border-white/50 rounded-[2.5rem] shadow-[0_15px_30px_-10px_rgba(0,0,0,0.1)] h-16 md:h-20 flex items-center justify-between px-2 relative">
+                            <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
+                                <i data-lucide="settings" class="relative z-10 w-5 h-5 md:w-6 md:h-6"></i>
+                            </div>
+                            <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
+                                <i data-lucide="home" class="relative z-10 w-5 h-5 md:w-6 md:h-6"></i>
+                            </div>
+                            <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer">
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-100 border border-slate-200 shadow-sm"></div>
+                                <i data-lucide="bookmark" class="relative z-10 text-primary w-5 h-5 md:w-6 md:h-6 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="copyNavHTML('nav-state-bookmark')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                    </button>
+                </div>
+
+                <!-- State 2: Home Active -->
+                <div class="p-6 bg-slate-100 rounded-3xl border border-slate-200 flex flex-col items-center gap-6">
+                    <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs">Home Active</h4>
+                    <div class="w-full max-w-sm py-4 relative">
+                        <div id="nav-state-home" class="w-full bg-white/95 backdrop-blur-xl border border-white/50 rounded-[2.5rem] shadow-[0_15px_30px_-10px_rgba(0,0,0,0.1)] h-16 md:h-20 flex items-center justify-between px-2 relative">
+                            <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
+                                <i data-lucide="settings" class="relative z-10 w-5 h-5 md:w-6 md:h-6"></i>
+                            </div>
+                            <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer">
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary shadow-lg shadow-primary/30"></div>
+                                <i data-lucide="home" class="relative z-10 text-white w-5 h-5 md:w-6 md:h-6"></i>
+                                <span class="absolute bottom-2 w-1 h-1 rounded-full bg-primary hidden md:block"></span>
+                            </div>
+                            <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
+                                <i data-lucide="bookmark" class="relative z-10 w-5 h-5 md:w-6 md:h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="copyNavHTML('nav-state-home')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                    </button>
+                </div>
+
+                <!-- State 3: Settings Active -->
+                <div class="p-6 bg-slate-100 rounded-3xl border border-slate-200 flex flex-col items-center gap-6">
+                    <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs">Settings Active</h4>
+                    <div class="w-full max-w-sm py-4 relative">
+                        <div id="nav-state-settings" class="w-full bg-white/95 backdrop-blur-xl border border-white/50 rounded-[2.5rem] shadow-[0_15px_30px_-10px_rgba(0,0,0,0.1)] h-16 md:h-20 flex items-center justify-between px-2 relative">
+                            <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer">
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-100 border border-slate-200 shadow-sm"></div>
+                                <i data-lucide="settings" class="relative z-10 text-primary w-5 h-5 md:w-6 md:h-6"></i>
+                            </div>
+                            <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
+                                <i data-lucide="home" class="relative z-10 w-5 h-5 md:w-6 md:h-6"></i>
+                            </div>
+                            <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
+                                <i data-lucide="bookmark" class="relative z-10 w-5 h-5 md:w-6 md:h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="copyNavHTML('nav-state-settings')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Themed Icons Section -->
+        <section id="themed-icons" class="scroll-mt-32">
+            <div class="mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Building Blocks</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="layers" class="text-primary w-6 h-6 md:w-8 md:h-8"></i>
+                    Themed App Icons
+                </h2>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Ready-to-use rounded icon components from the app. Click the box to copy the HTML, or hover to download SVG.</p>
+            </div>
+            
+            <div id="themed-icon-grid" class="flex flex-wrap gap-4 md:gap-6 lg:gap-8 justify-center sm:justify-start"></div>
+        </section>
+
+        <!-- 8. Iconography Section -->
+        <section id="icons" class="scroll-mt-32 pb-10">
+            <div class="bg-white p-3 md:p-4 rounded-2xl border border-slate-200 shadow-sm mb-6 md:mb-8 sticky top-[120px] md:top-24 z-40 flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-between">
                 <div class="flex items-center gap-3 w-full sm:w-auto">
-                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                    <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
                         <i data-lucide="layout-grid" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold text-slate-800">Icon Library</h2>
-                        <p class="text-xs text-slate-500 font-medium"><span id="icon-count">0</span> icons available</p>
+                        <h2 class="text-lg md:text-xl font-bold text-slate-800 leading-tight">Icon Library</h2>
+                        <p class="text-[10px] md:text-xs text-slate-500 font-medium"><span id="icon-count">0</span> icons available</p>
                     </div>
                 </div>
-
-                <!-- Search Bar -->
-                <div class="relative w-full sm:w-96">
-                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5"></i>
-                    <input 
-                        type="text" 
-                        id="icon-search" 
-                        placeholder="Search icons (e.g., 'home', 'user')..." 
-                        class="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white transition-all text-sm font-medium text-slate-800"
-                    >
+                <div class="relative w-full sm:w-72 md:w-96">
+                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4 md:w-5 md:h-5"></i>
+                    <input type="text" id="icon-search" placeholder="Search icons (e.g., 'home', 'user')..." class="w-full pl-10 md:pl-12 pr-4 py-2.5 md:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white transition-all text-xs md:text-sm font-medium text-slate-800">
                 </div>
             </div>
-            
-            <!-- Icon Grid Container (Populated by JS) -->
-            <div id="icon-grid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4"></div>
-            
-            <!-- Empty State for Search -->
+            <div id="icon-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3 md:gap-4"></div>
             <div id="empty-state" class="hidden flex-col items-center justify-center py-20 text-slate-400">
-                <i data-lucide="search-x" class="w-16 h-16 mb-4 opacity-50"></i>
-                <h3 class="text-lg font-bold text-slate-600">No icons found</h3>
-                <p class="text-sm mt-1">Try adjusting your search term.</p>
+                <i data-lucide="search-x" class="w-12 h-12 md:w-16 md:h-16 mb-4 opacity-50"></i>
+                <h3 class="text-base md:text-lg font-bold text-slate-600">No icons found</h3>
+                <p class="text-xs md:text-sm mt-1">Try adjusting your search term.</p>
             </div>
         </section>
 
     </main>
 
     <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none w-[calc(100%-3rem)] md:w-auto"></div>
 
     <script>
         // --- Data ---
@@ -633,8 +616,13 @@
             { name: 'Text Muted', hex: '#64748B', usage: 'Body text' },
         ];
 
-        // Themed Icons Data
         const themedIcons = [
+            // Core Navigation Elements added explicitly to the themed icons view
+            { id: 'settings', icon: 'settings', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Settings' },
+            { id: 'home', icon: 'home', bg: 'bg-primary/10', text: 'text-primary', bgHex: '#e0e7ff', textHex: '#0B1E5B', label: 'Home' },
+            { id: 'menu', icon: 'menu', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Menu' },
+            { id: 'bookmark_fav', icon: 'bookmark', bg: 'bg-rose-100', text: 'text-rose-600', bgHex: '#ffe4e6', textHex: '#e11d48', label: 'Bookmark' },
+            
             { id: 'bell', icon: 'bell', bg: 'bg-orange-100', text: 'text-orange-600', bgHex: '#ffedd5', textHex: '#ea580c', label: 'Notifications' },
             { id: 'type', icon: 'type', bg: 'bg-slate-200', text: 'text-primary', bgHex: '#e2e8f0', textHex: '#0B1E5B', label: 'Typography' },
             { id: 'moon', icon: 'moon', bg: 'bg-indigo-100', text: 'text-indigo-600', bgHex: '#e0e7ff', textHex: '#4f46e5', label: 'Dark Mode' },
@@ -642,18 +630,14 @@
             { id: 'info', icon: 'info', bg: 'bg-blue-100', text: 'text-blue-600', bgHex: '#dbeafe', textHex: '#2563eb', label: 'About' },
             { id: 'mail', icon: 'mail', bg: 'bg-pink-100', text: 'text-pink-600', bgHex: '#fce7f3', textHex: '#db2777', label: 'Contact' },
             { id: 'share', icon: 'share-2', bg: 'bg-teal-100', text: 'text-teal-600', bgHex: '#ccfbf1', textHex: '#0d9488', label: 'Share' },
-            { id: 'fav', icon: 'bookmark', bg: 'bg-rose-100', text: 'text-rose-600', bgHex: '#ffe4e6', textHex: '#e11d48', label: 'Bookmark' },
             { id: 'copy', icon: 'copy', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Copy' },
             { id: 'done', icon: 'check-circle', bg: 'bg-green-100', text: 'text-green-600', bgHex: '#dcfce3', textHex: '#16a34a', label: 'Done' },
-            { id: 'doc', icon: 'file-text', bg: 'bg-violet-100', text: 'text-violet-600', bgHex: '#ede9fe', textHex: '#7c3aed', label: 'Document' },
             
-            // App Core Features
             { id: 'quran', icon: 'book-open', bg: 'bg-primary/10', text: 'text-primary', bgHex: '#e0e7ff', textHex: '#0B1E5B', label: 'Read Quran' },
             { id: 'qibla', icon: 'compass', bg: 'bg-teal-100', text: 'text-teal-600', bgHex: '#ccfbf1', textHex: '#0d9488', label: 'Qibla Compass' },
             { id: 'prayer', icon: 'clock', bg: 'bg-sky-100', text: 'text-sky-600', bgHex: '#e0f2fe', textHex: '#0284c7', label: 'Prayer Times' },
             { id: 'profile', icon: 'user', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'User Profile' },
             
-            // Custom Origin Icons (Makki, Madani & Tasbih)
             { id: 'makki', icon: 'makki', bg: 'bg-amber-100', text: 'text-amber-600', bgHex: '#fef3c7', textHex: '#d97706', label: 'Makki (Mecca)', 
               customSvg: '<rect x="5" y="6" width="14" height="14" rx="1"/><path d="M5 10h14"/><path d="M10 14h4v6h-4z"/>' },
             { id: 'madani', icon: 'madani', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Madani (Medina)', 
@@ -661,25 +645,12 @@
             { id: 'tasbih', icon: 'tasbih', bg: 'bg-purple-100', text: 'text-purple-600', bgHex: '#f3e8ff', textHex: '#9333ea', label: 'Tasbih', 
               customSvg: '<path d="M12 22v-4"/><path d="M10 16a6 6 0 1 1 4 0"/><circle cx="12" cy="4" r="1"/><circle cx="16" cy="6" r="1"/><circle cx="17.5" cy="10" r="1"/><circle cx="16" cy="14" r="1"/><circle cx="8" cy="6" r="1"/><circle cx="6.5" cy="10" r="1"/><circle cx="8" cy="14" r="1"/><path d="M10 22h4"/>' },
 
-            // Native Social Media Icons
-            { id: 'facebook', icon: 'facebook', bg: 'bg-[#1877F2]/10', text: 'text-[#1877F2]', bgHex: '#e7f0fd', textHex: '#1877F2', label: 'Facebook' },
-            { id: 'twitter', icon: 'twitter', bg: 'bg-[#1DA1F2]/10', text: 'text-[#1DA1F2]', bgHex: '#e8f5fe', textHex: '#1DA1F2', label: 'Twitter' },
-            { id: 'instagram', icon: 'instagram', bg: 'bg-[#E1306C]/10', text: 'text-[#E1306C]', bgHex: '#fceaf1', textHex: '#E1306C', label: 'Instagram' },
             { id: 'youtube', icon: 'youtube', bg: 'bg-[#FF0000]/10', text: 'text-[#FF0000]', bgHex: '#fee2e2', textHex: '#FF0000', label: 'YouTube' },
-            
-            // Audio & Player Icons
             { id: 'play', icon: 'play', bg: 'bg-blue-100', text: 'text-blue-600', bgHex: '#dbeafe', textHex: '#2563eb', label: 'Play' },
             { id: 'pause', icon: 'pause', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Pause' },
-            { id: 'forward', icon: 'skip-forward', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Forward' },
-            { id: 'back', icon: 'skip-back', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Back' },
-            { id: 'volume', icon: 'volume-2', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Volume' },
-            { id: 'repeat', icon: 'repeat', bg: 'bg-purple-100', text: 'text-purple-600', bgHex: '#f3e8ff', textHex: '#9333ea', label: 'Repeat' },
-
-            // Leading / Loading Animation
-            { id: 'loading', icon: 'loader-2', bg: 'bg-primary/10', text: 'text-primary', bgHex: '#e0e7ff', textHex: '#0B1E5B', label: 'Loading', spin: true }
+            { id: 'volume', icon: 'volume-2', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Volume' }
         ];
 
-        // Banner SVG Data definitions
         const bannerData = [
             { 
                 id: 'morning', title: 'زیکری بەیانیان', subtitle: 'دەستپێکی ڕۆژێکی پڕ بەرەکەت', 
@@ -708,13 +679,11 @@
             }
         ];
 
-        // Complete extensive list of 300+ Lucide icons for UI/UX
         const fullIconList = [
             'activity', 'alarm-clock', 'alert-circle', 'alert-triangle', 'align-center', 'align-justify', 'align-left', 'align-right', 
-            'archive', 'arrow-down', 'arrow-down-circle', 'arrow-down-left', 'arrow-down-right', 'arrow-left', 'arrow-left-circle', 'arrow-right', 'arrow-right-circle', 'arrow-up', 'arrow-up-circle', 'arrow-up-left', 'arrow-up-right', 'at-sign', 'award', 'banknote', 'bar-chart', 'bar-chart-2', 'battery', 'battery-charging', 'bell', 'bell-off', 'bell-ring', 'bluetooth', 'bold', 'book', 'book-open', 'bookmark', 'bookmark-minus', 'bookmark-plus', 'box', 'briefcase', 'calendar', 'camera', 'camera-off', 'cast', 'check', 'check-circle', 'check-circle-2', 'check-square', 'chevron-down', 'chevron-left', 'chevron-right', 'chevron-up', 'chevrons-down', 'chevrons-left', 'chevrons-right', 'chevrons-up', 'chrome', 'circle', 'clipboard', 'clipboard-check', 'clipboard-copy', 'clipboard-list', 'clipboard-x', 'clock', 'cloud', 'cloud-drizzle', 'cloud-fog', 'cloud-hail', 'cloud-lightning', 'cloud-moon', 'cloud-moon-rain', 'cloud-off', 'cloud-rain', 'cloud-rain-wind', 'cloud-snow', 'cloud-sun', 'cloud-sun-rain', 'code', 'code-2', 'codepen', 'codesandbox', 'coffee', 'command', 'compass', 'contact', 'copy', 'cpu', 'credit-card', 'crop', 'crosshair', 'database', 'delete', 'disc', 'divide', 'divide-circle', 'divide-square', 'download', 'download-cloud', 'droplet', 'edit', 'edit-2', 'edit-3', 'external-link', 'eye', 'eye-off', 'facebook', 'fast-forward', 'feather', 'figma', 'file', 'file-archive', 'file-audio', 'file-badge', 'file-badge-2', 'file-box', 'file-check', 'file-check-2', 'file-clock', 'file-code', 'file-digit', 'file-down', 'file-edit', 'file-heart', 'file-image', 'file-input', 'file-key', 'file-line-chart', 'file-lock', 'file-lock-2', 'file-minus', 'file-output', 'file-pie-chart', 'file-plus', 'file-plus-2', 'file-question', 'file-search', 'file-signature', 'file-spreadsheet', 'file-symlink', 'file-terminal', 'file-text', 'file-type', 'file-type-2', 'file-up', 'file-video', 'file-volume', 'file-volume-2', 'file-warning', 'file-x', 'file-x-2', 'film', 'filter', 'flag', 'flag-off', 'flag-triangle-left', 'flag-triangle-right', 'folder', 'folder-archive', 'folder-check', 'folder-clock', 'folder-closed', 'folder-cog', 'folder-cog-2', 'folder-down', 'folder-edit', 'folder-heart', 'folder-input', 'folder-key', 'folder-lock', 'folder-minus', 'folder-open', 'folder-output', 'folder-plus', 'folder-search', 'folder-symlink', 'folder-tree', 'folder-up', 'folder-x', 'folders', 'frown', 'gem', 'gift', 'git-branch', 'git-branch-plus', 'git-commit', 'git-compare', 'git-fork', 'git-merge', 'git-pull-request', 'git-pull-request-closed', 'git-pull-request-draft', 'github', 'gitlab', 'globe', 'globe-2', 'graduation-cap', 'grid', 'grip-horizontal', 'grip-vertical', 'hand-heart', 'hash', 'headphones', 'heart', 'help-circle', 'hexagon', 'home', 'image', 'image-minus', 'image-off', 'image-plus', 'inbox', 'info', 'instagram', 'italic', 'key', 'languages', 'layers', 'layout', 'layout-dashboard', 'layout-grid', 'layout-list', 'layout-template', 'library', 'life-buoy', 'link', 'link-2', 'list', 'loader', 'loader-2', 'lock', 'log-in', 'log-out', 'mail', 'map', 'map-pin', 'maximize', 'maximize-2', 'menu', 'message-circle', 'message-square', 'mic', 'mic-off', 'minimize', 'minimize-2', 'minus', 'minus-circle', 'minus-square', 'monitor', 'monitor-play', 'monitor-speaker', 'moon', 'more-horizontal', 'more-vertical', 'mouse-pointer', 'mouse-pointer-2', 'mouse-pointer-click', 'move', 'music', 'navigation', 'navigation-2', 'package', 'package-check', 'package-minus', 'package-plus', 'package-search', 'package-x', 'paperclip', 'pause', 'pause-circle', 'pen-tool', 'percent', 'phone', 'phone-call', 'pie-chart', 'play', 'play-circle', 'plus', 'plus-circle', 'power', 'printer', 'quote', 'radio', 'refresh-cw', 'repeat', 'rewind', 'rss', 'save', 'scissors', 'scroll', 'search', 'send', 'server', 'settings', 'share', 'share-2', 'shield', 'shopping-bag', 'shopping-cart', 'shuffle', 'sidebar', 'skip-back', 'skip-forward', 'sliders', 'smartphone', 'smile', 'sparkles', 'speaker', 'square', 'star', 'sun', 'sunrise', 'sunset', 'tablet', 'tag', 'target', 'terminal', 'thermometer', 'thumbs-down', 'thumbs-up', 'toggle-left', 'toggle-right', 'trash', 'trash-2', 'trending-down', 'trending-up', 'triangle', 'truck', 'tv', 'twitter', 'type', 'umbrella', 'underline', 'unlock', 'upload', 'upload-cloud', 'user', 'user-check', 'user-minus', 'user-plus', 'user-x', 'users', 'video', 'video-off', 'volume', 'volume-1', 'volume-2', 'volume-x', 'watch', 'wifi', 'wifi-off', 'wind', 'x', 'x-circle', 'youtube', 'zap', 'zoom-in', 'zoom-out'
+            'archive', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'at-sign', 'award', 'banknote', 'bar-chart', 'battery', 'bell', 'bell-off', 'bluetooth', 'bold', 'book', 'book-open', 'bookmark', 'box', 'briefcase', 'calendar', 'camera', 'check', 'check-circle', 'chevron-down', 'chevron-left', 'chevron-right', 'chevron-up', 'circle', 'clipboard', 'clock', 'cloud', 'cloud-rain', 'code', 'coffee', 'command', 'compass', 'copy', 'cpu', 'credit-card', 'crop', 'crosshair', 'database', 'delete', 'download', 'droplet', 'edit', 'external-link', 'eye', 'eye-off', 'facebook', 'fast-forward', 'feather', 'figma', 'file', 'file-text', 'film', 'filter', 'flag', 'folder', 'frown', 'gift', 'github', 'globe', 'graduation-cap', 'grid', 'hash', 'headphones', 'heart', 'help-circle', 'hexagon', 'home', 'image', 'inbox', 'info', 'instagram', 'italic', 'key', 'languages', 'layers', 'layout', 'library', 'link', 'list', 'loader', 'lock', 'log-in', 'log-out', 'mail', 'map', 'map-pin', 'maximize', 'menu', 'message-circle', 'mic', 'mic-off', 'minimize', 'minus', 'monitor', 'moon', 'more-horizontal', 'more-vertical', 'mouse-pointer', 'move', 'music', 'navigation', 'package', 'paperclip', 'pause', 'pen-tool', 'percent', 'phone', 'pie-chart', 'play', 'plus', 'power', 'printer', 'quote', 'radio', 'refresh-cw', 'repeat', 'rewind', 'save', 'scissors', 'search', 'send', 'server', 'settings', 'share', 'share-2', 'shield', 'shopping-bag', 'shopping-cart', 'shuffle', 'sidebar', 'skip-back', 'skip-forward', 'sliders', 'smartphone', 'smile', 'sparkles', 'speaker', 'square', 'star', 'sun', 'tablet', 'tag', 'target', 'terminal', 'thumbs-down', 'thumbs-up', 'toggle-left', 'toggle-right', 'trash', 'trending-up', 'triangle', 'truck', 'tv', 'twitter', 'type', 'umbrella', 'underline', 'unlock', 'upload', 'user', 'users', 'video', 'volume-2', 'watch', 'wifi', 'wind', 'x', 'x-circle', 'youtube', 'zap', 'zoom-in', 'zoom-out'
         ];
 
-        // --- Toast Notification System ---
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -722,16 +691,12 @@
             const icon = type === 'success' ? 'check-circle' : 'info';
             const colorClass = type === 'success' ? 'text-green-500' : 'text-primary';
             
-            toast.className = `bg-slate-900 text-white px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 toast-enter pointer-events-auto border border-slate-700`;
-            toast.innerHTML = `
-                <i data-lucide="${icon}" class="${colorClass} w-5 h-5"></i>
-                <span class="font-medium text-sm">${message}</span>
-            `;
+            toast.className = `bg-slate-900 text-white px-4 md:px-5 py-3 md:py-3.5 rounded-xl shadow-2xl flex items-center gap-3 toast-enter pointer-events-auto border border-slate-700 w-full md:w-auto`;
+            toast.innerHTML = `<i data-lucide="${icon}" class="${colorClass} w-4 h-4 md:w-5 md:h-5 shrink-0"></i><span class="font-medium text-xs md:text-sm line-clamp-1">${message}</span>`;
             
             container.appendChild(toast);
             lucide.createIcons({ root: toast });
 
-            // Remove after 3 seconds
             setTimeout(() => {
                 toast.style.opacity = '0';
                 toast.style.transform = 'translateY(20px)';
@@ -740,7 +705,6 @@
             }, 3000);
         }
 
-        // --- Downloading & Copying Logic ---
         function triggerDownload(content, filename) {
             const url = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(content);
             const a = document.createElement("a");
@@ -751,12 +715,12 @@
             document.body.removeChild(a);
         }
 
-        // Generic HTML Copier for UI Components
         function copyHTML(elementId) {
             const el = document.getElementById(elementId);
+            if (!el) return;
             const code = el.outerHTML;
             navigator.clipboard.writeText(code).then(() => {
-                showToast(`Copied HTML for ${elementId}!`);
+                showToast(`Copied HTML component!`);
             }).catch(() => {
                 const tempEl = document.createElement('textarea');
                 tempEl.value = code;
@@ -764,64 +728,32 @@
                 tempEl.select();
                 document.execCommand('copy');
                 document.body.removeChild(tempEl);
-                showToast(`Copied HTML for ${elementId}!`);
+                showToast(`Copied HTML component!`);
             });
         }
+        function copyNavHTML(elementId) { copyHTML(elementId); }
 
-        // --- Bottom Nav Logic ---
-        function copyNavHTML(elementId) {
-            copyHTML(elementId); // Redirect to generic copier
-        }
-
-        // --- Themed Icons Logic ---
-        function copyThemedIconHTML(bgClass, textClass, iconName, spinClass, customSvg) {
-            let innerHtml = '';
-            if (customSvg) {
-                innerHtml = `<svg viewBox="0 0 24 24" class="w-6 h-6 ${spinClass}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${customSvg}</svg>`;
-            } else {
-                innerHtml = `<i data-lucide="${iconName}" class="w-6 h-6 ${spinClass}"></i>`;
-            }
-            const code = `<div class="w-14 h-14 ${bgClass} ${textClass} rounded-2xl flex items-center justify-center">\n  ${innerHtml}\n</div>`;
-            
-            navigator.clipboard.writeText(code).then(() => {
-                showToast(`Copied HTML for ${iconName} component!`);
-            }).catch(() => {
-                const el = document.createElement('textarea');
-                el.value = code;
-                document.body.appendChild(el);
-                el.select();
-                document.execCommand('copy');
-                document.body.removeChild(el);
-                showToast(`Copied HTML for ${iconName} component!`);
-            });
-        }
-
-        function downloadThemedSVG(event, containerId, bgHex, textHex, name) {
+        function downloadLogoSVG(event, containerId, filename, hexColor) {
             event.stopPropagation();
             const container = document.getElementById(containerId);
             const svgEl = container.querySelector('svg');
             if (!svgEl) return;
+
+            const clone = svgEl.cloneNode(true);
+            clone.setAttribute('fill', hexColor);
+            clone.removeAttribute('class');
             
-            // Get inner paths of the icon
-            const paths = svgEl.innerHTML;
-            
-            // Create composite SVG with rounded rect background
-            const svgString = `<?xml version="1.0" standalone="no"?>
-            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-                <rect width="64" height="64" fill="${bgHex}" rx="16" />
-                <g transform="translate(20, 20) scale(1)" stroke="${textHex}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                    ${paths}
-                </g>
-            </svg>`;
-            
-            triggerDownload(svgString, `themed-${name}.svg`);
-            showToast(`Downloaded themed-${name}.svg`);
+            const serializer = new XMLSerializer();
+            let source = serializer.serializeToString(clone);
+            if (!source.includes('<?xml')) source = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\r\n' + source;
+
+            triggerDownload(source, `${filename}.svg`);
+            showToast(`Downloaded ${filename}.svg`);
         }
 
         function renderHeaderBanners() {
             const container = document.getElementById('banner-grid');
-            if (!container) return; // Protect against missing container
-            
+            if (!container) return;
             container.innerHTML = '';
             
             bannerData.forEach(b => {
@@ -833,131 +765,125 @@
             <stop offset="100%" stop-color="${b.c1}" />
         </linearGradient>
     </defs>
-    <!-- Background rounded rect -->
     <path d="M0,0 H400 V120 Q400,160 360,160 H40 Q0,160 0,120 Z" fill="url(#grad-${b.id})" />
-    
-    <!-- Large Background Icon (Positioned on Right Side) -->
     <g transform="translate(250, 15) scale(8) rotate(-15 12 12)" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.15">
         ${b.path}
     </g>
-
-    <!-- Back Button (Left side) -->
     <g transform="translate(30, 30)">
         <circle cx="15" cy="15" r="18" fill="white" fill-opacity="0.25" />
         <path d="M18,9 L10,15 L18,21" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
     </g>
-    
-    <!-- Texts (Right Aligned) -->
     <text x="360" y="85" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="30" fill="white" text-anchor="end">${b.title}</text>
     <text x="360" y="115" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" fill="white" fill-opacity="0.9" text-anchor="end">${b.subtitle}</text>
 </svg>`;
 
                 const wrapper = document.createElement('div');
-                wrapper.className = 'flex flex-col gap-4 group cursor-pointer';
+                wrapper.className = 'flex flex-col gap-3 group cursor-pointer';
+                wrapper.innerHTML = `
+                    <div class="w-full rounded-[1.5rem] md:rounded-[2rem] shadow-sm hover:shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1">
+                        ${svgCode}
+                    </div>
+                    <button class="flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-4 py-2.5 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-200 active:scale-95">
+                        <i data-lucide="download" class="w-3 h-3 md:w-4 md:h-4"></i> SVG
+                    </button>
+                `;
                 
-                const previewDiv = document.createElement('div');
-                previewDiv.className = 'w-full rounded-[2rem] shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2';
-                previewDiv.innerHTML = svgCode;
-                
-                const btn = document.createElement('button');
-                btn.className = 'flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 active:scale-95';
-                btn.innerHTML = `<i data-lucide="download" class="w-4 h-4"></i> Download ${b.id}-banner.svg`;
-                
-                const downloadAction = () => {
-                    triggerDownload(svgCode, `${b.id}-banner.svg`);
-                    showToast(`Downloaded ${b.id}-banner.svg`);
-                };
-                
-                previewDiv.onclick = downloadAction;
-                btn.onclick = downloadAction;
-
-                wrapper.appendChild(previewDiv);
-                wrapper.appendChild(btn);
+                const action = () => { triggerDownload(svgCode, `${b.id}-banner.svg`); showToast(`Downloaded ${b.id}-banner.svg`); };
+                wrapper.querySelector('div').onclick = action;
+                wrapper.querySelector('button').onclick = action;
                 container.appendChild(wrapper);
             });
         }
 
         function renderColors() {
             const container = document.getElementById('color-grid');
+            if (!container) return;
             container.innerHTML = '';
             
             brandColors.forEach(color => {
-                const colorDiv = document.createElement('div');
-                colorDiv.className = 'group relative cursor-pointer active:scale-95 transition-transform';
-                colorDiv.onclick = () => copyColor(color.hex);
+                const isLight = color.hex.toUpperCase() === '#F8F9FC' || color.hex.toUpperCase() === '#FFFFFF';
+                const wrapper = document.createElement('div');
+                wrapper.className = 'group relative cursor-pointer active:scale-95 transition-transform';
+                wrapper.onclick = () => {
+                    navigator.clipboard.writeText(color.hex);
+                    showToast(`Copied ${color.hex}`);
+                };
                 
-                colorDiv.innerHTML = `
-                    <div class="w-full aspect-square rounded-[2rem] shadow-sm border border-slate-200/50 mb-4 relative overflow-hidden transition-shadow hover:shadow-lg" style="background-color: ${color.hex}">
-                        
-                        <!-- Hover Action Bar -->
-                        <div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <button 
-                                onclick="downloadColorSVG(event, '${color.hex}', '${color.name}')"
-                                class="bg-white/20 hover:bg-white/40 backdrop-blur-md text-white p-2 rounded-full transition-colors"
-                                title="Download SVG Swatch"
-                            >
-                                <i data-lucide="download" class="w-5 h-5"></i>
-                            </button>
-                        </div>
-
-                        <!-- Copy Hint overlay -->
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity">
-                             <div class="bg-black/40 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-bold mb-8">
-                                Click to Copy
-                             </div>
+                wrapper.innerHTML = `
+                    <div class="w-full aspect-square rounded-2xl md:rounded-[2rem] shadow-sm border ${isLight ? 'border-slate-200' : 'border-transparent'} mb-3 relative overflow-hidden transition-shadow hover:shadow-md" style="background-color: ${color.hex}">
+                        <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/50 to-transparent flex items-end justify-center opacity-0 group-hover:opacity-100 transition-opacity hidden md:flex">
+                            <button class="bg-white/20 hover:bg-white/40 backdrop-blur-md text-white p-1.5 rounded-full transition-colors"><i data-lucide="download" class="w-4 h-4"></i></button>
                         </div>
                     </div>
                     <div class="px-1">
-                        <h3 class="font-bold text-slate-800 text-sm mb-0.5">${color.name}</h3>
-                        <div class="flex justify-between items-center text-xs">
+                        <h3 class="font-bold text-slate-800 text-xs md:text-sm mb-0.5 line-clamp-1">${color.name}</h3>
+                        <div class="flex justify-between items-center text-[10px] md:text-xs">
                             <span class="font-mono text-slate-500">${color.hex}</span>
-                            <span class="text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">${color.usage}</span>
+                            <span class="text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded-md hidden sm:inline">${color.usage}</span>
                         </div>
                     </div>
                 `;
-                container.appendChild(colorDiv);
+
+                const btn = wrapper.querySelector('button');
+                if (btn) {
+                    btn.onclick = (e) => {
+                        e.stopPropagation();
+                        const svgString = `<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="${color.hex}" rx="48" /><text x="40" y="300" font-family="sans-serif" font-size="32" fill="${isLight ? '#0F172A' : '#FFF'}" font-weight="bold">${color.name}</text><text x="40" y="350" font-family="monospace" font-size="28" fill="${isLight ? '#0F172A' : '#FFF'}" opacity="0.8">${color.hex}</text></svg>`;
+                        triggerDownload(svgString, `color-${color.name.replace(/\s+/g, '-').toLowerCase()}.svg`);
+                        showToast(`Downloaded ${color.name} Swatch!`);
+                    };
+                }
+                container.appendChild(wrapper);
             });
         }
 
         function renderThemedIcons() {
             const container = document.getElementById('themed-icon-grid');
+            if (!container) return;
             container.innerHTML = '';
             
             themedIcons.forEach(item => {
                 const wrapper = document.createElement('div');
-                wrapper.className = 'group relative flex flex-col items-center gap-3 cursor-pointer';
-                const hiddenContainerId = `themed-data-${item.id}`;
-                const spinClass = item.spin ? 'animate-spin' : '';
+                wrapper.className = 'group relative flex flex-col items-center gap-2 cursor-pointer w-[70px] md:w-20';
                 
-                // Click main wrapper to copy HTML. Safely pass customSvg.
-                wrapper.onclick = () => copyThemedIconHTML(item.bg, item.text, item.icon, spinClass, item.customSvg);
+                const spinClass = item.spin ? 'animate-spin' : '';
+                let iconHtml = item.customSvg 
+                    ? `<svg viewBox="0 0 24 24" class="w-6 h-6 md:w-8 md:h-8 ${spinClass}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${item.customSvg}</svg>` 
+                    : `<i data-lucide="${item.icon}" class="w-6 h-6 md:w-8 md:h-8 ${spinClass}"></i>`;
 
-                let iconHtml = '';
-                if (item.customSvg) {
-                    iconHtml = `<svg viewBox="0 0 24 24" class="w-8 h-8 ${spinClass}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${item.customSvg}</svg>`;
-                } else {
-                    iconHtml = `<i data-lucide="${item.icon}" class="w-8 h-8 ${spinClass}"></i>`;
-                }
+                wrapper.onclick = () => {
+                    let codeHtml = item.customSvg 
+                        ? `<svg viewBox="0 0 24 24" class="w-5 h-5 md:w-6 md:h-6 ${spinClass}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${item.customSvg}</svg>` 
+                        : `<i data-lucide="${item.icon}" class="w-5 h-5 md:w-6 md:h-6 ${spinClass}"></i>`;
+                    const code = `<div class="w-12 h-12 md:w-14 md:h-14 ${item.bg} ${item.text} rounded-2xl flex items-center justify-center">\n  ${codeHtml}\n</div>`;
+                    navigator.clipboard.writeText(code);
+                    showToast(`Copied HTML for ${item.icon}`);
+                };
 
                 wrapper.innerHTML = `
-                    <div class="relative w-20 h-20 ${item.bg} ${item.text} rounded-3xl flex items-center justify-center shadow-sm hover:shadow-md transition-all active:scale-95 border border-white">
-                        <div id="${hiddenContainerId}" class="flex items-center justify-center w-full h-full">
+                    <div class="relative w-[70px] h-[70px] md:w-20 md:h-20 ${item.bg} ${item.text} rounded-2xl md:rounded-3xl flex items-center justify-center shadow-sm hover:shadow-md transition-all active:scale-95 border border-white">
+                        <div class="flex items-center justify-center w-full h-full svg-container">
                             ${iconHtml}
                         </div>
-                        
-                        <!-- Hover Overlay for Download SVG -->
-                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity flex items-center justify-center">
-                            <button
-                                onclick="downloadThemedSVG(event, '${hiddenContainerId}', '${item.bgHex}', '${item.textHex}', '${item.id}')"
-                                class="bg-white/90 hover:bg-white text-slate-800 p-2 rounded-xl shadow-sm backdrop-blur-sm transition-all transform translate-y-2 group-hover:translate-y-0 border border-slate-100"
-                                title="Download Composite SVG"
-                            >
-                                <i data-lucide="download" class="w-4 h-4"></i>
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 rounded-2xl md:rounded-3xl transition-opacity flex items-center justify-center hidden md:flex">
+                            <button class="bg-white/90 hover:bg-white text-slate-800 p-1.5 md:p-2 rounded-xl shadow-sm backdrop-blur-sm transition-all transform translate-y-2 group-hover:translate-y-0 border border-slate-100 dl-btn">
+                                <i data-lucide="download" class="w-3 h-3 md:w-4 md:h-4"></i>
                             </button>
                         </div>
                     </div>
-                    <span class="text-xs font-bold text-slate-600">${item.label}</span>
+                    <span class="text-[9px] md:text-[10px] font-bold text-slate-600 text-center leading-tight px-1">${item.label}</span>
                 `;
+
+                const dlBtn = wrapper.querySelector('.dl-btn');
+                if (dlBtn) {
+                    dlBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        const paths = wrapper.querySelector('.svg-container').innerHTML;
+                        const svgString = `<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" fill="${item.bgHex}" rx="16" /><g transform="translate(20, 20) scale(1)" stroke="${item.textHex}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">${paths}</g></svg>`;
+                        triggerDownload(svgString, `themed-${item.id}.svg`);
+                        showToast(`Downloaded themed-${item.id}.svg`);
+                    };
+                }
                 
                 container.appendChild(wrapper);
             });
@@ -967,14 +893,11 @@
             const container = document.getElementById('icon-grid');
             const emptyState = document.getElementById('empty-state');
             const countDisplay = document.getElementById('icon-count');
+            if (!container) return;
             
             container.innerHTML = '';
             
-            // Filter logic
-            const filteredIcons = fullIconList.filter(icon => 
-                icon.toLowerCase().includes(searchQuery.toLowerCase())
-            );
-
+            const filteredIcons = fullIconList.filter(icon => icon.toLowerCase().includes(searchQuery.toLowerCase()));
             countDisplay.innerText = filteredIcons.length;
 
             if (filteredIcons.length === 0) {
@@ -990,49 +913,44 @@
             
             filteredIcons.forEach(iconName => {
                 const wrapperDiv = document.createElement('div');
-                wrapperDiv.className = 'bg-white border border-slate-200 rounded-2xl aspect-square flex flex-col items-center justify-center relative group hover:border-primary hover:shadow-lg transition-all cursor-pointer overflow-hidden';
+                wrapperDiv.className = 'bg-white border border-slate-200 rounded-xl md:rounded-2xl aspect-square flex flex-col items-center justify-center relative group hover:border-primary hover:shadow-sm transition-all cursor-pointer overflow-hidden';
                 
-                const hiddenContainerId = `icon-data-${iconName}`;
-
-                // Main Click = Copy SVG code
-                wrapperDiv.onclick = () => copyIconSVG(hiddenContainerId, iconName);
+                wrapperDiv.onclick = () => {
+                    const svgStr = wrapperDiv.querySelector('.raw-svg').innerHTML;
+                    navigator.clipboard.writeText(svgStr);
+                    showToast(`Copied SVG code`);
+                };
 
                 wrapperDiv.innerHTML = `
-                    <!-- Hidden pure SVG for exporting (using primary color) -->
-                    <div id="${hiddenContainerId}" class="hidden">
-                        <i data-lucide="${iconName}" width="24" height="24" stroke-width="2" color="#0B1E5B"></i>
+                    <div class="raw-svg hidden"><i data-lucide="${iconName}" width="24" height="24" stroke-width="2" color="#0B1E5B"></i></div>
+                    <div class="text-slate-500 group-hover:text-primary group-hover:scale-110 transition-all duration-300 mb-2 md:mb-3">
+                        <i data-lucide="${iconName}" class="w-6 h-6 md:w-8 md:h-8" stroke-width="1.5"></i>
                     </div>
-                    
-                    <!-- Visual Display -->
-                    <div class="text-slate-500 group-hover:text-primary group-hover:scale-110 transition-all duration-300 mb-3">
-                        <i data-lucide="${iconName}" class="w-8 h-8" stroke-width="1.5"></i>
-                    </div>
-                    
-                    <!-- Text Label -->
-                    <span class="text-[10px] font-medium text-slate-400 truncate w-full text-center px-2 group-hover:text-primary transition-colors">
+                    <span class="text-[9px] md:text-[10px] font-medium text-slate-400 truncate w-full text-center px-1 md:px-2 group-hover:text-primary transition-colors">
                         ${iconName}
                     </span>
-
-                    <!-- Hover Overlay Actions -->
-                    <div class="absolute inset-0 bg-slate-900/5 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
-                        <div class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                            Copy SVG
-                        </div>
-                        
-                        <!-- Separate Download Button -->
-                        <button
-                            onclick="downloadIconSVG(event, '${hiddenContainerId}', '${iconName}')"
-                            class="absolute top-2 right-2 bg-white text-slate-600 hover:text-primary p-1.5 rounded-lg shadow-sm border border-slate-100 hover:border-primary/30 transition-colors"
-                            title="Download ${iconName}.svg file"
-                        >
-                            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                    <div class="absolute inset-0 bg-slate-900/5 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex-col items-center justify-center hidden md:flex">
+                        <div class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-md transform translate-y-1 group-hover:translate-y-0 transition-transform">Copy</div>
+                        <button class="absolute top-1.5 right-1.5 bg-white text-slate-600 hover:text-primary p-1 rounded-md shadow-sm border border-slate-100 hover:border-primary/30 dl-btn">
+                            <i data-lucide="download" class="w-3 h-3"></i>
                         </button>
                     </div>
                 `;
+
+                const dlBtn = wrapperDiv.querySelector('.dl-btn');
+                if (dlBtn) {
+                    dlBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        let source = wrapperDiv.querySelector('.raw-svg').innerHTML;
+                        source = source.replace('<i ', '<svg xmlns="http://www.w3.org/2000/svg" ').replace('</i>', '</svg>');
+                        source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+                        triggerDownload(source, `icon-${iconName}.svg`);
+                        showToast(`Downloaded ${iconName}.svg`);
+                    };
+                }
+
                 container.appendChild(wrapperDiv);
             });
-
-            // Very important: Re-initialize Lucide icons for the newly injected HTML
             lucide.createIcons();
         }
 
@@ -1041,15 +959,14 @@
             renderHeaderBanners();
             renderThemedIcons();
             renderIcons();
-            
-            // Initialize initial icons (Navbar, headers, etc)
             lucide.createIcons();
 
-            // Search Bar Listener
             const searchInput = document.getElementById('icon-search');
-            searchInput.addEventListener('input', (e) => {
-                renderIcons(e.target.value);
-            });
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    renderIcons(e.target.value);
+                });
+            }
         });
     </script>
 </body>
