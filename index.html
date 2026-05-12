@@ -28,6 +28,7 @@
                         sans: ['"Noto Sans Arabic"', '"Inter"', 'sans-serif'],
                         quran: ['"Amiri Quran"', 'serif'],
                         serif: ['Georgia', 'serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
                     }
                 }
             }
@@ -76,6 +77,14 @@
         .toast-enter {
             animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
+        /* Code Block Syntax Colors */
+        .token-string { color: #a5d6ff; }
+        .token-key { color: #7ee787; }
+        .token-number { color: #79c0ff; }
+        .token-keyword { color: #ff7b72; }
+        .token-function { color: #d2a8ff; }
+        .token-comment { color: #8b949e; }
     </style>
 </head>
 <body class="antialiased selection:bg-primary selection:text-white pb-10">
@@ -102,9 +111,8 @@
                 <a href="#logo" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Logo</a>
                 <a href="#colors" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Colors</a>
                 <a href="#typography" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Typography</a>
-                <a href="#categories" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Categories</a>
-                <a href="#header-banners" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Banners</a>
                 <a href="#ui-patterns" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">UI Patterns</a>
+                <a href="#database" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap text-primary">API & Data</a>
                 <a href="#icons" class="px-4 py-2 bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors whitespace-nowrap ml-auto md:ml-2">Browse Icons</a>
             </div>
         </div>
@@ -461,7 +469,7 @@
                         </button>
                         <button onclick="copyHTML('comp-settings-toggle')" class="flex-1 flex items-center justify-center gap-1 md:gap-2 bg-white hover:bg-slate-100 text-slate-700 px-3 md:px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300">
                             <i data-lucide="copy" class="w-3 h-3 md:w-4 md:h-4"></i> Toggle
-                        </button>
+                        </button> 
                     </div>
                 </div>
 
@@ -559,7 +567,7 @@
                     <div class="w-full max-w-sm py-4 relative">
                         <div id="nav-state-settings" class="w-full bg-white/95 backdrop-blur-xl border border-white/50 rounded-[2.5rem] shadow-[0_15px_30px_-10px_rgba(0,0,0,0.1)] h-16 md:h-20 flex items-center justify-between px-2 relative">
                             <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer">
-                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-100 border border-slate-200 shadow-sm"></div>
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 h-12 rounded-full bg-slate-100 border border-slate-200 shadow-sm"></div>
                                 <i data-lucide="settings" class="relative z-10 text-primary w-5 h-5 md:w-6 md:h-6"></i>
                             </div>
                             <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
@@ -575,110 +583,125 @@
                     </button>
                 </div>
             </div>
+        </section>
 
-            <!-- NEW: Glassmorphism Navigations -->
-            <div class="mt-16 mb-6 md:mb-8">
-                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Modern UI</span>
-                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">Glassmorphism Navigation</h3>
-                <p class="text-slate-500 mt-2 text-sm md:text-base">Modern, frosted-glass navigation bars with detached floating action buttons (FAB).</p>
+        <!-- NEW: Quran Database API Info -->
+        <section id="database" class="scroll-mt-32">
+            <!-- Header -->
+            <div class="mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Data Layer</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="database" class="text-primary w-6 h-6 md:w-8 md:h-8"></i>
+                    Quran API Setup
+                </h2>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Connecting your app to <a href="https://tanzil.net/" target="_blank" class="text-accent hover:underline font-medium">Tanzil.net</a> Uthmani (Minimal) text & Kurdish Sorani translations using public endpoints.</p>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
-                
-                <!-- Glass Nav 1: Reading App -->
-                <div class="p-6 bg-[#f0f2f5] rounded-3xl border border-slate-200 flex flex-col items-center gap-6 relative overflow-hidden">
-                    <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs z-10">Reading App Style</h4>
-                    <div class="w-full py-6 flex items-center justify-center gap-3 relative z-10">
-                        <!-- Main Glass Nav -->
-                        <div id="nav-glass-reading" class="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-full shadow-[0_15px_35px_-10px_rgba(0,0,0,0.1)] h-[60px] md:h-[68px] px-2 flex items-center gap-1 md:gap-2">
-                            <!-- Active Item -->
-                            <div class="flex items-center gap-2 bg-white rounded-full px-4 md:px-5 py-2 md:py-2.5 shadow-sm border border-slate-100 cursor-pointer">
-                                <i data-lucide="home" class="w-4 h-4 md:w-5 md:h-5 text-slate-900 fill-slate-900"></i>
-                                <span class="text-xs md:text-sm font-bold text-slate-900">Home</span>
-                            </div>
-                            <!-- Inactive Items -->
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 cursor-pointer transition-colors">
-                                <i data-lucide="book-open" class="w-4 h-4 md:w-5 md:h-5"></i>
-                            </div>
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 cursor-pointer transition-colors">
-                                <i data-lucide="library" class="w-4 h-4 md:w-5 md:h-5"></i>
-                            </div>
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 cursor-pointer transition-colors">
-                                <i data-lucide="search" class="w-4 h-4 md:w-5 md:h-5"></i>
-                            </div>
+
+            <!-- Grid for Data view -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                <!-- JSON Payload Preview Box -->
+                <div class="bg-[#0f172a] rounded-2xl border border-slate-700 overflow-hidden shadow-xl flex flex-col h-full max-h-[450px]">
+                    <div class="flex items-center justify-between px-4 py-3 bg-[#1e293b] border-b border-slate-700">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
                         </div>
-                        <!-- Floating Action Button -->
-                        <div id="nav-fab-yellow" class="w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-400/40 flex items-center justify-center text-white cursor-pointer hover:scale-105 transition-transform shrink-0">
-                            <i data-lucide="plus" class="w-6 h-6 md:w-8 md:h-8"></i>
-                        </div>
-                    </div>
-                    <div class="flex gap-2 w-full relative z-10">
-                        <button onclick="copyNavHTML('nav-glass-reading')" class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-4 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Nav
-                        </button>
-                        <button onclick="copyNavHTML('nav-fab-yellow')" class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-4 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy FAB
+                        <span class="text-xs text-slate-400 font-mono">alquran_response.json</span>
+                        <button onclick="copyCodeContent('json-sample', 'JSON schema')" class="text-slate-400 hover:text-white transition-colors" title="Copy JSON">
+                            <i data-lucide="copy" class="w-4 h-4"></i>
                         </button>
                     </div>
-                </div>
-
-                <!-- Glass Nav 2: Audio Recorder -->
-                <div class="p-6 bg-[#f0f2f5] rounded-3xl border border-slate-200 flex flex-col items-center gap-6 relative overflow-hidden">
-                    <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs z-10">Audio Recorder Style</h4>
-                    <div class="w-full py-6 flex items-center justify-center relative z-10">
-                        <div id="nav-glass-audio" class="w-full max-w-[320px] bg-white/60 backdrop-blur-2xl border border-white/80 rounded-full shadow-[0_15px_35px_-10px_rgba(0,0,0,0.1)] h-[70px] md:h-[84px] px-2 md:px-3 flex items-center justify-between">
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/50 flex items-center justify-center text-slate-600 cursor-pointer hover:bg-white hover:shadow-sm transition-all">
-                                <i data-lucide="mic" class="w-4 h-4 md:w-5 md:h-5"></i>
-                            </div>
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/50 flex items-center justify-center text-slate-600 cursor-pointer hover:bg-white hover:shadow-sm transition-all">
-                                <i data-lucide="layout-grid" class="w-4 h-4 md:w-5 md:h-5"></i>
-                            </div>
-                            
-                            <!-- Record Button -->
-                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#E55B5B] shadow-lg shadow-red-500/30 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform border-[3px] border-white/60">
-                                <div class="w-4 h-4 md:w-5 md:h-5 bg-white rounded-sm"></div>
-                            </div>
-
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/50 flex items-center justify-center text-slate-600 cursor-pointer hover:bg-white hover:shadow-sm transition-all">
-                                <i data-lucide="pause" class="w-4 h-4 md:w-5 md:h-5 fill-slate-600"></i>
-                            </div>
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/50 flex items-center justify-center text-slate-600 cursor-pointer hover:bg-white hover:shadow-sm transition-all">
-                                <i data-lucide="check" class="w-4 h-4 md:w-5 md:h-5"></i>
-                            </div>
-                        </div>
+                    <div class="p-4 overflow-y-auto overflow-x-auto flex-1 custom-scrollbar">
+                        <pre><code id="json-sample" class="text-sm font-mono text-slate-300 leading-relaxed block whitespace-pre">
+{
+  <span class="token-key">"code"</span>: <span class="token-number">200</span>,
+  <span class="token-key">"status"</span>: <span class="token-string">"OK"</span>,
+  <span class="token-key">"data"</span>: [
+    {
+      <span class="token-key">"edition"</span>: { <span class="token-key">"identifier"</span>: <span class="token-string">"quran-uthmani-min"</span>, <span class="token-key">"format"</span>: <span class="token-string">"text"</span> },
+      <span class="token-key">"surah"</span>: <span class="token-number">1</span>,
+      <span class="token-key">"name"</span>: <span class="token-string">"سُورَةُ ٱلْفَاتِحَةِ"</span>,
+      <span class="token-key">"ayahs"</span>: [
+        {
+          <span class="token-key">"numberInSurah"</span>: <span class="token-number">1</span>,
+          <span class="token-key">"text"</span>: <span class="token-string">"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"</span>
+        },
+        {
+          <span class="token-key">"numberInSurah"</span>: <span class="token-number">2</span>,
+          <span class="token-key">"text"</span>: <span class="token-string">"ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ"</span>
+        }
+      ]
+    },
+    {
+      <span class="token-key">"edition"</span>: { <span class="token-key">"identifier"</span>: <span class="token-string">"ku.asan"</span>, <span class="token-key">"language"</span>: <span class="token-string">"ku"</span> },
+      <span class="token-key">"ayahs"</span>: [
+        {
+          <span class="token-key">"numberInSurah"</span>: <span class="token-number">1</span>,
+          <span class="token-key">"text"</span>: <span class="token-string">"بە ناوی خوای بەخشندەی میهرەبان"</span>
+        },
+        {
+          <span class="token-key">"numberInSurah"</span>: <span class="token-number">2</span>,
+          <span class="token-key">"text"</span>: <span class="token-string">"سوپاس و ستایش بۆ خوای پەروەردگاری جیهانیان"</span>
+        }
+      ]
+    }
+  ]
+}</code></pre>
                     </div>
-                    <button onclick="copyNavHTML('nav-glass-audio')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center relative z-10 mt-auto">
-                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
-                    </button>
                 </div>
 
-                <!-- Glass Nav 3: Vertical Labels -->
-                <div class="p-6 bg-[#f0f2f5] rounded-3xl border border-slate-200 flex flex-col items-center gap-6 relative overflow-hidden">
-                    <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs z-10">Vertical Label Style</h4>
-                    <div class="w-full py-6 flex items-center justify-center relative z-10">
-                        <div id="nav-glass-vertical" class="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-[2rem] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.1)] h-[80px] md:h-[90px] px-6 flex items-center justify-between gap-8 md:gap-10 w-auto">
-                            <!-- Active Home -->
-                            <div class="flex flex-col items-center justify-center gap-1 md:gap-1.5 cursor-pointer">
-                                <i data-lucide="home" class="w-5 h-5 md:w-6 md:h-6 text-slate-900"></i>
-                                <span class="text-[10px] md:text-[11px] font-bold text-slate-900">Home</span>
-                            </div>
-                            <!-- Inactive Rewards -->
-                            <div class="flex flex-col items-center justify-center gap-1 md:gap-1.5 cursor-pointer opacity-50 hover:opacity-100 transition-opacity">
-                                <i data-lucide="award" class="w-5 h-5 md:w-6 md:h-6 text-slate-500"></i>
-                                <span class="text-[10px] md:text-[11px] font-bold text-slate-500">Rewards</span>
-                            </div>
-                            <!-- Inactive Profile -->
-                            <div class="flex flex-col items-center justify-center gap-1 md:gap-1.5 cursor-pointer opacity-50 hover:opacity-100 transition-opacity">
-                                <i data-lucide="user" class="w-5 h-5 md:w-6 md:h-6 text-slate-500"></i>
-                                <span class="text-[10px] md:text-[11px] font-bold text-slate-500">Profile</span>
-                            </div>
+                <!-- JS Fetch Example Box -->
+                <div class="bg-[#0f172a] rounded-2xl border border-slate-700 overflow-hidden shadow-xl flex flex-col h-full max-h-[450px]">
+                    <div class="flex items-center justify-between px-4 py-3 bg-[#1e293b] border-b border-slate-700">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
                         </div>
+                        <span class="text-xs text-slate-400 font-mono">fetchQuran.js</span>
+                        <button onclick="copyCodeContent('js-sample', 'fetch script')" class="text-slate-400 hover:text-white transition-colors" title="Copy JS">
+                            <i data-lucide="copy" class="w-4 h-4"></i>
+                        </button>
                     </div>
-                    <button onclick="copyNavHTML('nav-glass-vertical')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center relative z-10 mt-auto">
-                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
-                    </button>
+                    <div class="p-4 overflow-y-auto overflow-x-auto flex-1 custom-scrollbar">
+                        <pre><code id="js-sample" class="text-sm font-mono text-slate-300 leading-relaxed block whitespace-pre">
+<span class="token-comment">/**
+ * Fetches Uthmani Minimal text (Tanzil format) 
+ * alongside Kurdish Sorani translation (ku.asan).
+ * Endpoint: AlQuran.cloud API
+ */</span>
+<span class="token-keyword">async</span> <span class="token-keyword">function</span> <span class="token-function">fetchSurahData</span>(surahNumber) {
+  <span class="token-keyword">try</span> {
+    <span class="token-comment">// Request multiple editions comma separated</span>
+    <span class="token-keyword">const</span> endpoint = <span class="token-string">`https://api.alquran.cloud/v1/surah/${surahNumber}/editions/quran-uthmani-min,ku.asan`</span>;
+    
+    <span class="token-keyword">const</span> response = <span class="token-keyword">await</span> <span class="token-function">fetch</span>(endpoint);
+    <span class="token-keyword">if</span> (!response.ok) <span class="token-keyword">throw new</span> <span class="token-function">Error</span>(<span class="token-string">'Network response was not ok'</span>);
+    
+    <span class="token-keyword">const</span> payload = <span class="token-keyword">await</span> response.<span class="token-function">json</span>();
+    
+    <span class="token-keyword">const</span> arabicData = payload.data[<span class="token-number">0</span>];
+    <span class="token-keyword">const</span> kurdishData = payload.data[<span class="token-number">1</span>];
+    
+    console.<span class="token-function">log</span>(<span class="token-string">`Loaded Surah: ${arabicData.name}`</span>);
+    
+    <span class="token-comment">// Map them together for UI</span>
+    <span class="token-keyword">const</span> mergedAyahs = arabicData.ayahs.<span class="token-function">map</span>((ayah, idx) => ({
+      number: ayah.numberInSurah,
+      arabic: ayah.text,
+      kurdish: kurdishData.ayahs[idx].text
+    }));
+    
+    <span class="token-keyword">return</span> mergedAyahs;
+    
+  } <span class="token-keyword">catch</span> (error) {
+    console.<span class="token-function">error</span>(<span class="token-string">'Error fetching Quran data:'</span>, error);
+    <span class="token-keyword">return null</span>;
+  }
+}</code></pre>
+                    </div>
                 </div>
-
             </div>
         </section>
 
@@ -748,7 +771,6 @@
         ];
 
         const themedIcons = [
-            // Colors optimized based on Settings icons (Light backgrounds, vibrant outlines)
             { id: 'settings', icon: 'settings', bg: 'bg-[#f0f2f6]', text: 'text-[#1e293b]', bgHex: '#f0f2f6', textHex: '#1e293b', label: 'Settings', border: true },
             { id: 'home', icon: 'home', bg: 'bg-[#eef2fc]', text: 'text-primary', bgHex: '#eef2fc', textHex: '#0B1E5B', label: 'Home', border: true },
             { id: 'bookmark_fav', icon: 'bookmark', bg: 'bg-[#ffe4e6]', text: 'text-[#e11d48]', bgHex: '#ffe4e6', textHex: '#e11d48', label: 'Bookmark', border: true },
@@ -767,7 +789,7 @@
             { id: 'prayer', icon: 'clock', bg: 'bg-sky-100', text: 'text-sky-600', bgHex: '#e0f2fe', textHex: '#0284c7', label: 'Prayer Times', border: true },
             { id: 'profile', icon: 'user', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'User Profile', border: true },
             
-            // Custom Origin Icons (Makki, Madani & Tasbih)
+            // Custom Origin Icons
             { id: 'makki', icon: 'makki', bg: 'bg-amber-100', text: 'text-amber-600', bgHex: '#fef3c7', textHex: '#d97706', label: 'Makki', border: true,
               customSvg: '<rect x="5" y="6" width="14" height="14" rx="1"/><path d="M5 10h14"/><path d="M10 14h4v6h-4z"/>' },
             { id: 'madani', icon: 'madani', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Madani', border: true,
@@ -861,6 +883,24 @@
                 showToast(`Copied HTML component!`);
             });
         }
+        
+        function copyCodeContent(elementId, typeLabel) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const code = el.innerText || el.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                showToast(`Copied ${typeLabel}!`);
+            }).catch(() => {
+                const tempEl = document.createElement('textarea');
+                tempEl.value = code;
+                document.body.appendChild(tempEl);
+                tempEl.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempEl);
+                showToast(`Copied ${typeLabel}!`);
+            });
+        }
+
         function copyNavHTML(elementId) { copyHTML(elementId); }
 
         function downloadLogoSVG(event, containerId, filename, hexColor) {
