@@ -102,6 +102,7 @@
                 <a href="#logo" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Logo</a>
                 <a href="#colors" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Colors</a>
                 <a href="#typography" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Typography</a>
+                <a href="#categories" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Categories</a>
                 <a href="#header-banners" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">Banners</a>
                 <a href="#ui-patterns" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap">UI Patterns</a>
                 <a href="#icons" class="px-4 py-2 bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors whitespace-nowrap ml-auto md:ml-2">Browse Icons</a>
@@ -161,6 +162,7 @@
                 <!-- Small / White Logo -->
                 <div class="bg-primary rounded-[2rem] p-6 md:p-8 shadow-md flex flex-col items-center justify-center relative group min-h-[200px] md:min-h-[250px]">
                     <div class="text-white w-full max-w-[100px] md:max-w-[120px]" id="logo-small-white">
+                        <!-- Same SVG, uses currentColor -->
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 318.05 123.2" fill="currentColor" class="w-full h-auto">
                             <path d="M318.05,116.99c.08,3.15-2.58,6-5.69,6.21H5.9c-3.33-.1-6.05-2.84-5.89-6.21h318.04Z"/>
                             <path d="M165.83,33.01c4.42,1.91,8.94,3.72,13.27,5.83,11.19,5.44,18.25,14.17,19.53,26.87l-.09,23.1c-.28.41-1.13,0-1.6-.02-1.5-.04-3.01.05-4.51.01v-19.31c-.72-7.01-3.6-13.83-8.39-18.99-6.85-7.38-17.08-9.91-25.88-14.25-8.87,4.47-19.19,6.94-26.04,14.55-4.63,5.15-7.43,11.79-8.11,18.69v19.31s-6.19.2-6.19.2v-23.49c1.12-11.13,7.57-20.62,17.47-25.73,4.54-2.35,9.87-4.49,14.6-6.6.24-.11.48-.16.74-.16-.02-.24-.27-.34-.46-.44-6.72-3.63-14.74-6.01-21.52-9.68-2.48-1.59-3.6-4.86-2.22-7.59l31.72,14.11,31.79-14.19c1.57,2.54.31,6.13-2.12,7.67-6.82,3.64-14.77,6.06-21.52,9.68-.13.07-.56.31-.46.44Z"/>
@@ -296,7 +298,23 @@
             </div>
         </section>
 
-        <!-- 4. Header Banners Section -->
+        <!-- 4. Category Grid Cards -->
+        <section id="categories" class="scroll-mt-32">
+            <div class="mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">UI Navigation</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 flex items-center gap-3">
+                    <i data-lucide="grid" class="text-primary w-6 h-6 md:w-8 md:h-8"></i>
+                    Category Grid Cards
+                </h2>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Large interactive cards for the main application menu screens. Click to copy HTML.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6" id="category-cards-container">
+                <!-- Rendered via JS -->
+            </div>
+        </section>
+
+        <!-- 5. Header Banners Section -->
         <section id="header-banners" class="scroll-mt-32">
             <div class="mb-6 md:mb-8">
                 <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Assets</span>
@@ -309,7 +327,7 @@
             <div id="banner-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8"></div>
         </section>
 
-        <!-- 5. App UI Patterns & Components -->
+        <!-- 6. App UI Patterns & Components -->
         <section id="ui-patterns" class="scroll-mt-32">
             <div class="mb-6 md:mb-8">
                 <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Development</span>
@@ -356,7 +374,7 @@
                     <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
                         <div id="comp-settings-item" class="w-full max-w-sm bg-white p-4 rounded-2xl flex items-center justify-between border border-slate-100 shadow-sm cursor-pointer hover:bg-slate-50 transition-colors" dir="rtl">
                             <div class="flex items-center gap-4">
-                                <div class="p-2.5 bg-orange-100 text-orange-600 rounded-xl"><i data-lucide="bell" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-orange-100 text-orange-600 rounded-xl border border-orange-200"><i data-lucide="bell" class="w-5 h-5"></i></div>
                                 <span class="font-bold text-slate-700 text-sm">ئاگادارکردنەوەکان</span>
                             </div>
                             <i data-lucide="chevron-left" class="w-5 h-5 text-slate-300"></i>
@@ -429,7 +447,7 @@
                         </div>
                         <div id="comp-settings-toggle" class="w-full max-w-[280px] bg-white rounded-2xl p-4 border border-slate-100 shadow-sm flex items-center justify-between" dir="rtl">
                             <div class="flex items-center gap-4">
-                                <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-xl"><i data-lucide="moon" class="w-5 h-5"></i></div>
+                                <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-xl border border-indigo-200"><i data-lucide="moon" class="w-5 h-5"></i></div>
                                 <span class="font-bold text-slate-700 text-sm">دۆخی تاریک</span>
                             </div>
                             <div class="w-12 h-7 flex items-center rounded-full p-1 bg-primary cursor-pointer transition-colors relative">
@@ -481,7 +499,7 @@
             </div>
         </section>
 
-        <!-- 6. Bottom Navigation Component -->
+        <!-- 7. Bottom Navigation Component -->
         <section class="mt-12">
             <div class="mb-6 md:mb-8">
                 <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Navigation</span>
@@ -489,7 +507,7 @@
                 <p class="text-slate-500 mt-2 text-sm md:text-base">Standalone bottom navigation components showing different active states.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <!-- State 1: Bookmark Active -->
                 <div class="p-6 bg-slate-100 rounded-3xl border border-slate-200 flex flex-col items-center gap-6">
                     <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs">Bookmark Active</h4>
@@ -557,9 +575,114 @@
                     </button>
                 </div>
             </div>
+
+            <!-- NEW: Glassmorphism Navigations -->
+            <div class="mt-16 mb-6 md:mb-8">
+                <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Modern UI</span>
+                <h3 class="text-2xl md:text-3xl font-bold text-slate-800">Glassmorphism Navigation</h3>
+                <p class="text-slate-500 mt-2 text-sm md:text-base">Modern, frosted-glass navigation bars with detached floating action buttons (FAB).</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Glass Nav 1: Reading App -->
+                <div class="p-6 bg-[#f0f2f5] rounded-3xl border border-slate-200 flex flex-col items-center gap-6 relative overflow-hidden">
+                    <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs z-10">Reading App Style</h4>
+                    <div class="w-full py-6 flex items-center justify-center gap-3 relative z-10">
+                        <!-- Main Glass Nav -->
+                        <div id="nav-glass-reading" class="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-full shadow-[0_15px_35px_-10px_rgba(0,0,0,0.1)] h-[60px] md:h-[68px] px-2 flex items-center gap-1 md:gap-2">
+                            <!-- Active Item -->
+                            <div class="flex items-center gap-2 bg-white rounded-full px-4 md:px-5 py-2 md:py-2.5 shadow-sm border border-slate-100 cursor-pointer">
+                                <i data-lucide="home" class="w-4 h-4 md:w-5 md:h-5 text-slate-900 fill-slate-900"></i>
+                                <span class="text-xs md:text-sm font-bold text-slate-900">Home</span>
+                            </div>
+                            <!-- Inactive Items -->
+                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 cursor-pointer transition-colors">
+                                <i data-lucide="book-open" class="w-4 h-4 md:w-5 md:h-5"></i>
+                            </div>
+                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 cursor-pointer transition-colors">
+                                <i data-lucide="library" class="w-4 h-4 md:w-5 md:h-5"></i>
+                            </div>
+                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 cursor-pointer transition-colors">
+                                <i data-lucide="search" class="w-4 h-4 md:w-5 md:h-5"></i>
+                            </div>
+                        </div>
+                        <!-- Floating Action Button -->
+                        <div id="nav-fab-yellow" class="w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 shadow-lg shadow-orange-400/40 flex items-center justify-center text-white cursor-pointer hover:scale-105 transition-transform shrink-0">
+                            <i data-lucide="plus" class="w-6 h-6 md:w-8 md:h-8"></i>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 w-full relative z-10">
+                        <button onclick="copyNavHTML('nav-glass-reading')" class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-4 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300">
+                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Nav
+                        </button>
+                        <button onclick="copyNavHTML('nav-fab-yellow')" class="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-4 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300">
+                            <i data-lucide="copy" class="w-4 h-4"></i> Copy FAB
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Glass Nav 2: Audio Recorder -->
+                <div class="p-6 bg-[#f0f2f5] rounded-3xl border border-slate-200 flex flex-col items-center gap-6 relative overflow-hidden">
+                    <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs z-10">Audio Recorder Style</h4>
+                    <div class="w-full py-6 flex items-center justify-center relative z-10">
+                        <div id="nav-glass-audio" class="w-full max-w-[320px] bg-white/60 backdrop-blur-2xl border border-white/80 rounded-full shadow-[0_15px_35px_-10px_rgba(0,0,0,0.1)] h-[70px] md:h-[84px] px-2 md:px-3 flex items-center justify-between">
+                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/50 flex items-center justify-center text-slate-600 cursor-pointer hover:bg-white hover:shadow-sm transition-all">
+                                <i data-lucide="mic" class="w-4 h-4 md:w-5 md:h-5"></i>
+                            </div>
+                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/50 flex items-center justify-center text-slate-600 cursor-pointer hover:bg-white hover:shadow-sm transition-all">
+                                <i data-lucide="layout-grid" class="w-4 h-4 md:w-5 md:h-5"></i>
+                            </div>
+                            
+                            <!-- Record Button -->
+                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#E55B5B] shadow-lg shadow-red-500/30 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform border-[3px] border-white/60">
+                                <div class="w-4 h-4 md:w-5 md:h-5 bg-white rounded-sm"></div>
+                            </div>
+
+                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/50 flex items-center justify-center text-slate-600 cursor-pointer hover:bg-white hover:shadow-sm transition-all">
+                                <i data-lucide="pause" class="w-4 h-4 md:w-5 md:h-5 fill-slate-600"></i>
+                            </div>
+                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/50 flex items-center justify-center text-slate-600 cursor-pointer hover:bg-white hover:shadow-sm transition-all">
+                                <i data-lucide="check" class="w-4 h-4 md:w-5 md:h-5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="copyNavHTML('nav-glass-audio')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center relative z-10 mt-auto">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                    </button>
+                </div>
+
+                <!-- Glass Nav 3: Vertical Labels -->
+                <div class="p-6 bg-[#f0f2f5] rounded-3xl border border-slate-200 flex flex-col items-center gap-6 relative overflow-hidden">
+                    <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs z-10">Vertical Label Style</h4>
+                    <div class="w-full py-6 flex items-center justify-center relative z-10">
+                        <div id="nav-glass-vertical" class="bg-white/60 backdrop-blur-2xl border border-white/80 rounded-[2rem] shadow-[0_15px_35px_-10px_rgba(0,0,0,0.1)] h-[80px] md:h-[90px] px-6 flex items-center justify-between gap-8 md:gap-10 w-auto">
+                            <!-- Active Home -->
+                            <div class="flex flex-col items-center justify-center gap-1 md:gap-1.5 cursor-pointer">
+                                <i data-lucide="home" class="w-5 h-5 md:w-6 md:h-6 text-slate-900"></i>
+                                <span class="text-[10px] md:text-[11px] font-bold text-slate-900">Home</span>
+                            </div>
+                            <!-- Inactive Rewards -->
+                            <div class="flex flex-col items-center justify-center gap-1 md:gap-1.5 cursor-pointer opacity-50 hover:opacity-100 transition-opacity">
+                                <i data-lucide="award" class="w-5 h-5 md:w-6 md:h-6 text-slate-500"></i>
+                                <span class="text-[10px] md:text-[11px] font-bold text-slate-500">Rewards</span>
+                            </div>
+                            <!-- Inactive Profile -->
+                            <div class="flex flex-col items-center justify-center gap-1 md:gap-1.5 cursor-pointer opacity-50 hover:opacity-100 transition-opacity">
+                                <i data-lucide="user" class="w-5 h-5 md:w-6 md:h-6 text-slate-500"></i>
+                                <span class="text-[10px] md:text-[11px] font-bold text-slate-500">Profile</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="copyNavHTML('nav-glass-vertical')" class="flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center relative z-10 mt-auto">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                    </button>
+                </div>
+
+            </div>
         </section>
 
-        <!-- 7. Themed Icons Section -->
+        <!-- 8. Themed Icons Section -->
         <section id="themed-icons" class="scroll-mt-32">
             <div class="mb-6 md:mb-8">
                 <span class="text-primary font-bold tracking-widest text-xs uppercase mb-1 block">Building Blocks</span>
@@ -573,7 +696,7 @@
             <div id="themed-icon-grid" class="flex flex-wrap gap-4 md:gap-6 lg:gap-8 justify-center sm:justify-start"></div>
         </section>
 
-        <!-- 8. Iconography Section -->
+        <!-- 9. Iconography Section -->
         <section id="icons" class="scroll-mt-32 pb-10">
             <div class="bg-white p-3 md:p-4 rounded-2xl border border-slate-200 shadow-sm mb-6 md:mb-8 sticky top-[120px] md:top-24 z-40 flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-between">
                 <div class="flex items-center gap-3 w-full sm:w-auto">
@@ -616,39 +739,46 @@
             { name: 'Text Muted', hex: '#64748B', usage: 'Body text' },
         ];
 
+        const categoryCards = [
+            { id: 'kids', title: 'بەشی فێرکاری مناڵان', bg: 'bg-[#77B56E]', icon: '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' },
+            { id: 'tajweed', title: 'زانستی تەجوید', bg: 'bg-[#55B9C5]', icon: '<rect x="4" y="2" width="16" height="20" rx="2" ry="2" stroke="white" stroke-width="2" fill="none"/><path d="M9 2v10l3-2 3 2V2" stroke="white" stroke-width="2" fill="none"/>' },
+            { id: 'quran', title: 'قورئانی پیرۆز', bg: 'bg-[#0A1D56]', icon: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke="white" stroke-width="2.5" fill="none"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke="white" stroke-width="2.5" fill="none"/><path d="M6 8h2" stroke="white" stroke-width="2.5" stroke-linecap="round"/><path d="M6 12h2" stroke="white" stroke-width="2.5" stroke-linecap="round"/><path d="M16 8h2" stroke="white" stroke-width="2.5" stroke-linecap="round"/><path d="M16 12h2" stroke="white" stroke-width="2.5" stroke-linecap="round"/>' },
+            { id: 'topics', title: 'بابەتی ئایەت', bg: 'bg-[#DF6A63]', icon: '<rect x="4" y="6" width="4" height="14" rx="1" transform="rotate(-15 6 13)" stroke="white" stroke-width="2" fill="none"/><rect x="10" y="6" width="4" height="14" rx="1" stroke="white" stroke-width="2" fill="none"/><rect x="16" y="6" width="4" height="14" rx="1" transform="rotate(15 18 13)" stroke="white" stroke-width="2" fill="none"/>' },
+            { id: 'vocab', title: 'وشە و ماناکان', bg: 'bg-[#A98562]', icon: '<path d="M5 8l6 6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M4 14l6-6 2-3" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M2 5h12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M7 2h1" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M22 22l-5-10-5 10" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M14 18h6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' }
+        ];
+
         const themedIcons = [
-            // Core Navigation Elements added explicitly to the themed icons view
-            { id: 'settings', icon: 'settings', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Settings' },
-            { id: 'home', icon: 'home', bg: 'bg-primary/10', text: 'text-primary', bgHex: '#e0e7ff', textHex: '#0B1E5B', label: 'Home' },
-            { id: 'menu', icon: 'menu', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Menu' },
-            { id: 'bookmark_fav', icon: 'bookmark', bg: 'bg-rose-100', text: 'text-rose-600', bgHex: '#ffe4e6', textHex: '#e11d48', label: 'Bookmark' },
+            // Colors optimized based on Settings icons (Light backgrounds, vibrant outlines)
+            { id: 'settings', icon: 'settings', bg: 'bg-[#f0f2f6]', text: 'text-[#1e293b]', bgHex: '#f0f2f6', textHex: '#1e293b', label: 'Settings', border: true },
+            { id: 'home', icon: 'home', bg: 'bg-[#eef2fc]', text: 'text-primary', bgHex: '#eef2fc', textHex: '#0B1E5B', label: 'Home', border: true },
+            { id: 'bookmark_fav', icon: 'bookmark', bg: 'bg-[#ffe4e6]', text: 'text-[#e11d48]', bgHex: '#ffe4e6', textHex: '#e11d48', label: 'Bookmark', border: true },
             
-            { id: 'bell', icon: 'bell', bg: 'bg-orange-100', text: 'text-orange-600', bgHex: '#ffedd5', textHex: '#ea580c', label: 'Notifications' },
-            { id: 'type', icon: 'type', bg: 'bg-slate-200', text: 'text-primary', bgHex: '#e2e8f0', textHex: '#0B1E5B', label: 'Typography' },
-            { id: 'moon', icon: 'moon', bg: 'bg-indigo-100', text: 'text-indigo-600', bgHex: '#e0e7ff', textHex: '#4f46e5', label: 'Dark Mode' },
-            { id: 'globe', icon: 'globe', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Language' },
-            { id: 'info', icon: 'info', bg: 'bg-blue-100', text: 'text-blue-600', bgHex: '#dbeafe', textHex: '#2563eb', label: 'About' },
-            { id: 'mail', icon: 'mail', bg: 'bg-pink-100', text: 'text-pink-600', bgHex: '#fce7f3', textHex: '#db2777', label: 'Contact' },
-            { id: 'share', icon: 'share-2', bg: 'bg-teal-100', text: 'text-teal-600', bgHex: '#ccfbf1', textHex: '#0d9488', label: 'Share' },
-            { id: 'copy', icon: 'copy', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Copy' },
-            { id: 'done', icon: 'check-circle', bg: 'bg-green-100', text: 'text-green-600', bgHex: '#dcfce3', textHex: '#16a34a', label: 'Done' },
+            { id: 'bell', icon: 'bell', bg: 'bg-[#fff1e0]', text: 'text-[#ea580c]', bgHex: '#fff1e0', textHex: '#ea580c', label: 'Notifications', border: true },
+            { id: 'type', icon: 'type', bg: 'bg-[#f0f2f6]', text: 'text-primary', bgHex: '#f0f2f6', textHex: '#0B1E5B', label: 'Typography', border: true },
+            { id: 'moon', icon: 'moon', bg: 'bg-[#eef0ff]', text: 'text-[#4f46e5]', bgHex: '#eef0ff', textHex: '#4f46e5', label: 'Dark Mode', border: true },
             
-            { id: 'quran', icon: 'book-open', bg: 'bg-primary/10', text: 'text-primary', bgHex: '#e0e7ff', textHex: '#0B1E5B', label: 'Read Quran' },
-            { id: 'qibla', icon: 'compass', bg: 'bg-teal-100', text: 'text-teal-600', bgHex: '#ccfbf1', textHex: '#0d9488', label: 'Qibla Compass' },
-            { id: 'prayer', icon: 'clock', bg: 'bg-sky-100', text: 'text-sky-600', bgHex: '#e0f2fe', textHex: '#0284c7', label: 'Prayer Times' },
-            { id: 'profile', icon: 'user', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'User Profile' },
+            { id: 'globe', icon: 'globe', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Language', border: true },
+            { id: 'info', icon: 'info', bg: 'bg-blue-100', text: 'text-blue-600', bgHex: '#dbeafe', textHex: '#2563eb', label: 'About', border: true },
+            { id: 'share', icon: 'share-2', bg: 'bg-teal-100', text: 'text-teal-600', bgHex: '#ccfbf1', textHex: '#0d9488', label: 'Share', border: true },
+            { id: 'copy', icon: 'copy', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Copy', border: true },
             
-            { id: 'makki', icon: 'makki', bg: 'bg-amber-100', text: 'text-amber-600', bgHex: '#fef3c7', textHex: '#d97706', label: 'Makki (Mecca)', 
+            { id: 'quran', icon: 'book-open', bg: 'bg-[#e0e7ff]', text: 'text-[#0B1E5B]', bgHex: '#e0e7ff', textHex: '#0B1E5B', label: 'Read Quran', border: true },
+            { id: 'qibla', icon: 'compass', bg: 'bg-teal-100', text: 'text-teal-600', bgHex: '#ccfbf1', textHex: '#0d9488', label: 'Qibla Compass', border: true },
+            { id: 'prayer', icon: 'clock', bg: 'bg-sky-100', text: 'text-sky-600', bgHex: '#e0f2fe', textHex: '#0284c7', label: 'Prayer Times', border: true },
+            { id: 'profile', icon: 'user', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'User Profile', border: true },
+            
+            // Custom Origin Icons (Makki, Madani & Tasbih)
+            { id: 'makki', icon: 'makki', bg: 'bg-amber-100', text: 'text-amber-600', bgHex: '#fef3c7', textHex: '#d97706', label: 'Makki', border: true,
               customSvg: '<rect x="5" y="6" width="14" height="14" rx="1"/><path d="M5 10h14"/><path d="M10 14h4v6h-4z"/>' },
-            { id: 'madani', icon: 'madani', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Madani (Medina)', 
+            { id: 'madani', icon: 'madani', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Madani', border: true,
               customSvg: '<path d="M3 20v-5a5 5 0 0 1 10 0v5"/><path d="M6 20v-2a2 2 0 0 1 4 0v2"/><path d="M8 2a1.5 1.5 0 1 0 1.5 1.5 2 2 0 1 1-1.5-1.5z"/><path d="M16 20V8l1.5-2 1.5 2v12"/><path d="M2 20h20"/>' },
-            { id: 'tasbih', icon: 'tasbih', bg: 'bg-purple-100', text: 'text-purple-600', bgHex: '#f3e8ff', textHex: '#9333ea', label: 'Tasbih', 
+            { id: 'tasbih', icon: 'tasbih', bg: 'bg-purple-100', text: 'text-purple-600', bgHex: '#f3e8ff', textHex: '#9333ea', label: 'Tasbih', border: true,
               customSvg: '<path d="M12 22v-4"/><path d="M10 16a6 6 0 1 1 4 0"/><circle cx="12" cy="4" r="1"/><circle cx="16" cy="6" r="1"/><circle cx="17.5" cy="10" r="1"/><circle cx="16" cy="14" r="1"/><circle cx="8" cy="6" r="1"/><circle cx="6.5" cy="10" r="1"/><circle cx="8" cy="14" r="1"/><path d="M10 22h4"/>' },
 
-            { id: 'youtube', icon: 'youtube', bg: 'bg-[#FF0000]/10', text: 'text-[#FF0000]', bgHex: '#fee2e2', textHex: '#FF0000', label: 'YouTube' },
-            { id: 'play', icon: 'play', bg: 'bg-blue-100', text: 'text-blue-600', bgHex: '#dbeafe', textHex: '#2563eb', label: 'Play' },
-            { id: 'pause', icon: 'pause', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Pause' },
-            { id: 'volume', icon: 'volume-2', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Volume' }
+            { id: 'youtube', icon: 'youtube', bg: 'bg-[#FF0000]/10', text: 'text-[#FF0000]', bgHex: '#fee2e2', textHex: '#FF0000', label: 'YouTube', border: true },
+            { id: 'play', icon: 'play', bg: 'bg-blue-100', text: 'text-blue-600', bgHex: '#dbeafe', textHex: '#2563eb', label: 'Play', border: true },
+            { id: 'pause', icon: 'pause', bg: 'bg-slate-100', text: 'text-slate-600', bgHex: '#f1f5f9', textHex: '#475569', label: 'Pause', border: true },
+            { id: 'volume', icon: 'volume-2', bg: 'bg-emerald-100', text: 'text-emerald-600', bgHex: '#d1fae5', textHex: '#059669', label: 'Volume', border: true }
         ];
 
         const bannerData = [
@@ -751,6 +881,43 @@
             showToast(`Downloaded ${filename}.svg`);
         }
 
+        // Render Functions
+        function renderCategoryCards() {
+            const container = document.getElementById('category-cards-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            categoryCards.forEach(card => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'group cursor-pointer active:scale-95 transition-transform flex flex-col w-full h-[140px] md:h-[180px] bg-white rounded-3xl shadow-sm hover:shadow-md border border-slate-100 overflow-hidden relative';
+                
+                const cardHtml = `
+                    <div class="flex-1 ${card.bg} flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+                        
+                        <!-- Ellipse Shadow -->
+                        <div class="absolute top-[65%] left-1/2 -translate-x-1/2 w-[70%] h-[30%] bg-black/15 blur-[4px] rounded-[100%] transition-transform duration-500 group-hover:scale-110"></div>
+                        
+                        <!-- SVG Icon -->
+                        <div class="w-12 h-12 md:w-16 md:h-16 transform group-hover:-translate-y-2 transition-transform duration-500 relative z-10 flex items-center justify-center">
+                            <svg viewBox="0 0 24 24" class="w-full h-full">${card.icon}</svg>
+                        </div>
+                    </div>
+                    <div class="py-3 bg-white border-t border-slate-50 flex items-center justify-center h-[35%]">
+                        <span class="text-slate-800 font-bold text-xs md:text-sm text-center leading-tight transition-colors group-hover:text-primary px-2">${card.title}</span>
+                    </div>
+                `;
+                
+                wrapper.innerHTML = cardHtml;
+                wrapper.onclick = () => {
+                    const code = `<div class="w-full h-[180px] bg-white rounded-3xl overflow-hidden flex flex-col">\n  ${cardHtml.replace(/group-hover:[a-z0-9-]+/g, '')}\n</div>`;
+                    navigator.clipboard.writeText(code);
+                    showToast(`Copied ${card.title} Card HTML`);
+                };
+                container.appendChild(wrapper);
+            });
+        }
+
         function renderHeaderBanners() {
             const container = document.getElementById('banner-grid');
             if (!container) return;
@@ -847,25 +1014,27 @@
                 wrapper.className = 'group relative flex flex-col items-center gap-2 cursor-pointer w-[70px] md:w-20';
                 
                 const spinClass = item.spin ? 'animate-spin' : '';
+                const borderClass = item.border ? `border border-[${item.textHex}]/20` : 'border border-white';
+                
                 let iconHtml = item.customSvg 
-                    ? `<svg viewBox="0 0 24 24" class="w-6 h-6 md:w-8 md:h-8 ${spinClass}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${item.customSvg}</svg>` 
-                    : `<i data-lucide="${item.icon}" class="w-6 h-6 md:w-8 md:h-8 ${spinClass}"></i>`;
+                    ? `<svg viewBox="0 0 24 24" class="w-6 h-6 md:w-8 md:h-8 ${spinClass}" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${item.customSvg}</svg>` 
+                    : `<i data-lucide="${item.icon}" class="w-6 h-6 md:w-8 md:h-8 ${spinClass}" stroke-width="2.5"></i>`;
 
                 wrapper.onclick = () => {
                     let codeHtml = item.customSvg 
-                        ? `<svg viewBox="0 0 24 24" class="w-5 h-5 md:w-6 md:h-6 ${spinClass}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${item.customSvg}</svg>` 
-                        : `<i data-lucide="${item.icon}" class="w-5 h-5 md:w-6 md:h-6 ${spinClass}"></i>`;
-                    const code = `<div class="w-12 h-12 md:w-14 md:h-14 ${item.bg} ${item.text} rounded-2xl flex items-center justify-center">\n  ${codeHtml}\n</div>`;
+                        ? `<svg viewBox="0 0 24 24" class="w-5 h-5 md:w-6 md:h-6 ${spinClass}" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${item.customSvg}</svg>` 
+                        : `<i data-lucide="${item.icon}" class="w-5 h-5 md:w-6 md:h-6 ${spinClass}" stroke-width="2.5"></i>`;
+                    const code = `<div class="w-12 h-12 md:w-14 md:h-14 ${item.bg} ${item.text} ${borderClass} rounded-[1rem] md:rounded-[1.25rem] flex items-center justify-center">\n  ${codeHtml}\n</div>`;
                     navigator.clipboard.writeText(code);
                     showToast(`Copied HTML for ${item.icon}`);
                 };
 
                 wrapper.innerHTML = `
-                    <div class="relative w-[70px] h-[70px] md:w-20 md:h-20 ${item.bg} ${item.text} rounded-2xl md:rounded-3xl flex items-center justify-center shadow-sm hover:shadow-md transition-all active:scale-95 border border-white">
+                    <div class="relative w-[70px] h-[70px] md:w-20 md:h-20 ${item.bg} ${item.text} rounded-[1.25rem] md:rounded-[1.5rem] ${borderClass} flex items-center justify-center shadow-sm hover:shadow-md transition-all active:scale-95">
                         <div class="flex items-center justify-center w-full h-full svg-container">
                             ${iconHtml}
                         </div>
-                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 rounded-2xl md:rounded-3xl transition-opacity flex items-center justify-center hidden md:flex">
+                        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 rounded-[1.25rem] md:rounded-[1.5rem] transition-opacity flex items-center justify-center hidden md:flex">
                             <button class="bg-white/90 hover:bg-white text-slate-800 p-1.5 md:p-2 rounded-xl shadow-sm backdrop-blur-sm transition-all transform translate-y-2 group-hover:translate-y-0 border border-slate-100 dl-btn">
                                 <i data-lucide="download" class="w-3 h-3 md:w-4 md:h-4"></i>
                             </button>
@@ -879,7 +1048,7 @@
                     dlBtn.onclick = (e) => {
                         e.stopPropagation();
                         const paths = wrapper.querySelector('.svg-container').innerHTML;
-                        const svgString = `<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" fill="${item.bgHex}" rx="16" /><g transform="translate(20, 20) scale(1)" stroke="${item.textHex}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">${paths}</g></svg>`;
+                        const svgString = `<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" fill="${item.bgHex}" rx="20" /><g transform="translate(16, 16) scale(1.33)" stroke="${item.textHex}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none">${paths}</g></svg>`;
                         triggerDownload(svgString, `themed-${item.id}.svg`);
                         showToast(`Downloaded themed-${item.id}.svg`);
                     };
@@ -955,6 +1124,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
+            renderCategoryCards();
             renderColors();
             renderHeaderBanners();
             renderThemedIcons();
