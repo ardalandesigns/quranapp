@@ -720,55 +720,107 @@
                     <div>
                         <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2">
                             <i data-lucide="monitor-smartphone" class="text-primary w-5 h-5"></i>
-                            Live Render Preview
+                            Live App Screen Preview
                         </h3>
-                        <p class="text-xs md:text-sm text-slate-500 mt-1">Uthmani (Minimal) + Kurdish Sorani translation UI render.</p>
+                        <p class="text-xs md:text-sm text-slate-500 mt-1">Uthmani text and Sorani translation rendered inside a mobile app interface.</p>
                     </div>
                     <button onclick="copyHTML('api-preview-render')" class="flex items-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 transition-colors">
-                        <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy UI HTML
+                        <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Screen HTML
                     </button>
                 </div>
 
-                <div id="api-preview-render" class="bg-[#f8f9fc] p-4 md:p-6 rounded-3xl space-y-4 md:space-y-6" dir="rtl">
-                    <!-- Fetched Ayah 1 -->
-                    <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group">
-                        <div class="absolute right-0 top-0 bottom-0 w-1 bg-primary/20 group-hover:bg-primary transition-colors"></div>
-                        <div class="flex justify-between items-center mb-4 border-b border-slate-50 pb-3">
-                            <div class="flex gap-2 items-center">
-                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-lg text-xs font-bold font-mono" dir="ltr">1 : 1</span>
-                                <span class="text-xs font-bold text-slate-400">سُورَةُ ٱلْفَاتِحَةِ</span>
+                <!-- App Screen Mockup Container -->
+                <div class="bg-[#f0f2f6] p-8 md:p-12 rounded-3xl flex justify-center items-center relative overflow-hidden">
+                    <!-- Decorative Blurs -->
+                    <div class="absolute top-0 right-10 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute bottom-0 left-10 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <!-- Mobile Phone Device Frame -->
+                    <div class="w-[320px] h-[660px] bg-[#f8f9fc] rounded-[3rem] border-[10px] border-slate-800 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] relative overflow-hidden flex flex-col z-10 ring-2 ring-slate-100" dir="rtl">
+                        
+                        <!-- Status Bar & Dynamic Island -->
+                        <div class="absolute top-0 inset-x-0 h-11 flex items-center justify-between px-6 z-30" dir="ltr">
+                            <span class="text-[12px] font-semibold text-slate-800 font-sans tracking-wide pt-1">9:41</span>
+                            <!-- Dynamic Island -->
+                            <div class="w-[90px] h-[22px] bg-black rounded-full absolute top-2.5 left-1/2 -translate-x-1/2 shadow-sm flex items-center justify-end px-2">
+                                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500/20 flex items-center justify-center mr-1">
+                                    <div class="w-1 h-1 rounded-full bg-emerald-500"></div>
+                                </div>
                             </div>
-                            <div class="flex gap-1" dir="ltr">
-                                <button class="p-1.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors" title="Copy Ayah text">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                                </button>
-                                <button class="p-1.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors" title="Play Audio">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-                                </button>
+                            <div class="flex gap-1.5 items-center pt-1">
+                                <i data-lucide="wifi" class="w-3.5 h-3.5 text-slate-800"></i>
+                                <i data-lucide="battery-full" class="w-[18px] h-[18px] text-slate-800"></i>
                             </div>
                         </div>
-                        <p class="font-quran text-2xl md:text-3xl lg:text-4xl text-primary text-right leading-loose md:leading-[2.5] mb-4">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
-                        <p class="font-sans text-sm md:text-base font-medium text-slate-600 text-right leading-relaxed border-t border-slate-50 pt-4">بە ناوی خوای بەخشندەی میهرەبان</p>
-                    </div>
 
-                    <!-- Fetched Ayah 2 -->
-                    <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group">
-                        <div class="absolute right-0 top-0 bottom-0 w-1 bg-slate-100 group-hover:bg-primary/50 transition-colors"></div>
-                        <div class="flex justify-between items-center mb-4 border-b border-slate-50 pb-3">
-                            <div class="flex gap-2 items-center">
-                                <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-lg text-xs font-bold font-mono" dir="ltr">1 : 2</span>
+                        <!-- App Header Bar -->
+                        <div class="bg-white/80 backdrop-blur-xl pt-14 pb-4 px-5 z-20 flex items-center justify-between border-b border-slate-100 sticky top-0 shadow-sm">
+                            <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center cursor-pointer hover:bg-slate-100 transition-colors">
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-700"></i>
                             </div>
-                            <div class="flex gap-1" dir="ltr">
-                                <button class="p-1.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors" title="Copy Ayah text">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                                </button>
-                                <button class="p-1.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors" title="Play Audio">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-                                </button>
+                            <div class="flex flex-col items-center">
+                                <h3 class="font-bold text-slate-800 text-sm font-sans">سُورَةُ ٱلْفَاتِحَةِ</h3>
+                                <span class="text-[9px] text-slate-400 font-bold tracking-wider mt-0.5">مەکی • ٧ ئایەت</span>
+                            </div>
+                            <div class="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center cursor-pointer hover:bg-slate-100 transition-colors">
+                                <i data-lucide="settings-2" class="w-4 h-4 text-slate-700"></i>
                             </div>
                         </div>
-                        <p class="font-quran text-2xl md:text-3xl lg:text-4xl text-primary text-right leading-loose md:leading-[2.5] mb-4">ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ</p>
-                        <p class="font-sans text-sm md:text-base font-medium text-slate-600 text-right leading-relaxed border-t border-slate-50 pt-4">سوپاس و ستایش بۆ خوای پەروەردگاری جیهانیان</p>
+
+                        <!-- Content Scroll Area -->
+                        <div id="api-preview-render" class="flex-1 overflow-y-auto px-4 py-5 space-y-4 hide-scrollbar relative">
+                            
+                            <!-- Bismillah Header -->
+                            <div class="text-center mb-6 mt-2">
+                                <h2 class="font-quran text-2xl text-slate-800 leading-loose">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h2>
+                                <div class="w-1/2 h-px bg-slate-200 mx-auto mt-3"></div>
+                            </div>
+
+                            <!-- Ayah 1 -->
+                            <div class="bg-white p-4 rounded-[1.25rem] shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-md transition-shadow">
+                                <div class="absolute right-0 top-0 bottom-0 w-1 bg-primary/30 group-hover:bg-primary transition-colors"></div>
+                                <div class="flex justify-between items-center mb-3 border-b border-slate-50 pb-2">
+                                    <div class="flex gap-2 items-center">
+                                        <span class="bg-primary/10 text-primary px-2 py-1 rounded-lg text-[10px] font-bold font-mono" dir="ltr">1 : 1</span>
+                                    </div>
+                                    <div class="flex gap-1" dir="ltr">
+                                        <button class="p-1.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors" title="Copy text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                        </button>
+                                        <button class="p-1.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors" title="Play Audio">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="font-quran text-[22px] text-primary text-right leading-loose mb-3">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+                                <p class="font-sans text-[13px] font-medium text-slate-600 text-right leading-relaxed border-t border-slate-50 pt-3">بە ناوی خوای بەخشندەی میهرەبان</p>
+                            </div>
+
+                            <!-- Ayah 2 -->
+                            <div class="bg-white p-4 rounded-[1.25rem] shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-md transition-shadow">
+                                <div class="absolute right-0 top-0 bottom-0 w-1 bg-slate-200 group-hover:bg-primary/50 transition-colors"></div>
+                                <div class="flex justify-between items-center mb-3 border-b border-slate-50 pb-2">
+                                    <div class="flex gap-2 items-center">
+                                        <span class="bg-slate-100 text-slate-600 px-2 py-1 rounded-lg text-[10px] font-bold font-mono" dir="ltr">1 : 2</span>
+                                    </div>
+                                    <div class="flex gap-1" dir="ltr">
+                                        <button class="p-1.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors" title="Copy text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                        </button>
+                                        <button class="p-1.5 text-slate-400 hover:text-primary hover:bg-blue-50 rounded-lg transition-colors" title="Play Audio">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="font-quran text-[22px] text-primary text-right leading-loose mb-3">ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ</p>
+                                <p class="font-sans text-[13px] font-medium text-slate-600 text-right leading-relaxed border-t border-slate-50 pt-3">سوپاس و ستایش بۆ خوای پەروەردگاری جیهانیان</p>
+                            </div>
+                        </div>
+                        
+                        <!-- iOS Home Indicator -->
+                        <div class="absolute bottom-2 inset-x-0 flex justify-center z-30 pointer-events-none">
+                            <div class="w-[120px] h-[5px] bg-slate-300 rounded-full"></div>
+                        </div>
                     </div>
                 </div>
             </div>
