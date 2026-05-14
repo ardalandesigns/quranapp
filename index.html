@@ -418,7 +418,7 @@
                     </div>
 
                     <!-- Component: UI Badges -->
-                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm lg:col-span-2">
+                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
                         <div>
                             <h3 class="text-base md:text-lg font-bold text-slate-800">UI Badges & Tags</h3>
                         </div>
@@ -438,8 +438,101 @@
                                 </div>
                             </div>
                         </div>
-                        <button onclick="copyHTML('comp-ui-badges')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
+                        <button onclick="copyHTML('comp-ui-badges')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
                             <i data-lucide="copy" class="w-4 h-4"></i> Copy Badges
+                        </button>
+                    </div>
+
+                    <!-- Component: Mini Audio Player (New) -->
+                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm lg:col-span-2">
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-slate-800">Mini Audio Player</h3>
+                            <p class="text-sm text-slate-500">Sticky player for Quran recitation playback.</p>
+                        </div>
+                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
+                            <div id="comp-audio-player" class="w-full max-w-md bg-white rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100 p-4" dir="rtl">
+                                <div class="flex items-center gap-4">
+                                    <button class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-md shadow-primary/30 hover:scale-105 transition-transform shrink-0">
+                                        <i data-lucide="play" class="w-5 h-5 ml-1 fill-current"></i>
+                                    </button>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-slate-800 text-sm">سُورَةُ الفَاتِحَةِ</h4>
+                                        <p class="text-slate-500 text-xs mt-0.5">مِشَارِي رَاشِد العَفَاسِي</p>
+                                    </div>
+                                    <div class="text-xs font-mono text-slate-400 font-bold" dir="ltr">0:45 / 3:12</div>
+                                </div>
+                                <!-- Progress Bar -->
+                                <div class="mt-4 flex items-center gap-2 px-1">
+                                    <div class="h-1.5 flex-1 bg-slate-100 rounded-full overflow-hidden relative cursor-pointer">
+                                        <div class="absolute left-0 top-0 h-full bg-primary w-1/4 rounded-full transition-all"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="copyHTML('comp-audio-player')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
+                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        </button>
+                    </div>
+
+                    <!-- Component: Playlist Item (New) -->
+                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-slate-800">Playlist Item</h3>
+                            <p class="text-sm text-slate-500">List layout for track selections.</p>
+                        </div>
+                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
+                            <div id="comp-playlist-item" class="w-full max-w-sm bg-white p-3 rounded-2xl flex items-center gap-3 border border-slate-100 shadow-sm hover:bg-slate-50 transition-colors cursor-pointer group" dir="rtl">
+                                <button class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+                                    <i data-lucide="play" class="w-4 h-4 ml-0.5 fill-current"></i>
+                                </button>
+                                <div class="flex-1 text-right pr-1">
+                                    <h4 class="font-bold text-slate-800 text-sm">البقرة</h4>
+                                    <p class="text-slate-400 text-xs">١٢٠ خولەک</p>
+                                </div>
+                                <button class="text-slate-400 hover:text-primary transition-colors p-2 rounded-xl hover:bg-slate-100">
+                                    <i data-lucide="more-vertical" class="w-5 h-5"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button onclick="copyHTML('comp-playlist-item')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        </button>
+                    </div>
+
+                    <!-- Component: Search Input (New) -->
+                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-slate-800">Search Input</h3>
+                            <p class="text-sm text-slate-500">Primary search bar for lists.</p>
+                        </div>
+                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
+                            <div id="comp-search" class="w-full max-w-sm relative" dir="rtl">
+                                <i data-lucide="search" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5"></i>
+                                <input type="text" placeholder="گەڕان بۆ ئایەت یان سوورەت..." class="w-full bg-white border border-slate-200 text-slate-800 text-sm font-bold rounded-2xl py-3 pr-12 pl-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm placeholder:font-medium placeholder:text-slate-400">
+                            </div>
+                        </div>
+                        <button onclick="copyHTML('comp-search')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        </button>
+                    </div>
+
+                    <!-- Component: Empty State (New) -->
+                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm lg:col-span-2">
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-slate-800">Empty State Layout</h3>
+                            <p class="text-sm text-slate-500">Placeholder for when bookmarks/data are empty.</p>
+                        </div>
+                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
+                            <div id="comp-empty-state" class="w-full max-w-sm bg-white p-8 rounded-[2rem] flex flex-col items-center text-center gap-3 border border-slate-100 shadow-sm" dir="rtl">
+                                <div class="w-16 h-16 bg-slate-50 text-slate-300 rounded-full flex items-center justify-center mb-2 shadow-inner">
+                                    <i data-lucide="bookmark-minus" class="w-8 h-8"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-base">هیچ دڵخوازێک نییە</h4>
+                                <p class="text-slate-500 text-xs leading-relaxed max-w-[200px]">هێشتا هیچ ئایەتێکت خەزن نەکردووە. پەنجە بنێ بە نیشانەی دڵخواز بۆ خەزنکردن.</p>
+                            </div>
+                        </div>
+                        <button onclick="copyHTML('comp-empty-state')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
+                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
                         </button>
                     </div>
 
