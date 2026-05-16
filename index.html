@@ -116,7 +116,7 @@
             <!-- Brand Identity -->
             <div class="flex items-center gap-3 shrink-0">
                 <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 p-2 text-white shrink-0">
-                    <img src="https://1aya.com/assets/quran-app-mark-white.svg" alt="App Logo" class="w-full h-full object-contain">
+                    <img src="https://1aya.com/assets/quran-app-mark-white.svg" alt="App Logo" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/100x100/0B1E5B/ffffff?text=Logo'">
                 </div>
                 <div>
                     <h1 class="text-lg md:text-xl font-extrabold text-slate-800 tracking-tight leading-none">Sardar Nasr App</h1>
@@ -176,8 +176,6 @@
             </div>
         </div>
         
-
-
         <!-- 3. Typography Section -->
         <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
             <button onclick="toggleAccordion('sec-typography')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
@@ -708,7 +706,7 @@
       <span class="token-key">"ayahs"</span>: [
         {
           <span class="token-key">"number"</span>: <span class="token-number">1</span>,
-          <span class="token-key">"text"</span>: <span class="token-string">"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"</span>,
+          <span class="token-key">"text"</span>: <span class="token-string">"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"</span>,
           <span class="token-key">"numberInSurah"</span>: <span class="token-number">1</span>
         }
       ]
@@ -764,22 +762,7 @@
                     </div>
                 </div>
                 <i data-lucide="chevron-down" id="icon-sec-icons" class="w-6 h-6 text-slate-400 transition-transform duration-300 transform rotate-180"></i>
-           
-            
-
-            
-            
             </button>
-
-
-
-
-
-
-
-
-
-            
             
             <div id="sec-icons" class="accordion-content open border-t border-slate-100">
                 <div class="p-6 md:p-8 bg-slate-50/50" id="icons">
@@ -805,7 +788,6 @@
 
     <!-- Toast Notification Container -->
     <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none w-[calc(100%-3rem)] md:w-auto"></div>
-
 
     
     <script>
@@ -895,59 +877,70 @@
             { id: 'youtube', icon: 'mdi:youtube', type: 'iconify', bg: 'bg-[#FF0000]/10', text: 'text-[#FF0000]', hex: '#fee2e2', textHex: '#FF0000', label: 'YouTube' },
             { id: 'play', icon: 'lucide:play', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Play' },
             { id: 'pause', icon: 'lucide:pause', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'Pause' },
-            { id: 'volume', icon: 'lucide:volume-2', type: 'iconify', bg: 'bg-emerald-100', text: 'text-emerald-600', hex: '#d1fae5', textHex: '#059669', label: 'Volume' }
+            { id: 'volume', icon: 'lucide:volume-2', type: 'iconify', bg: 'bg-emerald-100', text: 'text-emerald-600', hex: '#d1fae5', textHex: '#059669', label: 'Volume' },
 
-    // --- UI Essentials ---
-    { id: 'search', icon: 'lucide:search', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Search' },
-    { id: 'menu', icon: 'lucide:menu', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'Menu' },
-    { id: 'close', icon: 'lucide:x', type: 'iconify', bg: 'bg-red-100', text: 'text-red-600', hex: '#fee2e2', textHex: '#dc2626', label: 'Close' },
-    { id: 'edit', icon: 'lucide:edit', type: 'iconify', bg: 'bg-amber-100', text: 'text-amber-600', hex: '#fef3c7', textHex: '#d97706', label: 'Edit' },
-    { id: 'trash', icon: 'lucide:trash-2', type: 'iconify', bg: 'bg-red-100', text: 'text-red-600', hex: '#fee2e2', textHex: '#dc2626', label: 'Delete' },
-    { id: 'check', icon: 'lucide:check', type: 'iconify', bg: 'bg-green-100', text: 'text-green-600', hex: '#dcfce3', textHex: '#16a34a', label: 'Confirm' },
-    { id: 'plus', icon: 'lucide:plus', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Add' },
-    { id: 'minus', icon: 'lucide:minus', type: 'iconify', bg: 'bg-orange-100', text: 'text-orange-600', hex: '#ffedd5', textHex: '#ea580c', label: 'Remove' },
-    { id: 'more_vert', icon: 'lucide:more-vertical', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'More Options' },
-    { id: 'more_horiz', icon: 'lucide:more-horizontal', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'More' },
+            // --- UI Essentials ---
+            { id: 'search', icon: 'lucide:search', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Search' },
+            { id: 'menu', icon: 'lucide:menu', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'Menu' },
+            { id: 'close', icon: 'lucide:x', type: 'iconify', bg: 'bg-red-100', text: 'text-red-600', hex: '#fee2e2', textHex: '#dc2626', label: 'Close' },
+            { id: 'edit', icon: 'lucide:edit', type: 'iconify', bg: 'bg-amber-100', text: 'text-amber-600', hex: '#fef3c7', textHex: '#d97706', label: 'Edit' },
+            { id: 'trash', icon: 'lucide:trash-2', type: 'iconify', bg: 'bg-red-100', text: 'text-red-600', hex: '#fee2e2', textHex: '#dc2626', label: 'Delete' },
+            { id: 'check', icon: 'lucide:check', type: 'iconify', bg: 'bg-green-100', text: 'text-green-600', hex: '#dcfce3', textHex: '#16a34a', label: 'Confirm' },
+            { id: 'plus', icon: 'lucide:plus', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Add' },
+            { id: 'minus', icon: 'lucide:minus', type: 'iconify', bg: 'bg-orange-100', text: 'text-orange-600', hex: '#ffedd5', textHex: '#ea580c', label: 'Remove' },
+            { id: 'more_vert', icon: 'lucide:more-vertical', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'More Options' },
+            { id: 'more_horiz', icon: 'lucide:more-horizontal', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'More' },
 
-    // --- Navigation & Web ---
-    { id: 'link', icon: 'lucide:link', type: 'iconify', bg: 'bg-cyan-100', text: 'text-cyan-600', hex: '#cffafe', textHex: '#0891b2', label: 'Link' },
-    { id: 'external_link', icon: 'lucide:external-link', type: 'iconify', bg: 'bg-sky-100', text: 'text-sky-600', hex: '#e0f2fe', textHex: '#0284c7', label: 'Open In New' },
-    { id: 'download', icon: 'lucide:download', type: 'iconify', bg: 'bg-emerald-100', text: 'text-emerald-600', hex: '#d1fae5', textHex: '#059669', label: 'Download' },
-    { id: 'upload', icon: 'lucide:upload', type: 'iconify', bg: 'bg-indigo-100', text: 'text-indigo-600', hex: '#e0e7ff', textHex: '#4f46e5', label: 'Upload' },
-    { id: 'refresh', icon: 'lucide:refresh-cw', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Refresh' },
-    { id: 'history', icon: 'lucide:history', type: 'iconify', bg: 'bg-purple-100', text: 'text-purple-600', hex: '#f3e8ff', textHex: '#9333ea', label: 'History' },
-    { id: 'star', icon: 'lucide:star', type: 'iconify', bg: 'bg-yellow-100', text: 'text-yellow-600', hex: '#fef9c3', textHex: '#ca8a04', label: 'Favorite' },
-    { id: 'heart', icon: 'lucide:heart', type: 'iconify', bg: 'bg-rose-100', text: 'text-rose-600', hex: '#ffe4e6', textHex: '#e11d48', label: 'Like' },
-    { id: 'zoom_in', icon: 'lucide:zoom-in', type: 'iconify', bg: 'bg-teal-100', text: 'text-teal-600', hex: '#ccfbf1', textHex: '#0d9488', label: 'Zoom In' },
-    { id: 'zoom_out', icon: 'lucide:zoom-out', type: 'iconify', bg: 'bg-teal-100', text: 'text-teal-600', hex: '#ccfbf1', textHex: '#0d9488', label: 'Zoom Out' },
+            // --- Navigation & Web ---
+            { id: 'link', icon: 'lucide:link', type: 'iconify', bg: 'bg-cyan-100', text: 'text-cyan-600', hex: '#cffafe', textHex: '#0891b2', label: 'Link' },
+            { id: 'external_link', icon: 'lucide:external-link', type: 'iconify', bg: 'bg-sky-100', text: 'text-sky-600', hex: '#e0f2fe', textHex: '#0284c7', label: 'Open In New' },
+            { id: 'download', icon: 'lucide:download', type: 'iconify', bg: 'bg-emerald-100', text: 'text-emerald-600', hex: '#d1fae5', textHex: '#059669', label: 'Download' },
+            { id: 'upload', icon: 'lucide:upload', type: 'iconify', bg: 'bg-indigo-100', text: 'text-indigo-600', hex: '#e0e7ff', textHex: '#4f46e5', label: 'Upload' },
+            { id: 'refresh', icon: 'lucide:refresh-cw', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Refresh' },
+            { id: 'history', icon: 'lucide:history', type: 'iconify', bg: 'bg-purple-100', text: 'text-purple-600', hex: '#f3e8ff', textHex: '#9333ea', label: 'History' },
+            { id: 'star', icon: 'lucide:star', type: 'iconify', bg: 'bg-yellow-100', text: 'text-yellow-600', hex: '#fef9c3', textHex: '#ca8a04', label: 'Favorite' },
+            { id: 'heart', icon: 'lucide:heart', type: 'iconify', bg: 'bg-rose-100', text: 'text-rose-600', hex: '#ffe4e6', textHex: '#e11d48', label: 'Like' },
+            { id: 'zoom_in', icon: 'lucide:zoom-in', type: 'iconify', bg: 'bg-teal-100', text: 'text-teal-600', hex: '#ccfbf1', textHex: '#0d9488', label: 'Zoom In' },
+            { id: 'zoom_out', icon: 'lucide:zoom-out', type: 'iconify', bg: 'bg-teal-100', text: 'text-teal-600', hex: '#ccfbf1', textHex: '#0d9488', label: 'Zoom Out' },
 
-    // --- Media & Devices ---
-    { id: 'camera', icon: 'lucide:camera', type: 'iconify', bg: 'bg-violet-100', text: 'text-violet-600', hex: '#ede9fe', textHex: '#7c3aed', label: 'Camera' },
-    { id: 'video', icon: 'lucide:video', type: 'iconify', bg: 'bg-red-100', text: 'text-red-600', hex: '#fee2e2', textHex: '#dc2626', label: 'Video' },
-    { id: 'mic', icon: 'lucide:mic', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Microphone' },
-    { id: 'mic_off', icon: 'lucide:mic-off', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'Mute' },
-    { id: 'headphones', icon: 'lucide:headphones', type: 'iconify', bg: 'bg-fuchsia-100', text: 'text-fuchsia-600', hex: '#fae8ff', textHex: '#c026d3', label: 'Audio' },
-    { id: 'monitor', icon: 'lucide:monitor', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'Desktop' },
-    { id: 'smartphone', icon: 'lucide:smartphone', type: 'iconify', bg: 'bg-stone-100', text: 'text-stone-600', hex: '#f5f5f4', textHex: '#57534e', label: 'Mobile' },
-    { id: 'laptop', icon: 'lucide:laptop', type: 'iconify', bg: 'bg-zinc-100', text: 'text-zinc-600', hex: '#f4f4f5', textHex: '#52525b', label: 'Laptop' },
-    { id: 'tablet', icon: 'lucide:tablet', type: 'iconify', bg: 'bg-gray-100', text: 'text-gray-600', hex: '#f3f4f6', textHex: '#4b5563', label: 'Tablet' },
-    { id: 'watch', icon: 'lucide:watch', type: 'iconify', bg: 'bg-neutral-100', text: 'text-neutral-600', hex: '#f5f5f5', textHex: '#525252', label: 'Smartwatch' },
+            { id: 'skip_back', icon: 'lucide:skip-back', type: 'iconify', bg: 'bg-stone-100', text: 'text-stone-600', hex: '#f5f5f4', textHex: '#57534e', label: 'Previous' },
+            { id: 'skip_forward', icon: 'lucide:skip-forward', type: 'iconify', bg: 'bg-stone-100', text: 'text-stone-600', hex: '#f5f5f4', textHex: '#57534e', label: 'Next' },
+            { id: 'play', icon: 'lucide:play', type: 'iconify', bg: 'bg-emerald-100', text: 'text-emerald-600', hex: '#d1fae5', textHex: '#059669', label: 'Play' },
+            { id: 'pause', icon: 'lucide:pause', type: 'iconify', bg: 'bg-amber-100', text: 'text-amber-600', hex: '#fef3c7', textHex: '#d97706', label: 'Pause' },
+            { id: 'rotate_ccw', icon: 'lucide:rotate-ccw', type: 'iconify', bg: 'bg-indigo-100', text: 'text-indigo-600', hex: '#e0e7ff', textHex: '#4f46e5', label: 'Replay' },
+            { id: 'tag', icon: 'lucide:tag', type: 'iconify', bg: 'bg-rose-100', text: 'text-rose-600', hex: '#ffe4e6', textHex: '#e11d48', label: 'Tag' },
 
-  
-    // --- Development & Miscellaneous ---
-    { id: 'code', icon: 'lucide:code', type: 'iconify', bg: 'bg-fuchsia-100', text: 'text-fuchsia-600', hex: '#fae8ff', textHex: '#c026d3', label: 'Source Code' },
-    { id: 'terminal', icon: 'lucide:terminal', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'Console' },
-    { id: 'database', icon: 'lucide:database', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Database' },
-    { id: 'server', icon: 'lucide:server', type: 'iconify', bg: 'bg-gray-100', text: 'text-gray-600', hex: '#f3f4f6', textHex: '#4b5563', label: 'Server' },
-    { id: 'cpu', icon: 'lucide:cpu', type: 'iconify', bg: 'bg-zinc-100', text: 'text-zinc-600', hex: '#f4f4f5', textHex: '#52525b', label: 'Processing' },
-    { id: 'bug', icon: 'lucide:bug', type: 'iconify', bg: 'bg-red-100', text: 'text-red-600', hex: '#fee2e2', textHex: '#dc2626', label: 'Issues' },
-    { id: 'git_branch', icon: 'lucide:git-branch', type: 'iconify', bg: 'bg-orange-100', text: 'text-orange-600', hex: '#ffedd5', textHex: '#ea580c', label: 'Branch' },
-    { id: 'git_commit', icon: 'lucide:git-commit', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'Commit' },
-    { id: 'git_merge', icon: 'lucide:git-merge', type: 'iconify', bg: 'bg-purple-100', text: 'text-purple-600', hex: '#f3e8ff', textHex: '#9333ea', label: 'Merge' },
-    { id: 'git_pull_request', icon: 'lucide:git-pull-request', type: 'iconify', bg: 'bg-green-100', text: 'text-green-600', hex: '#dcfce3', textHex: '#16a34a', label: 'Pull Request' }
+            // --- Media & Devices ---
+            { id: 'camera', icon: 'lucide:camera', type: 'iconify', bg: 'bg-violet-100', text: 'text-violet-600', hex: '#ede9fe', textHex: '#7c3aed', label: 'Camera' },
+            { id: 'video', icon: 'lucide:video', type: 'iconify', bg: 'bg-red-100', text: 'text-red-600', hex: '#fee2e2', textHex: '#dc2626', label: 'Video' },
+            { id: 'mic', icon: 'lucide:mic', type: 'iconify', bg: 'bg-blue-100', text: 'text-blue-600', hex: '#dbeafe', textHex: '#2563eb', label: 'Microphone' },
+            { id: 'mic_off', icon: 'lucide:mic-off', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'Mute' },
+            { id: 'headphones', icon: 'lucide:headphones', type: 'iconify', bg: 'bg-fuchsia-100', text: 'text-fuchsia-600', hex: '#fae8ff', textHex: '#c026d3', label: 'Audio' },
+            { id: 'monitor', icon: 'lucide:monitor', type: 'iconify', bg: 'bg-slate-100', text: 'text-slate-600', hex: '#f1f5f9', textHex: '#475569', label: 'Desktop' },
+            { id: 'smartphone', icon: 'lucide:smartphone', type: 'iconify', bg: 'bg-stone-100', text: 'text-stone-600', hex: '#f5f5f4', textHex: '#57534e', label: 'Mobile' },
+            { id: 'laptop', icon: 'lucide:laptop', type: 'iconify', bg: 'bg-zinc-100', text: 'text-zinc-600', hex: '#f4f4f5', textHex: '#52525b', label: 'Laptop' },
+            { id: 'tablet', icon: 'lucide:tablet', type: 'iconify', bg: 'bg-gray-100', text: 'text-gray-600', hex: '#f3f4f6', textHex: '#4b5563', label: 'Tablet' },
+            { id: 'watch', icon: 'lucide:watch', type: 'iconify', bg: 'bg-neutral-100', text: 'text-neutral-600', hex: '#f5f5f5', textHex: '#525252', label: 'Smartwatch' },
+
+            { id: 'quran', icon: 'lucide:book-open', type: 'iconify', bg: 'bg-emerald-100', text: 'text-emerald-600', hex: '#d1fae5', textHex: '#059669', label: 'Holy Quran' },
+            { id: 'prayer_times', icon: 'lucide:clock', type: 'iconify', bg: 'bg-amber-100', text: 'text-amber-600', hex: '#fef3c7', textHex: '#d97706', label: 'Prayer Times' },
+            { id: 'qibla', icon: 'lucide:compass', type: 'iconify', bg: 'bg-teal-100', text: 'text-teal-600', hex: '#ccfbf1', textHex: '#0d9488', label: 'Qibla Finder' },
+            { id: 'tasbih', icon: 'lucide:fingerprint', type: 'iconify', bg: 'bg-indigo-100', text: 'text-indigo-600', hex: '#e0e7ff', textHex: '#4f46e5', label: 'Tasbih Counter' },
+            { id: 'dhikr', icon: 'lucide:heart', type: 'iconify', bg: 'bg-rose-100', text: 'text-rose-600', hex: '#ffe4e6', textHex: '#e11d48', label: 'Dhikr & Dua' },
+            { id: 'mosque', icon: 'lucide:map-pin', type: 'iconify', bg: 'bg-sky-100', text: 'text-sky-600', hex: '#e0f2fe', textHex: '#0284c7', label: 'Nearby Mosques' },
+            { id: 'calendar', icon: 'lucide:calendar', type: 'iconify', bg: 'bg-violet-100', text: 'text-violet-600', hex: '#ede9fe', textHex: '#7c3aed', label: 'Hijri Calendar' },
+            { id: 'zakat', icon: 'lucide:coins', type: 'iconify', bg: 'bg-lime-100', text: 'text-lime-600', hex: '#f0fdf4', textHex: '#16a34a', label: 'Zakat Calculator' },
+            { id: 'knowledge', icon: 'lucide:graduation-cap', type: 'iconify', bg: 'bg-cyan-100', text: 'text-cyan-600', hex: '#ecfeff', textHex: '#0891b2', label: 'Hadith & Lessons' },
+
+{ id: 'kids_stories', icon: 'lucide:sparkles', type: 'iconify', bg: 'bg-pink-100', text: 'text-pink-600', hex: '#fce7f3', textHex: '#db2777', label: 'Prophet Stories' },
+            { id: 'kids_games', icon: 'lucide:gamepad-2', type: 'iconify', bg: 'bg-indigo-100', text: 'text-indigo-600', hex: '#e0e7ff', textHex: '#4f46e5', label: 'Islamic Games' },
+            { id: 'kids_quiz', icon: 'lucide:trophy', type: 'iconify', bg: 'bg-amber-100', text: 'text-amber-600', hex: '#fef3c7', textHex: '#d97706', label: 'Daily Quiz' },
+            { id: 'kids_quran', icon: 'lucide:baby', type: 'iconify', bg: 'bg-sky-100', text: 'text-sky-600', hex: '#e0f2fe', textHex: '#0284c7', label: 'Kids Memorization' },
+            { id: 'kids_rewards', icon: 'lucide:star', type: 'iconify', bg: 'bg-yellow-100', text: 'text-yellow-600', hex: '#fef9c3', textHex: '#ca8a04', label: 'Badges & Rewards' },
+            { id: 'kids_drawing', icon: 'lucide:palette', type: 'iconify', bg: 'bg-purple-100', text: 'text-purple-600', hex: '#f3e8ff', textHex: '#9333ea', label: 'Coloring & Art' },
+            { id: 'kids_audio', icon: 'lucide:headset', type: 'iconify', bg: 'bg-teal-100', text: 'text-teal-600', hex: '#ccfbf1', textHex: '#0d9488', label: 'Nasheed & Audio' }
 
 
-    
             
         ];
 
@@ -1107,7 +1100,7 @@
                 container.innerHTML += `
                     <div class="flex flex-col gap-3 group">
                         <div class="w-full h-40 ${logo.bg} rounded-[1.5rem] flex items-center justify-center shadow-sm border ${isDarkBg ? 'border-transparent' : 'border-slate-200'} p-6 relative overflow-hidden transition-all hover:shadow-md">
-                            <img src="${logo.url}" alt="${logo.title}" class="max-w-full max-h-full object-contain drop-shadow-sm">
+                            <img src="${logo.url}" alt="${logo.title}" onerror="this.src='https://placehold.co/100x100/0B1E5B/ffffff?text=${logo.title}'" class="max-w-full max-h-full object-contain drop-shadow-sm">
                             <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
                                 <button onclick="fetchExternalSvgAction('${logo.url}', 'copy', '${logo.id}.svg', event)" class="w-10 h-10 rounded-full bg-white text-slate-800 flex items-center justify-center shadow-lg hover:scale-110 transition-transform" title="Copy SVG Code">
                                     <i data-lucide="copy" class="w-4 h-4"></i>
@@ -1154,7 +1147,7 @@
             categoryCards.forEach(card => {
                 container.innerHTML += `
                     <div class="group relative flex items-center justify-center w-24 h-24 md:w-32 md:h-32 overflow-hidden rounded-2xl bg-white/50 border border-slate-100/50 p-3 hover:bg-slate-50 transition-colors">
-                        <img src="${card.src}" alt="${card.title}" class="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110">
+                        <img src="${card.src}" alt="${card.title}" onerror="this.src='https://placehold.co/100x100/0B1E5B/ffffff?text=${card.id}'" class="w-full h-full object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px] rounded-2xl">
                             <button onclick="fetchExternalSvgAction('${card.src}', 'copy', '${card.id}.svg', event)" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white text-slate-800 flex items-center justify-center shadow-lg hover:scale-110 transition-transform" title="Copy SVG Code">
                                 <i data-lucide="copy" class="w-3 h-3 md:w-4 md:h-4"></i>
