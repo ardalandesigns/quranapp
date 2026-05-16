@@ -170,25 +170,123 @@
             </div>
         </div>
 
-        <!-- 2. Colors Section -->
-        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+
+
+
+
+
+
+
+<div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
             <button onclick="toggleAccordion('sec-colors')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
                 <div class="flex items-center gap-3 md:gap-4">
                     <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
                         <i data-lucide="palette" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Brand Colors</h2>
-                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Click to copy HEX</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Brand Colors & Gradients</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Click to copy HEX or CSS Code</p>
                     </div>
                 </div>
                 <i data-lucide="chevron-down" id="icon-sec-colors" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300"></i>
             </button>
+            
             <div id="sec-colors" class="accordion-content border-t border-slate-100">
-                <div class="p-4 md:p-8 bg-slate-50/50 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12 gap-3 md:gap-4" id="color-grid"></div>
+                <div class="p-4 md:p-8 bg-slate-50/50 flex flex-col gap-8">
+                    
+                    <div>
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 px-1">Solid Colors</h3>
+                        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12 gap-3 md:gap-4" id="color-grid">
+                            </div>
+                    </div>
+
+                    <hr class="border-slate-200/60" />
+
+                    <div>
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 px-1">Linear Gradients</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4" id="gradient-grid">
+                            
+                            <div onclick="copyGradient('linear-gradient(135deg, #059669, #10b981)', this)" class="group cursor-pointer bg-white p-3 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col gap-2">
+                                <div class="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-500 shadow-inner relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                                        <i data-lucide="copy" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                                <div class="px-0.5">
+                                    <p class="text-xs font-bold text-slate-800 truncate">Emerald Hope</p>
+                                    <p class="text-[9px] text-slate-400 font-mono mt-0.5 truncate">#059669 → #10b981</p>
+                                </div>
+                            </div>
+
+                            <div onclick="copyGradient('linear-gradient(135deg, #d97706, #f59e0b)', this)" class="group cursor-pointer bg-white p-3 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col gap-2">
+                                <div class="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-amber-600 to-amber-500 shadow-inner relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                                        <i data-lucide="copy" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                                <div class="px-0.5">
+                                    <p class="text-xs font-bold text-slate-800 truncate">Sunset Glow</p>
+                                    <p class="text-[9px] text-slate-400 font-mono mt-0.5 truncate">#d97706 → #f59e0b</p>
+                                </div>
+                            </div>
+
+                            <div onclick="copyGradient('linear-gradient(135deg, #4f46e5, #7c3aed)', this)" class="group cursor-pointer bg-white p-3 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col gap-2">
+                                <div class="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 shadow-inner relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                                        <i data-lucide="copy" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                                <div class="px-0.5">
+                                    <p class="text-xs font-bold text-slate-800 truncate">Mystic Royal</p>
+                                    <p class="text-[9px] text-slate-400 font-mono mt-0.5 truncate">#4f46e5 → #7c3aed</p>
+                                </div>
+                            </div>
+
+                            <div onclick="copyGradient('linear-gradient(135deg, #e11d48, #fda4af)', this)" class="group cursor-pointer bg-white p-3 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col gap-2">
+                                <div class="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-rose-600 to-rose-300 shadow-inner relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                                        <i data-lucide="copy" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                                <div class="px-0.5">
+                                    <p class="text-xs font-bold text-slate-800 truncate">Playful Rose</p>
+                                    <p class="text-[9px] text-slate-400 font-mono mt-0.5 truncate">#e11d48 → #fda4af</p>
+                                </div>
+                            </div>
+
+                            <div onclick="copyGradient('linear-gradient(135deg, #0284c7, #06b6d4)', this)" class="group cursor-pointer bg-white p-3 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col gap-2">
+                                <div class="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-sky-600 to-cyan-500 shadow-inner relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                                        <i data-lucide="copy" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                                <div class="px-0.5">
+                                    <p class="text-xs font-bold text-slate-800 truncate">Ocean Tech</p>
+                                    <p class="text-[9px] text-slate-400 font-mono mt-0.5 truncate">#0284c7 → #06b6d4</p>
+                                </div>
+                            </div>
+
+                            <div onclick="copyGradient('linear-gradient(135deg, #c026d3, #fae8ff)', this)" class="group cursor-pointer bg-white p-3 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all flex flex-col gap-2">
+                                <div class="w-full aspect-[4/3] rounded-xl bg-gradient-to-br from-fuchsia-600 to-fuchsia-200 shadow-inner relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                                        <i data-lucide="copy" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                                <div class="px-0.5">
+                                    <p class="text-xs font-bold text-slate-800 truncate">Fuchsia Blossom</p>
+                                    <p class="text-[9px] text-slate-400 font-mono mt-0.5 truncate">#c026d3 → #fae8ff</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-        
+
+
+
         <!-- 3. Typography Section -->
         <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
             <button onclick="toggleAccordion('sec-typography')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
