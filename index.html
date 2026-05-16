@@ -59,7 +59,10 @@
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        @media (min-width: 768px) {
+            ::-webkit-scrollbar { width: 6px; height: 6px; }
+        }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
@@ -83,7 +86,7 @@
             overflow: hidden;
         }
         .accordion-content.open {
-            max-height: 6000px; /* Large enough to hold content */
+            max-height: 8000px; /* Increased for potentially larger responsive content */
             opacity: 1;
             overflow: visible;
         }
@@ -99,12 +102,20 @@
         pre {
             background-color: #0d1117;
             color: #c9d1d9;
-            padding: 1rem;
-            border-radius: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
             overflow-x: auto;
             font-family: monospace;
-            font-size: 0.875rem;
-            line-height: 1.5;
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
+        @media (min-width: 768px) {
+            pre {
+                padding: 1rem;
+                border-radius: 0.75rem;
+                font-size: 0.875rem;
+                line-height: 1.5;
+            }
         }
     </style>
 </head>
@@ -112,45 +123,47 @@
 
     <!-- Top Navigation Bar -->
     <nav class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-[1600px] mx-auto px-4 md:px-6 h-auto md:h-20 flex flex-col md:flex-row md:items-center justify-between py-3 md:py-0 gap-4 md:gap-0">
+        <div class="max-w-[1600px] mx-auto px-3 sm:px-4 md:px-6 h-auto md:h-20 flex flex-col md:flex-row md:items-center justify-between py-3 md:py-0 gap-3 md:gap-0">
             <!-- Brand Identity -->
-            <div class="flex items-center gap-3 shrink-0">
-                <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 p-2 text-white shrink-0">
-                    <img src="https://1aya.com/assets/quran-app-mark-white.svg" alt="App Logo" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/100x100/0B1E5B/ffffff?text=Logo'">
-                </div>
-                <div>
-                    <h1 class="text-lg md:text-xl font-extrabold text-slate-800 tracking-tight leading-none">Sardar Nasr App</h1>
-                    <p class="text-slate-500 font-medium tracking-widest uppercase text-[9px] md:text-[10px] mt-1">Design System & Assets</p>
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 p-1.5 sm:p-2 text-white shrink-0">
+                        <img src="https://1aya.com/assets/quran-app-mark-white.svg" alt="App Logo" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/100x100/0B1E5B/ffffff?text=Logo'">
+                    </div>
+                    <div>
+                        <h1 class="text-base sm:text-lg md:text-xl font-extrabold text-slate-800 tracking-tight leading-none">Sardar Nasr App</h1>
+                        <p class="text-slate-500 font-medium tracking-widest uppercase text-[8px] sm:text-[9px] md:text-[10px] mt-0.5 sm:mt-1">Design System & Assets</p>
+                    </div>
                 </div>
             </div>
             
-            <div class="flex items-center gap-2 md:gap-4 text-xs md:text-sm font-bold text-slate-500 overflow-x-auto hide-scrollbar w-full md:w-auto pb-1 md:pb-0">
-                <button onclick="toggleAllAccordions(true)" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap"><i data-lucide="maximize-2" class="w-3 h-3 inline mr-1"></i> Expand All</button>
-                <button onclick="toggleAllAccordions(false)" class="px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap"><i data-lucide="minimize-2" class="w-3 h-3 inline mr-1"></i> Collapse All</button>
-                <a href="#sec-icons" onclick="toggleAccordion('sec-icons', true)" class="px-4 py-2 bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors whitespace-nowrap ml-auto md:ml-2">Browse Icons</a>
+            <div class="flex items-center gap-1.5 sm:gap-2 md:gap-4 text-[10px] sm:text-xs md:text-sm font-bold text-slate-500 overflow-x-auto hide-scrollbar w-full md:w-auto pb-1 md:pb-0">
+                <button onclick="toggleAllAccordions(true)" class="px-2 sm:px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap flex items-center gap-1"><i data-lucide="maximize-2" class="w-3 h-3"></i> Expand All</button>
+                <button onclick="toggleAllAccordions(false)" class="px-2 sm:px-3 py-1.5 rounded-lg hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap flex items-center gap-1"><i data-lucide="minimize-2" class="w-3 h-3"></i> Collapse All</button>
+                <a href="#sec-icons" onclick="toggleAccordion('sec-icons', true)" class="px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 text-primary rounded-xl hover:bg-primary/20 transition-colors whitespace-nowrap ml-auto md:ml-2">Browse Icons</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-[1600px] mx-auto px-4 md:px-6 py-8 md:py-12 space-y-6">
+    <main class="max-w-[1600px] mx-auto px-3 sm:px-4 md:px-6 py-6 md:py-12 space-y-4 md:space-y-6">
 
         <!-- 1. Logo & Brand Marks Section -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <button onclick="toggleAccordion('sec-logo')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="image" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <button onclick="toggleAccordion('sec-logo')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="image" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Brand Logos & Marks</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">Download or copy exact SVG assets</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Brand Logos & Marks</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Download or copy exact SVG assets</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-logo" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
+                <i data-lucide="chevron-down" id="icon-sec-logo" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300"></i>
             </button>
             <div id="sec-logo" class="accordion-content border-t border-slate-100">
-                <div class="p-6 md:p-8 bg-slate-50/50">
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="logo-grid">
+                <div class="p-4 md:p-8 bg-slate-50/50">
+                    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6" id="logo-grid">
                         <!-- Populated by JS -->
                     </div>
                 </div>
@@ -158,78 +171,78 @@
         </div>
 
         <!-- 2. Colors Section -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <button onclick="toggleAccordion('sec-colors')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="palette" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <button onclick="toggleAccordion('sec-colors')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="palette" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Brand Colors</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">Click to copy HEX</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Brand Colors</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Click to copy HEX</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-colors" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
+                <i data-lucide="chevron-down" id="icon-sec-colors" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300"></i>
             </button>
             <div id="sec-colors" class="accordion-content border-t border-slate-100">
-                <div class="p-6 md:p-8 bg-slate-50/50 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-3 md:gap-4" id="color-grid"></div>
+                <div class="p-4 md:p-8 bg-slate-50/50 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12 gap-3 md:gap-4" id="color-grid"></div>
             </div>
         </div>
         
         <!-- 3. Typography Section -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <button onclick="toggleAccordion('sec-typography')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="type" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <button onclick="toggleAccordion('sec-typography')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="type" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Typography</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">Authentic King Fahd Uthmanic Script & UI Fonts</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Typography</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Authentic King Fahd Uthmanic Script & UI Fonts</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-typography" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
+                <i data-lucide="chevron-down" id="icon-sec-typography" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300"></i>
             </button>
             <div id="sec-typography" class="accordion-content border-t border-slate-100">
-                <div class="p-6 md:p-8 flex flex-col lg:flex-row gap-8 md:gap-12 bg-slate-50/50" dir="rtl">
+                <div class="p-4 md:p-8 flex flex-col lg:flex-row gap-6 md:gap-12 bg-slate-50/50" dir="rtl">
                     <!-- Noto Sans Arabic (UI Font) -->
-                    <div class="flex-1 space-y-6 md:space-y-8">
+                    <div class="flex-1 space-y-5 md:space-y-8">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-4 mb-4 gap-3 sm:gap-0" dir="ltr">
                             <div>
-                                <h3 class="text-lg md:text-xl font-bold text-slate-800 font-sans">Noto Sans Arabic</h3>
-                                <p class="text-xs md:text-sm text-slate-500">Primary UI Font (Optimized for Kurdish)</p>
+                                <h3 class="text-base md:text-xl font-bold text-slate-800 font-sans">Noto Sans Arabic</h3>
+                                <p class="text-[10px] md:text-sm text-slate-500">Primary UI Font (Optimized for Kurdish)</p>
                             </div>
                             <div class="flex gap-2 w-full sm:w-auto">
-                                <a href="https://fonts.google.com/specimen/Noto+Sans+Arabic" target="_blank" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 transition-colors">
+                                <a href="https://fonts.google.com/specimen/Noto+Sans+Arabic" target="_blank" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 md:gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-[10px] md:text-xs font-bold border border-slate-200 transition-colors">
                                     <i data-lucide="external-link" class="w-3 h-3"></i> Google Fonts
                                 </a>
-                                <a href="https://fonts.google.com/download?family=Noto%20Sans%20Arabic" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-xl text-xs font-bold transition-colors">
+                                <a href="https://fonts.google.com/download?family=Noto%20Sans%20Arabic" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 md:gap-2 bg-primary/10 hover:bg-primary/20 text-primary px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-[10px] md:text-xs font-bold transition-colors">
                                     <i data-lucide="download" class="w-3 h-3"></i> Download
                                 </a>
                             </div>
                         </div>
                         <div>
-                            <p class="text-[10px] md:text-[11px] text-slate-400 font-mono text-left mb-1.5 uppercase tracking-wider" dir="ltr">H1 / text-3xl / font-extrabold</p>
-                            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800">قورئانی پیرۆز (Quran Kareem)</h1>
+                            <p class="text-[9px] md:text-[11px] text-slate-400 font-mono text-left mb-1 md:mb-1.5 uppercase tracking-wider" dir="ltr">H1 / text-2xl / font-extrabold</p>
+                            <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-800">قورئانی پیرۆز (Quran Kareem)</h1>
                         </div>
                         <div>
-                            <p class="text-[10px] md:text-[11px] text-slate-400 font-mono text-left mb-1.5 uppercase tracking-wider" dir="ltr">Body / text-sm / font-medium</p>
-                            <p class="text-sm md:text-base font-medium text-slate-600 leading-relaxed max-w-2xl">ئەم بەرنامەیە دیارییە بۆ هەموو موسڵمانان. ئامانجمان ئاسانکردنی فێربوونی قورئانی پیرۆزە بۆ هەموو تەمەنێک بە شێوازێکی مۆدێرن و سەرنجڕاکێش.</p>
+                            <p class="text-[9px] md:text-[11px] text-slate-400 font-mono text-left mb-1 md:mb-1.5 uppercase tracking-wider" dir="ltr">Body / text-sm / font-medium</p>
+                            <p class="text-xs sm:text-sm md:text-base font-medium text-slate-600 leading-relaxed max-w-2xl">ئەم بەرنامەیە دیارییە بۆ هەموو موسڵمانان. ئامانجمان ئاسانکردنی فێربوونی قورئانی پیرۆزە بۆ هەموو تەمەنێک بە شێوازێکی مۆدێرن و سەرنجڕاکێش.</p>
                         </div>
                     </div>
 
                     <!-- Uthmani Font (Quranic Font) -->
-                    <div class="lg:w-1/3 bg-white p-6 md:p-8 rounded-[1.5rem] border border-slate-200 shadow-sm flex flex-col text-center" dir="ltr">
-                        <div class="flex flex-col items-center border-b border-slate-100 pb-4 mb-6 w-full">
-                            <h3 class="text-lg md:text-xl font-bold text-slate-800 font-sans">King Fahd Uthmanic</h3>
-                            <p class="text-[11px] md:text-xs text-slate-500 mb-3 font-medium">Exact font used by Tanzil.net</p>
-                            <a href="https://tanzil.net/res/font/me_quran.ttf" class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md shadow-primary/20 transition-transform active:scale-95">
+                    <div class="lg:w-1/3 bg-white p-5 md:p-8 rounded-2xl md:rounded-[1.5rem] border border-slate-200 shadow-sm flex flex-col text-center" dir="ltr">
+                        <div class="flex flex-col items-center border-b border-slate-100 pb-4 mb-5 md:mb-6 w-full">
+                            <h3 class="text-base md:text-xl font-bold text-slate-800 font-sans">King Fahd Uthmanic</h3>
+                            <p class="text-[10px] md:text-xs text-slate-500 mb-2 md:mb-3 font-medium">Exact font used by Tanzil.net</p>
+                            <a href="https://tanzil.net/res/font/me_quran.ttf" class="flex items-center gap-1.5 md:gap-2 bg-primary text-white px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-[10px] md:text-xs font-bold shadow-md shadow-primary/20 transition-transform active:scale-95">
                                 <i data-lucide="download" class="w-3 h-3"></i> Download me_quran.ttf
                             </a>
                         </div>
                         <div class="flex-1 flex flex-col justify-center">
-                            <p class="text-[10px] md:text-[11px] text-slate-400 font-mono mb-4 uppercase tracking-wider">Arabic Focus / font-quran</p>
-                            <p class="font-quran text-3xl md:text-4xl text-primary leading-loose" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                            <p class="text-[9px] md:text-[11px] text-slate-400 font-mono mb-3 md:mb-4 uppercase tracking-wider">Arabic Focus / font-quran</p>
+                            <p class="font-quran text-2xl sm:text-3xl md:text-4xl text-primary leading-loose" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
                         </div>
                     </div>
                 </div>
@@ -237,406 +250,329 @@
         </div>
 
         <!-- 4. Category Grid Cards -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <button onclick="toggleAccordion('sec-categories')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="grid" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <button onclick="toggleAccordion('sec-categories')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-cyan-50 text-cyan-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="grid" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Category SVGs</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">Raw SVG assets (No frames or backgrounds)</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Category SVGs</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Raw SVG assets (No frames or backgrounds)</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-categories" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
+                <i data-lucide="chevron-down" id="icon-sec-categories" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300"></i>
             </button>
             <div id="sec-categories" class="accordion-content border-t border-slate-100">
-                <div class="p-6 md:p-8 bg-slate-50/50 flex flex-wrap items-center justify-center gap-6 md:gap-10" id="category-cards-container">
+                <div class="p-4 md:p-8 bg-slate-50/50 flex flex-wrap items-center justify-center gap-4 md:gap-10" id="category-cards-container">
                     <!-- Rendered via JS -->
                 </div>
             </div>
         </div>
 
         <!-- 5. Header Banners Section -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <button onclick="toggleAccordion('sec-banners')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-fuchsia-50 text-fuchsia-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="layout-template" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <button onclick="toggleAccordion('sec-banners')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-fuchsia-50 text-fuchsia-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="layout-template" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Header Banners (SVG)</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">Exact SVG recreations of the category headers</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Header Banners (SVG)</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Exact SVG recreations of the category headers</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-banners" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
+                <i data-lucide="chevron-down" id="icon-sec-banners" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300"></i>
             </button>
             <div id="sec-banners" class="accordion-content border-t border-slate-100">
-                <div class="p-6 md:p-8 bg-slate-50/50 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-5" id="banner-grid"></div>
+                <div class="p-4 md:p-8 bg-slate-50/50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-5" id="banner-grid"></div>
             </div>
         </div>
 
         <!-- 6. App UI Patterns & Components -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <button onclick="toggleAccordion('sec-patterns')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="blocks" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <button onclick="toggleAccordion('sec-patterns')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="blocks" class="w-4 h-4 md:w-5 h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">App UI Patterns</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">Essential developer building blocks for a Quran app</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">App UI Patterns</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Essential developer building blocks for a Quran app</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-patterns" class="w-6 h-6 text-slate-400 transition-transform duration-300 transform rotate-180"></i>
+                <i data-lucide="chevron-down" id="icon-sec-patterns" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300 transform rotate-180"></i>
             </button>
             <div id="sec-patterns" class="accordion-content open border-t border-slate-100">
-                <div class="p-6 md:p-8 bg-slate-50/50 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                <div class="p-4 md:p-8 bg-slate-50/50 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
                     
                     <!-- Component: Full Settings Menu -->
-                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm lg:col-span-2">
+                    <div class="bg-white p-4 md:p-8 rounded-2xl md:rounded-[2rem] border border-slate-200 flex flex-col gap-4 md:gap-6 shadow-sm lg:col-span-2">
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800">Full Settings Menu</h3>
-                            <p class="text-sm text-slate-500">Includes language, dark mode, font size, and about items.</p>
+                            <h3 class="text-sm md:text-lg font-bold text-slate-800">Full Settings Menu</h3>
+                            <p class="text-xs md:text-sm text-slate-500">Includes language, dark mode, font size, and about items.</p>
                         </div>
-                        <div class="bg-[#f8f9fc] p-4 md:p-8 rounded-2xl md:rounded-3xl w-full flex justify-center">
+                        <div class="bg-[#f8f9fc] p-3 md:p-8 rounded-xl md:rounded-3xl w-full flex justify-center">
                             
                             <!-- Setting Card Mockup -->
-                            <div id="comp-settings-list" class="w-full max-w-md bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden" dir="rtl">
+                            <div id="comp-settings-list" class="w-full max-w-md bg-white rounded-2xl md:rounded-3xl shadow-sm border border-slate-100 overflow-hidden" dir="rtl">
                                 
                                 <!-- Header -->
-                                <div class="px-6 py-5 border-b border-slate-100 bg-slate-50/50">
-                                    <h3 class="font-bold text-slate-800 text-lg">ڕێکخستنەکان (Settings)</h3>
+                                <div class="px-4 md:px-6 py-4 md:py-5 border-b border-slate-100 bg-slate-50/50">
+                                    <h3 class="font-bold text-slate-800 text-base md:text-lg">ڕێکخستنەکان (Settings)</h3>
                                 </div>
 
                                 <div class="flex flex-col">
                                     <!-- Language Item -->
-                                    <div class="px-6 py-4 flex items-center justify-between border-b border-slate-50 hover:bg-slate-50 transition-colors cursor-pointer group">
-                                        <div class="flex items-center gap-4">
-                                            <div class="p-2.5 bg-blue-100 text-blue-600 rounded-xl border border-blue-200 group-hover:scale-110 transition-transform"><i data-lucide="globe" class="w-5 h-5"></i></div>
-                                            <span class="font-bold text-slate-700 text-sm">زمان (Language)</span>
+                                    <div class="px-4 md:px-6 py-3 md:py-4 flex items-center justify-between border-b border-slate-50 hover:bg-slate-50 transition-colors cursor-pointer group">
+                                        <div class="flex items-center gap-3 md:gap-4">
+                                            <div class="p-2 bg-blue-100 text-blue-600 rounded-lg md:rounded-xl border border-blue-200 group-hover:scale-110 transition-transform"><i data-lucide="globe" class="w-4 h-4 md:w-5 md:h-5"></i></div>
+                                            <span class="font-bold text-slate-700 text-xs md:text-sm">زمان (Language)</span>
                                         </div>
-                                        <div class="flex items-center gap-2 text-slate-500">
-                                            <span class="text-xs font-medium">کوردی</span>
-                                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                                        <div class="flex items-center gap-1 md:gap-2 text-slate-500">
+                                            <span class="text-[10px] md:text-xs font-medium">کوردی</span>
+                                            <i data-lucide="chevron-left" class="w-4 h-4 md:w-5 md:h-5"></i>
                                         </div>
                                     </div>
 
                                     <!-- Dark Mode Toggle -->
-                                    <div class="px-6 py-4 flex items-center justify-between border-b border-slate-50 hover:bg-slate-50 transition-colors cursor-pointer group">
-                                        <div class="flex items-center gap-4">
-                                            <div class="p-2.5 bg-indigo-100 text-indigo-600 rounded-xl border border-indigo-200 group-hover:scale-110 transition-transform"><i data-lucide="moon" class="w-5 h-5"></i></div>
-                                            <span class="font-bold text-slate-700 text-sm">دۆخی تاریک (Dark Mode)</span>
+                                    <div class="px-4 md:px-6 py-3 md:py-4 flex items-center justify-between border-b border-slate-50 hover:bg-slate-50 transition-colors cursor-pointer group">
+                                        <div class="flex items-center gap-3 md:gap-4">
+                                            <div class="p-2 bg-indigo-100 text-indigo-600 rounded-lg md:rounded-xl border border-indigo-200 group-hover:scale-110 transition-transform"><i data-lucide="moon" class="w-4 h-4 md:w-5 md:h-5"></i></div>
+                                            <span class="font-bold text-slate-700 text-xs md:text-sm">دۆخی تاریک (Dark Mode)</span>
                                         </div>
                                         <!-- Toggle Switch -->
-                                        <div class="w-12 h-6 bg-slate-200 rounded-full relative cursor-pointer transition-colors">
-                                            <div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></div>
+                                        <div class="w-10 md:w-12 h-5 md:h-6 bg-slate-200 rounded-full relative cursor-pointer transition-colors">
+                                            <div class="absolute right-1 top-[2px] md:top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></div>
                                         </div>
                                     </div>
 
                                     <!-- Font Size Control -->
-                                    <div class="px-6 py-4 flex items-center justify-between border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                                        <div class="flex items-center gap-4">
-                                            <div class="p-2.5 bg-emerald-100 text-emerald-600 rounded-xl border border-emerald-200"><i data-lucide="type" class="w-5 h-5"></i></div>
-                                            <span class="font-bold text-slate-700 text-sm">قەبارەی فۆنت (Font Size)</span>
+                                    <div class="px-4 md:px-6 py-3 md:py-4 flex items-center justify-between border-b border-slate-50 hover:bg-slate-50 transition-colors">
+                                        <div class="flex items-center gap-3 md:gap-4">
+                                            <div class="p-2 bg-emerald-100 text-emerald-600 rounded-lg md:rounded-xl border border-emerald-200"><i data-lucide="type" class="w-4 h-4 md:w-5 md:h-5"></i></div>
+                                            <span class="font-bold text-slate-700 text-xs md:text-sm">قەبارەی فۆنت (Font Size)</span>
                                         </div>
-                                        <div class="flex items-center gap-3 bg-slate-100 rounded-lg p-1">
-                                            <button class="w-8 h-8 rounded text-slate-600 hover:bg-white hover:shadow-sm transition-all flex items-center justify-center"><i data-lucide="minus" class="w-4 h-4"></i></button>
-                                            <span class="font-mono text-sm font-bold text-slate-700 w-6 text-center">18</span>
-                                            <button class="w-8 h-8 rounded text-slate-600 hover:bg-white hover:shadow-sm transition-all flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></button>
+                                        <div class="flex items-center gap-2 bg-slate-100 rounded-lg p-1">
+                                            <button class="w-6 h-6 md:w-8 md:h-8 rounded text-slate-600 hover:bg-white hover:shadow-sm transition-all flex items-center justify-center"><i data-lucide="minus" class="w-3 h-3 md:w-4 md:h-4"></i></button>
+                                            <span class="font-mono text-xs md:text-sm font-bold text-slate-700 w-5 md:w-6 text-center">18</span>
+                                            <button class="w-6 h-6 md:w-8 md:h-8 rounded text-slate-600 hover:bg-white hover:shadow-sm transition-all flex items-center justify-center"><i data-lucide="plus" class="w-3 h-3 md:w-4 md:h-4"></i></button>
                                         </div>
                                     </div>
 
                                     <!-- Notifications Item -->
-                                    <div class="px-6 py-4 flex items-center justify-between border-b border-slate-50 hover:bg-slate-50 transition-colors cursor-pointer group">
-                                        <div class="flex items-center gap-4">
-                                            <div class="p-2.5 bg-orange-100 text-orange-600 rounded-xl border border-orange-200 group-hover:scale-110 transition-transform"><i data-lucide="bell" class="w-5 h-5"></i></div>
-                                            <span class="font-bold text-slate-700 text-sm">ئاگادارکردنەوەکان (Alerts)</span>
+                                    <div class="px-4 md:px-6 py-3 md:py-4 flex items-center justify-between border-b border-slate-50 hover:bg-slate-50 transition-colors cursor-pointer group">
+                                        <div class="flex items-center gap-3 md:gap-4">
+                                            <div class="p-2 bg-orange-100 text-orange-600 rounded-lg md:rounded-xl border border-orange-200 group-hover:scale-110 transition-transform"><i data-lucide="bell" class="w-4 h-4 md:w-5 md:h-5"></i></div>
+                                            <span class="font-bold text-slate-700 text-xs md:text-sm">ئاگادارکردنەوەکان (Alerts)</span>
                                         </div>
                                         <!-- Toggle Switch Active -->
-                                        <div class="w-12 h-6 bg-primary rounded-full relative cursor-pointer transition-colors">
-                                            <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></div>
+                                        <div class="w-10 md:w-12 h-5 md:h-6 bg-primary rounded-full relative cursor-pointer transition-colors">
+                                            <div class="absolute left-1 top-[2px] md:top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></div>
                                         </div>
                                     </div>
 
                                     <!-- About Item -->
-                                    <div class="px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
-                                        <div class="flex items-center gap-4">
-                                            <div class="p-2.5 bg-slate-100 text-slate-600 rounded-xl border border-slate-200 group-hover:scale-110 transition-transform"><i data-lucide="info" class="w-5 h-5"></i></div>
-                                            <span class="font-bold text-slate-700 text-sm">دەربارەی بەرنامە (About App)</span>
+                                    <div class="px-4 md:px-6 py-3 md:py-4 flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer group">
+                                        <div class="flex items-center gap-3 md:gap-4">
+                                            <div class="p-2 bg-slate-100 text-slate-600 rounded-lg md:rounded-xl border border-slate-200 group-hover:scale-110 transition-transform"><i data-lucide="info" class="w-4 h-4 md:w-5 md:h-5"></i></div>
+                                            <span class="font-bold text-slate-700 text-xs md:text-sm">دەربارەی بەرنامە (About App)</span>
                                         </div>
-                                        <i data-lucide="chevron-left" class="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors"></i>
+                                        <i data-lucide="chevron-left" class="w-4 h-4 md:w-5 md:h-5 text-slate-400 group-hover:text-primary transition-colors"></i>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                        <button onclick="copyHTML('comp-settings-list')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        <button onclick="copyHTML('comp-settings-list')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 md:h-4"></i> Copy HTML
                         </button>
                     </div>
 
                     <!-- Component: Surah List Item -->
-                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
+                    <div class="bg-white p-4 md:p-8 rounded-2xl md:rounded-[2rem] border border-slate-200 flex flex-col gap-4 md:gap-6 shadow-sm">
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800">Surah List Item</h3>
+                            <h3 class="text-sm md:text-lg font-bold text-slate-800">Surah List Item</h3>
                         </div>
-                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
-                            <div id="comp-surah-item" class="w-full max-w-sm bg-white p-4 rounded-3xl flex items-center gap-4 border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer group active:scale-[0.99]" dir="rtl">
-                                <div class="w-12 h-12 relative flex items-center justify-center bg-slate-50 rounded-xl group-hover:bg-primary/5 transition-colors shrink-0">
-                                    <span class="font-bold text-lg text-primary relative z-10 font-sans">١</span>
+                        <div class="bg-[#f8f9fc] p-3 md:p-6 rounded-xl md:rounded-3xl w-full flex items-center justify-center min-h-[120px] md:min-h-[160px]">
+                            <div id="comp-surah-item" class="w-full max-w-sm bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl flex items-center gap-3 md:gap-4 border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer group active:scale-[0.99]" dir="rtl">
+                                <div class="w-10 h-10 md:w-12 md:h-12 relative flex items-center justify-center bg-slate-50 rounded-xl group-hover:bg-primary/5 transition-colors shrink-0">
+                                    <span class="font-bold text-base md:text-lg text-primary relative z-10 font-sans">١</span>
                                 </div>
                                 <div class="flex-1 text-right">
-                                    <h3 class="font-bold text-slate-800 text-lg">الفاتحة</h3>
-                                    <p class="text-slate-400 text-xs font-medium">مەکی • ٧ ئایەت</p>
+                                    <h3 class="font-bold text-slate-800 text-sm md:text-lg">الفاتحة</h3>
+                                    <p class="text-slate-400 text-[10px] md:text-xs font-medium">مەکی • ٧ ئایەت</p>
                                 </div>
-                                <div class="text-2xl font-quran text-primary opacity-30 group-hover:opacity-100 transition-opacity">
+                                <div class="text-xl md:text-2xl font-quran text-primary opacity-30 group-hover:opacity-100 transition-opacity">
                                     الفاتحة
                                 </div>
                             </div>
                         </div>
-                        <button onclick="copyHTML('comp-surah-item')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        <button onclick="copyHTML('comp-surah-item')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 md:h-4"></i> Copy HTML
                         </button>
                     </div>
 
                     <!-- Component: Segmented Control / Tabs -->
-                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
+                    <div class="bg-white p-4 md:p-8 rounded-2xl md:rounded-[2rem] border border-slate-200 flex flex-col gap-4 md:gap-6 shadow-sm">
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800">Segmented Tabs</h3>
+                            <h3 class="text-sm md:text-lg font-bold text-slate-800">Segmented Tabs</h3>
                         </div>
-                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
-                            <div id="comp-tabs" class="w-full max-w-[280px] bg-slate-100 p-1.5 rounded-2xl flex items-center justify-between relative" dir="rtl">
-                                <div class="flex-1 text-center py-2 bg-white rounded-xl shadow-sm text-sm font-bold text-primary cursor-pointer transition-all">هەمووی</div>
-                                <div class="flex-1 text-center py-2 text-slate-500 hover:text-slate-700 text-sm font-bold cursor-pointer transition-colors">مەکی</div>
-                                <div class="flex-1 text-center py-2 text-slate-500 hover:text-slate-700 text-sm font-bold cursor-pointer transition-colors">مەدینی</div>
+                        <div class="bg-[#f8f9fc] p-3 md:p-6 rounded-xl md:rounded-3xl w-full flex items-center justify-center min-h-[120px] md:min-h-[160px]">
+                            <div id="comp-tabs" class="w-full max-w-[240px] md:max-w-[280px] bg-slate-100 p-1 md:p-1.5 rounded-xl md:rounded-2xl flex items-center justify-between relative" dir="rtl">
+                                <div class="flex-1 text-center py-1.5 md:py-2 bg-white rounded-lg md:rounded-xl shadow-sm text-xs md:text-sm font-bold text-primary cursor-pointer transition-all">هەمووی</div>
+                                <div class="flex-1 text-center py-1.5 md:py-2 text-slate-500 hover:text-slate-700 text-xs md:text-sm font-bold cursor-pointer transition-colors">مەکی</div>
+                                <div class="flex-1 text-center py-1.5 md:py-2 text-slate-500 hover:text-slate-700 text-xs md:text-sm font-bold cursor-pointer transition-colors">مەدینی</div>
                             </div>
                         </div>
-                        <button onclick="copyHTML('comp-tabs')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        <button onclick="copyHTML('comp-tabs')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 md:h-4"></i> Copy HTML
                         </button>
                     </div>
 
                     <!-- Component: UI Badges -->
-                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
+                    <div class="bg-white p-4 md:p-8 rounded-2xl md:rounded-[2rem] border border-slate-200 flex flex-col gap-4 md:gap-6 shadow-sm">
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800">UI Badges & Tags</h3>
+                            <h3 class="text-sm md:text-lg font-bold text-slate-800">UI Badges & Tags</h3>
                         </div>
-                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex flex-col items-center justify-center gap-6 min-h-[160px]">
-                            <div id="comp-ui-badges" class="w-full max-w-[280px] flex flex-wrap gap-2 justify-center" dir="rtl">
-                                <div class="flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-amber-700 text-[10px] md:text-xs font-bold rounded-lg border border-amber-200">
-                                    <span class="iconify w-3.5 h-3.5" data-icon="fa6-solid:kaaba"></span> مەکی
+                        <div class="bg-[#f8f9fc] p-3 md:p-6 rounded-xl md:rounded-3xl w-full flex flex-col items-center justify-center gap-4 md:gap-6 min-h-[120px] md:min-h-[160px]">
+                            <div id="comp-ui-badges" class="w-full max-w-[280px] flex flex-wrap gap-1.5 md:gap-2 justify-center" dir="rtl">
+                                <div class="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-0.5 md:py-1 bg-amber-50 text-amber-700 text-[9px] md:text-xs font-bold rounded-md md:rounded-lg border border-amber-200">
+                                    <span class="iconify w-3 h-3 md:w-3.5 md:h-3.5" data-icon="fa6-solid:kaaba"></span> مەکی
                                 </div>
-                                <div class="flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] md:text-xs font-bold rounded-lg border border-emerald-200">
-                                    <span class="iconify w-3.5 h-3.5" data-icon="fa6-solid:mosque"></span> مەدینی
+                                <div class="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-0.5 md:py-1 bg-emerald-50 text-emerald-700 text-[9px] md:text-xs font-bold rounded-md md:rounded-lg border border-emerald-200">
+                                    <span class="iconify w-3 h-3 md:w-3.5 md:h-3.5" data-icon="fa6-solid:mosque"></span> مەدینی
                                 </div>
-                                <div class="flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 text-[10px] md:text-xs font-bold rounded-lg border border-blue-200">
-                                    <i data-lucide="sparkles" class="w-3 h-3 md:w-3.5 md:h-3.5"></i> نوێ
+                                <div class="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-0.5 md:py-1 bg-blue-50 text-blue-700 text-[9px] md:text-xs font-bold rounded-md md:rounded-lg border border-blue-200">
+                                    <i data-lucide="sparkles" class="w-2.5 h-2.5 md:w-3.5 md:h-3.5"></i> نوێ
                                 </div>
-                                <div class="flex items-center gap-1.5 px-3 py-1 bg-slate-100 text-slate-600 text-[10px] md:text-xs font-bold rounded-lg border border-slate-200">
+                                <div class="flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-0.5 md:py-1 bg-slate-100 text-slate-600 text-[9px] md:text-xs font-bold rounded-md md:rounded-lg border border-slate-200">
                                     ٢٨٦ ئایەت
                                 </div>
                             </div>
                         </div>
-                        <button onclick="copyHTML('comp-ui-badges')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy Badges
+                        <button onclick="copyHTML('comp-ui-badges')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 h-4"></i> Copy Badges
                         </button>
                     </div>
 
                     <!-- Component: Mini Audio Player (New) -->
-                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm lg:col-span-2">
+                    <div class="bg-white p-4 md:p-8 rounded-2xl md:rounded-[2rem] border border-slate-200 flex flex-col gap-4 md:gap-6 shadow-sm lg:col-span-2">
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800">Mini Audio Player</h3>
-                            <p class="text-sm text-slate-500">Sticky player for Quran recitation playback.</p>
+                            <h3 class="text-sm md:text-lg font-bold text-slate-800">Mini Audio Player</h3>
+                            <p class="text-xs md:text-sm text-slate-500">Sticky player for Quran recitation playback.</p>
                         </div>
-                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
-                            <div id="comp-audio-player" class="w-full max-w-md bg-white rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100 p-4" dir="rtl">
-                                <div class="flex items-center gap-4">
-                                    <button class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-md shadow-primary/30 hover:scale-105 transition-transform shrink-0">
-                                        <i data-lucide="play" class="w-5 h-5 ml-1 fill-current"></i>
+                        <div class="bg-[#f8f9fc] p-3 md:p-6 rounded-xl md:rounded-3xl w-full flex items-center justify-center min-h-[120px] md:min-h-[160px]">
+                            <div id="comp-audio-player" class="w-full max-w-[320px] md:max-w-md bg-white rounded-2xl md:rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100 p-3 md:p-4" dir="rtl">
+                                <div class="flex items-center gap-3 md:gap-4">
+                                    <button class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-md shadow-primary/30 hover:scale-105 transition-transform shrink-0">
+                                        <i data-lucide="play" class="w-4 h-4 md:w-5 md:h-5 ml-0.5 md:ml-1 fill-current"></i>
                                     </button>
-                                    <div class="flex-1">
-                                        <h4 class="font-bold text-slate-800 text-sm">سُورَةُ الفَاتِحَةِ</h4>
-                                        <p class="text-slate-500 text-xs mt-0.5">مِشَارِي رَاشِد العَفَاسِي</p>
+                                    <div class="flex-1 min-w-0">
+                                        <h4 class="font-bold text-slate-800 text-xs md:text-sm truncate">سُورَةُ الفَاتِحَةِ</h4>
+                                        <p class="text-slate-500 text-[10px] md:text-xs mt-0.5 truncate">مِشَارِي رَاشِد العَفَاسِي</p>
                                     </div>
-                                    <div class="text-xs font-mono text-slate-400 font-bold" dir="ltr">0:45 / 3:12</div>
+                                    <div class="text-[10px] md:text-xs font-mono text-slate-400 font-bold shrink-0" dir="ltr">0:45 / 3:12</div>
                                 </div>
                                 <!-- Progress Bar -->
-                                <div class="mt-4 flex items-center gap-2 px-1">
-                                    <div class="h-1.5 flex-1 bg-slate-100 rounded-full overflow-hidden relative cursor-pointer">
+                                <div class="mt-3 md:mt-4 flex items-center gap-2 px-1">
+                                    <div class="h-1 md:h-1.5 flex-1 bg-slate-100 rounded-full overflow-hidden relative cursor-pointer">
                                         <div class="absolute left-0 top-0 h-full bg-primary w-1/4 rounded-full transition-all"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button onclick="copyHTML('comp-audio-player')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        <button onclick="copyHTML('comp-audio-player')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 h-4"></i> Copy HTML
                         </button>
                     </div>
 
                     <!-- Component: Playlist Item (New) -->
-                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
+                    <div class="bg-white p-4 md:p-8 rounded-2xl md:rounded-[2rem] border border-slate-200 flex flex-col gap-4 md:gap-6 shadow-sm">
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800">Playlist Item</h3>
-                            <p class="text-sm text-slate-500">List layout for track selections.</p>
+                            <h3 class="text-sm md:text-lg font-bold text-slate-800">Playlist Item</h3>
+                            <p class="text-xs md:text-sm text-slate-500">List layout for track selections.</p>
                         </div>
-                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
-                            <div id="comp-playlist-item" class="w-full max-w-sm bg-white p-3 rounded-2xl flex items-center gap-3 border border-slate-100 shadow-sm hover:bg-slate-50 transition-colors cursor-pointer group" dir="rtl">
-                                <button class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
-                                    <i data-lucide="play" class="w-4 h-4 ml-0.5 fill-current"></i>
+                        <div class="bg-[#f8f9fc] p-3 md:p-6 rounded-xl md:rounded-3xl w-full flex items-center justify-center min-h-[120px] md:min-h-[160px]">
+                            <div id="comp-playlist-item" class="w-full max-w-sm bg-white p-2 md:p-3 rounded-xl md:rounded-2xl flex items-center gap-2 md:gap-3 border border-slate-100 shadow-sm hover:bg-slate-50 transition-colors cursor-pointer group" dir="rtl">
+                                <button class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+                                    <i data-lucide="play" class="w-3 h-3 md:w-4 md:h-4 ml-0.5 fill-current"></i>
                                 </button>
                                 <div class="flex-1 text-right pr-1">
-                                    <h4 class="font-bold text-slate-800 text-sm">البقرة</h4>
-                                    <p class="text-slate-400 text-xs">١٢٠ خولەک</p>
+                                    <h4 class="font-bold text-slate-800 text-xs md:text-sm">البقرة</h4>
+                                    <p class="text-slate-400 text-[10px] md:text-xs">١٢٠ خولەک</p>
                                 </div>
-                                <button class="text-slate-400 hover:text-primary transition-colors p-2 rounded-xl hover:bg-slate-100">
-                                    <i data-lucide="more-vertical" class="w-5 h-5"></i>
+                                <button class="text-slate-400 hover:text-primary transition-colors p-1.5 md:p-2 rounded-lg md:rounded-xl hover:bg-slate-100">
+                                    <i data-lucide="more-vertical" class="w-4 h-4 md:w-5 md:h-5"></i>
                                 </button>
                             </div>
                         </div>
-                        <button onclick="copyHTML('comp-playlist-item')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        <button onclick="copyHTML('comp-playlist-item')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 h-4"></i> Copy HTML
                         </button>
                     </div>
 
                     <!-- Component: Search Input (New) -->
-                    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
+                    <div class="bg-white p-4 md:p-8 rounded-2xl md:rounded-[2rem] border border-slate-200 flex flex-col gap-4 md:gap-6 shadow-sm">
                         <div>
-                            <h3 class="text-base md:text-lg font-bold text-slate-800">Search Input</h3>
-                            <p class="text-sm text-slate-500">Primary search bar for lists.</p>
+                            <h3 class="text-sm md:text-lg font-bold text-slate-800">Search Input</h3>
+                            <p class="text-xs md:text-sm text-slate-500">Primary search bar for lists.</p>
                         </div>
-                        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px]">
+                        <div class="bg-[#f8f9fc] p-3 md:p-6 rounded-xl md:rounded-3xl w-full flex items-center justify-center min-h-[120px] md:min-h-[160px]">
                             <div id="comp-search" class="w-full max-w-sm relative" dir="rtl">
-                                <i data-lucide="search" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5"></i>
-                                <input type="text" placeholder="گەڕان بۆ ئایەت یان سوورەت..." class="w-full bg-white border border-slate-200 text-slate-800 text-sm font-bold rounded-2xl py-3 pr-12 pl-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm placeholder:font-medium placeholder:text-slate-400">
+                                <i data-lucide="search" class="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4 md:w-5 md:h-5"></i>
+                                <input type="text" placeholder="گەڕان بۆ ئایەت یان سوورەت..." class="w-full bg-white border border-slate-200 text-slate-800 text-xs md:text-sm font-bold rounded-xl md:rounded-2xl py-2.5 md:py-3 pr-10 md:pr-12 pl-3 md:pl-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm placeholder:font-medium placeholder:text-slate-400">
                             </div>
                         </div>
-                        <button onclick="copyHTML('comp-search')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        <button onclick="copyHTML('comp-search')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 h-4"></i> Copy HTML
                         </button>
                     </div>
 
                     <!-- Component: Empty State (New) -->
-
-
-
-
-
-<div class="grid grid-cols-1 lg:col-span-2 lg:grid-cols-2 gap-6">
-
-    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
-        <div>
-            <h3 class="text-base md:text-lg font-bold text-slate-800">Empty State Layout</h3>
-            <p class="text-sm text-slate-500">Placeholder for when bookmarks/data are empty.</p>
-        </div>
-        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[460px]">
-            <div id="comp-empty-state" class="w-full max-w-sm bg-white p-8 rounded-[2rem] flex flex-col items-center text-center gap-3 border border-slate-100 shadow-sm" dir="rtl">
-                <div class="w-16 h-16 bg-slate-50 text-slate-300 rounded-full flex items-center justify-center mb-2 shadow-inner">
-                    <i data-lucide="bookmark-minus" class="w-8 h-8"></i>
+                    <div class="bg-white p-4 md:p-8 rounded-2xl md:rounded-[2rem] border border-slate-200 flex flex-col gap-4 md:gap-6 shadow-sm lg:col-span-2">
+                        <div>
+                            <h3 class="text-sm md:text-lg font-bold text-slate-800">Empty State Layout</h3>
+                            <p class="text-xs md:text-sm text-slate-500">Placeholder for when bookmarks/data are empty.</p>
+                        </div>
+                        <div class="bg-[#f8f9fc] p-3 md:p-6 rounded-xl md:rounded-3xl w-full flex items-center justify-center min-h-[160px] md:min-h-[200px]">
+                            <div id="comp-empty-state" class="w-full max-w-[280px] md:max-w-sm bg-white p-6 md:p-8 rounded-2xl md:rounded-[2rem] flex flex-col items-center text-center gap-2 md:gap-3 border border-slate-100 shadow-sm" dir="rtl">
+                                <div class="w-12 h-12 md:w-16 md:h-16 bg-slate-50 text-slate-300 rounded-full flex items-center justify-center mb-1 md:mb-2 shadow-inner">
+                                    <i data-lucide="bookmark-minus" class="w-6 h-6 md:w-8 md:h-8"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-sm md:text-base">هیچ دڵخوازێک نییە</h4>
+                                <p class="text-slate-500 text-[10px] md:text-xs leading-relaxed max-w-[180px] md:max-w-[200px]">هێشتا هیچ ئایەتێکت خەزن نەکردووە. پەنجە بنێ بە نیشانەی دڵخواز بۆ خەزنکردن.</p>
+                            </div>
+                        </div>
+                        <button onclick="copyHTML('comp-empty-state')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 h-4"></i> Copy HTML
+                        </button>
+                    </div>
                 </div>
-                <h4 class="font-bold text-slate-800 text-base">هیچ دڵخوازێک نییە</h4>
-                <p class="text-slate-500 text-xs leading-relaxed max-w-[200px]">هێشتا هیچ ئایەتێکت خەزن نەکردووە. پەنجە بنێ بە نیشانەی دڵخواز بۆ خەزنکردن.</p>
             </div>
         </div>
-        <button onclick="copyHTML('comp-empty-state')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
-            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
-        </button>
-    </div>
-
-    <div class="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-200 flex flex-col gap-6 shadow-sm">
-        <div>
-            <h3 class="text-base md:text-lg font-bold text-slate-800">Saved Items List</h3>
-            <p class="text-sm text-slate-500">Displays bookmarked items, categories, and recent history.</p>
-        </div>
-        <div class="bg-[#f8f9fc] p-4 md:p-6 rounded-2xl md:rounded-3xl w-full flex items-center justify-center min-h-[460px]">
-            <div id="comp-saved-list-state" class="w-full max-w-sm bg-transparent flex flex-col gap-4" dir="rtl">
-                
-                <div class="flex items-center justify-between px-2">
-                    <h4 class="font-bold text-slate-800 text-lg">پاشەکەوتکراوەکان</h4>
-                    <span class="bg-indigo-50 text-indigo-600 text-xs font-bold px-3 py-1 rounded-full">3 بابەت</span>
-                </div>
-
-                <div class="bg-white p-4 rounded-[1.5rem] flex items-center justify-between border border-slate-100/80 shadow-sm hover:shadow-md transition-all">
-                    <button class="text-slate-300 hover:text-red-500 transition-colors p-2">
-                        <i data-lucide="trash-2" class="w-5 h-5"></i>
-                    </button>
-                    <div class="flex items-center gap-4 text-right">
-                        <div>
-                            <h5 class="font-bold text-slate-800 text-base">سورة الفاتحة</h5>
-                            <p class="text-slate-400 text-xs mt-0.5">ئایەت <span class="font-medium text-slate-500">·</span> ٢ خولەک پێش ئێستا</p>
-                        </div>
-                        <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center shadow-sm">
-                            <i data-lucide="star" class="w-5 h-5 fill-indigo-600"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-4 rounded-[1.5rem] flex items-center justify-between border border-slate-100/80 shadow-sm hover:shadow-md transition-all">
-                    <button class="text-slate-300 hover:text-red-500 transition-colors p-2">
-                        <i data-lucide="trash-2" class="w-5 h-5"></i>
-                    </button>
-                    <div class="flex items-center gap-4 text-right">
-                        <div>
-                            <h5 class="font-bold text-slate-800 text-base">وانەی یەکەم: پیتەکان</h5>
-                            <p class="text-slate-400 text-xs mt-0.5">تەجوید <span class="font-medium text-slate-500">·</span> دوێنێ</p>
-                        </div>
-                        <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center shadow-sm">
-                            <i data-lucide="bookmark" class="w-5 h-5 fill-teal-600 text-teal-600"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-4 rounded-[1.5rem] flex items-center justify-between border border-slate-100/80 shadow-sm hover:shadow-md transition-all">
-                    <button class="text-slate-300 hover:text-red-500 transition-colors p-2">
-                        <i data-lucide="trash-2" class="w-5 h-5"></i>
-                    </button>
-                    <div class="flex items-center gap-4 text-right">
-                        <div>
-                            <h5 class="font-bold text-slate-800 text-base">سورة الكهف</h5>
-                            <p class="text-slate-400 text-xs mt-0.5">ئایەت <span class="font-medium text-slate-500">·</span> هەفتەی ڕابردوو</p>
-                        </div>
-                        <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center shadow-sm">
-                            <i data-lucide="star" class="w-5 h-5 fill-indigo-600"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="border-2 border-dashed border-slate-200 hover:border-slate-300 rounded-[1.5rem] p-6 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all bg-slate-50/50 hover:bg-slate-50">
-                    <i data-lucide="bookmark" class="text-slate-300 w-6 h-6"></i>
-                    <span class="text-slate-400 text-sm font-medium">بابەتی نوێ زیاد بکە بۆ پاشەکەوت</span>
-                </div>
-
-            </div>
-        </div>
-        <button onclick="copyHTML('comp-saved-list-state')" class="mt-auto flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-sm font-bold shadow-sm transition-all border border-slate-300 w-full md:w-auto self-end">
-            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
-        </button>
-    </div>
-
-</div>
-                    
 
         <!-- 7. Bottom Navigation Component -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <button onclick="toggleAccordion('sec-nav')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="navigation" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <button onclick="toggleAccordion('sec-nav')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="navigation" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Bottom Navigation</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">App bottom tab bars</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Bottom Navigation</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">App bottom tab bars</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-nav" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
+                <i data-lucide="chevron-down" id="icon-sec-nav" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300"></i>
             </button>
             <div id="sec-nav" class="accordion-content border-t border-slate-100">
-                <div class="p-6 md:p-8 bg-slate-50/50 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="p-4 md:p-8 bg-slate-50/50 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                     <!-- State 1: Bookmark Active -->
-                    <div class="p-6 bg-white rounded-3xl border border-slate-200 flex flex-col items-center gap-6 shadow-sm">
-                        <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs">Bookmark Active</h4>
-                        <div class="w-full max-w-sm py-4 relative">
-                            <div id="nav-state-bookmark" class="w-full bg-white/95 backdrop-blur-xl border border-slate-100 rounded-[2.5rem] shadow-lg h-16 md:h-20 flex items-center justify-between px-2 relative">
+                    <div class="p-4 md:p-6 bg-white rounded-2xl md:rounded-3xl border border-slate-200 flex flex-col items-center gap-4 md:gap-6 shadow-sm">
+                        <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[9px] md:text-xs">Bookmark Active</h4>
+                        <div class="w-full max-w-sm py-2 md:py-4 relative">
+                            <div id="nav-state-bookmark" class="w-full bg-white/95 backdrop-blur-xl border border-slate-100 rounded-[2rem] md:rounded-[2.5rem] shadow-lg h-14 md:h-20 flex items-center justify-between px-2 relative">
                                 <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
                                     <i data-lucide="settings" class="relative z-10 w-5 h-5 md:w-6 md:h-6"></i>
                                 </div>
@@ -649,39 +585,39 @@
                                 </div>
                             </div>
                         </div>
-                        <button onclick="copyHTML('nav-state-bookmark')" class="flex items-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        <button onclick="copyHTML('nav-state-bookmark')" class="flex items-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-[10px] md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 h-4"></i> Copy HTML
                         </button>
                     </div>
 
                     <!-- State 2: Home Active -->
-                    <div class="p-6 bg-white rounded-3xl border border-slate-200 flex flex-col items-center gap-6 shadow-sm">
-                        <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs">Home Active</h4>
-                        <div class="w-full max-w-sm py-4 relative">
-                            <div id="nav-state-home" class="w-full bg-white/95 backdrop-blur-xl border border-slate-100 rounded-[2.5rem] shadow-lg h-16 md:h-20 flex items-center justify-between px-2 relative">
+                    <div class="p-4 md:p-6 bg-white rounded-2xl md:rounded-3xl border border-slate-200 flex flex-col items-center gap-4 md:gap-6 shadow-sm">
+                        <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[9px] md:text-xs">Home Active</h4>
+                        <div class="w-full max-w-sm py-2 md:py-4 relative">
+                            <div id="nav-state-home" class="w-full bg-white/95 backdrop-blur-xl border border-slate-100 rounded-[2rem] md:rounded-[2.5rem] shadow-lg h-14 md:h-20 flex items-center justify-between px-2 relative">
                                 <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
                                     <i data-lucide="settings" class="relative z-10 w-5 h-5 md:w-6 md:h-6"></i>
                                 </div>
                                 <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer">
                                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary shadow-lg shadow-primary/30"></div>
                                     <i data-lucide="home" class="relative z-10 text-white w-5 h-5 md:w-6 md:h-6"></i>
-                                    <span class="absolute bottom-2 w-1 h-1 rounded-full bg-primary hidden md:block"></span>
+                                    <span class="absolute bottom-1 md:bottom-2 w-1 h-1 rounded-full bg-primary hidden md:block"></span>
                                 </div>
                                 <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer text-slate-400 hover:text-slate-600 transition-colors">
                                     <i data-lucide="bookmark" class="relative z-10 w-5 h-5 md:w-6 md:h-6"></i>
                                 </div>
                             </div>
                         </div>
-                        <button onclick="copyHTML('nav-state-home')" class="flex items-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        <button onclick="copyHTML('nav-state-home')" class="flex items-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-[10px] md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 h-4"></i> Copy HTML
                         </button>
                     </div>
 
                     <!-- State 3: Settings Active -->
-                    <div class="p-6 bg-white rounded-3xl border border-slate-200 flex flex-col items-center gap-6 shadow-sm">
-                        <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[10px] md:text-xs">Settings Active</h4>
-                        <div class="w-full max-w-sm py-4 relative">
-                            <div id="nav-state-settings" class="w-full bg-white/95 backdrop-blur-xl border border-slate-100 rounded-[2.5rem] shadow-lg h-16 md:h-20 flex items-center justify-between px-2 relative">
+                    <div class="p-4 md:p-6 bg-white rounded-2xl md:rounded-3xl border border-slate-200 flex flex-col items-center gap-4 md:gap-6 shadow-sm">
+                        <h4 class="font-bold text-slate-500 uppercase tracking-widest text-[9px] md:text-xs">Settings Active</h4>
+                        <div class="w-full max-w-sm py-2 md:py-4 relative">
+                            <div id="nav-state-settings" class="w-full bg-white/95 backdrop-blur-xl border border-slate-100 rounded-[2rem] md:rounded-[2.5rem] shadow-lg h-14 md:h-20 flex items-center justify-between px-2 relative">
                                 <div class="flex-1 h-full flex flex-col items-center justify-center relative group cursor-pointer">
                                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 h-12 rounded-full bg-slate-100 border border-slate-200 shadow-sm"></div>
                                     <i data-lucide="settings" class="relative z-10 text-primary w-5 h-5 md:w-6 md:h-6"></i>
@@ -694,8 +630,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button onclick="copyHTML('nav-state-settings')" class="flex items-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-6 py-3 rounded-xl text-xs md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
-                            <i data-lucide="copy" class="w-4 h-4"></i> Copy HTML
+                        <button onclick="copyHTML('nav-state-settings')" class="flex items-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-[10px] md:text-sm font-bold shadow-sm transition-all border border-slate-300 w-full justify-center">
+                            <i data-lucide="copy" class="w-3 h-3 md:w-4 h-4"></i> Copy HTML
                         </button>
                     </div>
                 </div>
@@ -703,46 +639,46 @@
         </div>
 
         <!-- 8. Quran Database API & Data Layer Setup -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <button onclick="toggleAccordion('sec-api')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="database" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <button onclick="toggleAccordion('sec-api')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="database" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Quran API Setup & Data Layer</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">Connecting to Tanzil via Alquran.cloud (Uthmani + Kurdish)</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Quran API Setup & Data Layer</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Connecting to Tanzil via Alquran.cloud (Uthmani + Kurdish)</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-api" class="w-6 h-6 text-slate-400 transition-transform duration-300"></i>
+                <i data-lucide="chevron-down" id="icon-sec-api" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300"></i>
             </button>
             <div id="sec-api" class="accordion-content border-t border-slate-100">
-                <div class="p-6 md:p-8 flex flex-col gap-6 bg-slate-50/50">
+                <div class="p-4 md:p-8 flex flex-col gap-4 md:gap-6 bg-slate-50/50">
                     
-                    <div class="bg-blue-50 border border-blue-200 text-blue-800 p-4 rounded-xl text-sm flex gap-3">
-                        <i data-lucide="info" class="w-5 h-5 shrink-0 mt-0.5"></i>
+                    <div class="bg-blue-50 border border-blue-200 text-blue-800 p-3 md:p-4 rounded-xl text-xs md:text-sm flex gap-2 md:gap-3">
+                        <i data-lucide="info" class="w-4 h-4 md:w-5 md:h-5 shrink-0 mt-0.5"></i>
                         <div>
                             <strong>Endpoint Strategy:</strong> To get both the exact Uthmani text (minimal) and the Kurdish Sorani translation in a single request, we use the `alquran.cloud` API which hosts Tanzil data.
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                         <!-- Request Info -->
-                        <div class="space-y-4">
-                            <h3 class="font-bold text-slate-800 text-lg border-b border-slate-200 pb-2">API Request Details</h3>
+                        <div class="space-y-3 md:space-y-4">
+                            <h3 class="font-bold text-slate-800 text-base md:text-lg border-b border-slate-200 pb-2">API Request Details</h3>
                             
                             <div>
-                                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Base URL</p>
-                                <code class="bg-slate-100 px-2 py-1 rounded text-primary font-mono text-sm">http://api.alquran.cloud/v1/</code>
+                                <p class="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Base URL</p>
+                                <code class="bg-slate-100 px-2 py-1 rounded text-primary font-mono text-[10px] md:text-sm block break-all">http://api.alquran.cloud/v1/</code>
                             </div>
                             
                             <div>
-                                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Endpoint (Get Surah Al-Fatihah)</p>
-                                <div class="flex items-center gap-2">
-                                    <code class="bg-slate-100 px-2 py-1 rounded text-primary font-mono text-sm break-all">surah/1/editions/quran-uthmani-min,ku.asan</code>
-                                    <button onclick="copyToClipboard('http://api.alquran.cloud/v1/surah/1/editions/quran-uthmani-min,ku.asan', 'URL Copied')" class="p-1.5 text-slate-400 hover:text-primary transition-colors"><i data-lucide="copy" class="w-4 h-4"></i></button>
+                                <p class="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Endpoint (Get Surah Al-Fatihah)</p>
+                                <div class="flex items-start md:items-center gap-2 flex-col md:flex-row">
+                                    <code class="bg-slate-100 px-2 py-1 rounded text-primary font-mono text-[10px] md:text-sm break-all w-full md:w-auto">surah/1/editions/quran-uthmani-min,ku.asan</code>
+                                    <button onclick="copyToClipboard('http://api.alquran.cloud/v1/surah/1/editions/quran-uthmani-min,ku.asan', 'URL Copied')" class="p-1.5 text-slate-400 hover:text-primary transition-colors self-end md:self-auto bg-white border border-slate-200 rounded-md md:border-none md:bg-transparent shadow-sm md:shadow-none"><i data-lucide="copy" class="w-4 h-4"></i></button>
                                 </div>
-                                <p class="text-xs text-slate-500 mt-2">
+                                <p class="text-[10px] md:text-xs text-slate-500 mt-2 leading-relaxed">
                                     <strong>Parameters:</strong> <br>
                                     `1`: Surah Number<br>
                                     `quran-uthmani-min`: Exact Tanzil text without extra tajweed marks.<br>
@@ -750,8 +686,8 @@
                                 </p>
                             </div>
 
-                            <div class="pt-4">
-                                <h4 class="font-bold text-slate-700 text-sm mb-2">Fetching Example (JavaScript)</h4>
+                            <div class="pt-2 md:pt-4">
+                                <h4 class="font-bold text-slate-700 text-xs md:text-sm mb-2">Fetching Example (JavaScript)</h4>
                                 <pre><code><span class="token-keyword">async function</span> <span class="token-function">fetchSurah</span>(surahNumber) {
     <span class="token-keyword">const</span> url = <span class="token-string">`https://api.alquran.cloud/v1/surah/<span class="token-keyword">${</span>surahNumber<span class="token-keyword">}</span>/editions/quran-uthmani-min,ku.asan`</span>;
     <span class="token-keyword">try</span> {
@@ -766,12 +702,12 @@
                         </div>
 
                         <!-- Expected Response -->
-                        <div class="space-y-4">
+                        <div class="space-y-3 md:space-y-4 w-full max-w-full overflow-hidden">
                             <div class="flex items-center justify-between border-b border-slate-200 pb-2">
-                                <h3 class="font-bold text-slate-800 text-lg">Expected JSON Structure</h3>
-                                <button onclick="copyHTML('json-code')" class="text-xs font-bold text-primary flex items-center gap-1 hover:underline"><i data-lucide="copy" class="w-3 h-3"></i> Copy JSON</button>
+                                <h3 class="font-bold text-slate-800 text-base md:text-lg">Expected JSON Structure</h3>
+                                <button onclick="copyHTML('json-code')" class="text-[10px] md:text-xs font-bold text-primary flex items-center gap-1 hover:underline"><i data-lucide="copy" class="w-3 h-3"></i> Copy JSON</button>
                             </div>
-                            <pre id="json-code" class="max-h-[500px] overflow-y-auto"><code>{
+                            <pre id="json-code" class="max-h-[300px] md:max-h-[500px] overflow-y-auto overflow-x-auto w-full"><code>{
   <span class="token-key">"code"</span>: <span class="token-number">200</span>,
   <span class="token-key">"status"</span>: <span class="token-string">"OK"</span>,
   <span class="token-key">"data"</span>: [
@@ -807,54 +743,54 @@
         </div>
 
         <!-- 9. Themed Icons Section (Iconify Powered) -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-            <button onclick="toggleAccordion('sec-themed-icons')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="layers" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <button onclick="toggleAccordion('sec-themed-icons')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="layers" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Themed App Icons</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">Ready-to-use rounded UI blocks, utilizing FontAwesome/Iconify.</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Themed App Icons</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Ready-to-use rounded UI blocks, utilizing FontAwesome/Iconify.</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-themed-icons" class="w-6 h-6 text-slate-400 transition-transform duration-300 transform rotate-180"></i>
+                <i data-lucide="chevron-down" id="icon-sec-themed-icons" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300 transform rotate-180"></i>
             </button>
             <div id="sec-themed-icons" class="accordion-content open border-t border-slate-100">
-                <div class="p-6 md:p-8 bg-slate-50/50 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-3 md:gap-4" id="themed-icon-grid"></div>
+                <div class="p-4 md:p-8 bg-slate-50/50 grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-3 md:gap-4" id="themed-icon-grid"></div>
             </div>
         </div>
 
         <!-- 10. Iconography Section -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden pb-4">
-            <button onclick="toggleAccordion('sec-icons')" class="w-full flex items-center justify-between p-5 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                        <i data-lucide="layout-grid" class="w-5 h-5"></i>
+        <div class="bg-white rounded-[1.5rem] md:rounded-3xl border border-slate-200 shadow-sm overflow-hidden pb-4">
+            <button onclick="toggleAccordion('sec-icons')" class="w-full flex items-center justify-between p-4 md:p-6 bg-white hover:bg-slate-50 transition-colors focus:outline-none text-left">
+                <div class="flex items-center gap-3 md:gap-4">
+                    <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="layout-grid" class="w-4 h-4 md:w-5 md:h-5"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Icon Library</h2>
-                        <p class="text-xs md:text-sm text-slate-500 font-medium mt-0.5">Powered by Iconify & Lucide. Search, copy code, or download SVG.</p>
+                        <h2 class="text-lg md:text-2xl font-bold text-slate-800 leading-tight">Icon Library</h2>
+                        <p class="text-[10px] md:text-sm text-slate-500 font-medium mt-0.5">Powered by Iconify & Lucide. Search, copy code, or download SVG.</p>
                     </div>
                 </div>
-                <i data-lucide="chevron-down" id="icon-sec-icons" class="w-6 h-6 text-slate-400 transition-transform duration-300 transform rotate-180"></i>
+                <i data-lucide="chevron-down" id="icon-sec-icons" class="w-5 h-5 md:w-6 md:h-6 text-slate-400 transition-transform duration-300 transform rotate-180"></i>
             </button>
             
             <div id="sec-icons" class="accordion-content open border-t border-slate-100">
-                <div class="p-6 md:p-8 bg-slate-50/50" id="icons">
-                    <div class="bg-white p-3 md:p-4 rounded-2xl border border-slate-200 shadow-sm mb-6 flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-between">
-                        <div class="flex items-center gap-3 w-full sm:w-auto">
-                            <h2 class="text-base md:text-lg font-bold text-slate-800 leading-tight"><span id="icon-count">0</span> Icons Available</h2>
+                <div class="p-4 md:p-8 bg-slate-50/50" id="icons">
+                    <div class="bg-white p-3 md:p-4 rounded-xl md:rounded-2xl border border-slate-200 shadow-sm mb-4 md:mb-6 flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-between">
+                        <div class="flex items-center gap-2 md:gap-3 w-full sm:w-auto">
+                            <h2 class="text-sm md:text-lg font-bold text-slate-800 leading-tight"><span id="icon-count">0</span> Icons Available</h2>
                         </div>
-                        <div class="relative w-full sm:w-72 md:w-96">
-                            <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4 md:w-5 md:h-5"></i>
-                            <input type="text" id="icon-search" placeholder="Search (e.g., 'kaaba', 'mosque', 'quran')..." class="w-full pl-10 md:pl-12 pr-4 py-2.5 md:py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-sm">
+                        <div class="relative w-full sm:w-64 md:w-96">
+                            <i data-lucide="search" class="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 text-slate-400 w-3.5 h-3.5 md:w-5 md:h-5"></i>
+                            <input type="text" id="icon-search" placeholder="Search (e.g., 'kaaba', 'mosque')..." class="w-full pl-9 md:pl-12 pr-3 md:pr-4 py-2 md:py-2.5 bg-slate-50 border border-slate-200 rounded-lg md:rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-xs md:text-sm">
                         </div>
                     </div>
-                    <div id="icon-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-3 md:gap-4"></div>
-                    <div id="empty-state" class="hidden flex-col items-center justify-center py-20 text-slate-400">
-                        <i data-lucide="search-x" class="w-12 h-12 mb-4 opacity-50"></i>
-                        <h3 class="text-base md:text-lg font-bold text-slate-600">No icons found</h3>
+                    <div id="icon-grid" class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2.5 md:gap-4"></div>
+                    <div id="empty-state" class="hidden flex-col items-center justify-center py-12 md:py-20 text-slate-400">
+                        <i data-lucide="search-x" class="w-10 h-10 md:w-12 md:h-12 mb-3 md:mb-4 opacity-50"></i>
+                        <h3 class="text-sm md:text-lg font-bold text-slate-600">No icons found</h3>
                     </div>
                 </div>
             </div>
@@ -1401,4 +1337,4 @@
         });
     </script>
 </body>
-</html>
+</html>b
